@@ -55,7 +55,7 @@ dragEvent = () => {
         if (activeItem) {
             itemId = activeItem.dataset.itemId;
             switch (itemSelection[itemId]) {
-                case "bank":
+                case "bank": ;
                     break;
                 case "weg": ;
                     break;
@@ -84,21 +84,13 @@ targetZone.addEventListener("click", (e) => {
         switch (itemSelection[itemId]) {
             case "paal": L.circle(coordinates, { radius: 1 }).addTo(map);
                 break;
-            case "boom": newTree = L.circle(coordinates, { radius: 2 });
-                newTree.setStyle({ color: 'green' });
-                newTree.addTo(map);
+            case "boom": L.circle(coordinates, { color: 'green', radius: 2 }).addTo(map);
                 break;
-            case "bloem": newFlower = L.circle(coordinates, { radius: 0.7 });
-                newFlower.setStyle({ color: 'yellow' });
-                newFlower.addTo(map);
+            case "bloem": L.circle(coordinates, { color: 'yellow', radius: 0.7 }).addTo(map);
                 break;
-            case "pictogram": newPicto = L.circle(coordinates, { radius: 0.5 });
-                newPicto.setStyle({ color: 'gray' });
-                newPicto.addTo(map);
+            case "pictogram": L.circle(coordinates, { color: 'gray', radius: 0.5 }).addTo(map);
                 break;
-            case "licht": newPicto = L.circle(coordinates, { radius: 0.5 });
-                newPicto.setStyle({ color: 'white' });
-                newPicto.addTo(map);
+            case "licht": L.circle(coordinates, { color: 'white', radius: 0.5 }).addTo(map);
                 break;
             default: ;
         }
