@@ -55,15 +55,15 @@ dragEvent = () => {
         if (activeItem) {
             itemId = activeItem.dataset.itemId;
             switch (itemSelection[itemId]) {
-                case "bank": ;
+                case "bank": L.rectangle(bounds, { color: "brown", weight: 1 }).addTo(map);
                     break;
-                case "weg": ;
+                case "weg": L.rectangle(bounds, { color: "gray", weight: 1 }).addTo(map);
                     break;
-                case "parking": ;
+                case "parking": L.rectangle(bounds, { color: "white", weight: 1 }).addTo(map);
                     break;
-                case "zone30": ;
+                case "zone30": L.rectangle(bounds, { color: "red", weight: 0.7 }).addTo(map);
                     break;
-                case "zone50": ;
+                case "zone50": L.rectangle(bounds, { color: "red", weight: 1.5 }).addTo(map);
                     break;
                 default: ;
             }
