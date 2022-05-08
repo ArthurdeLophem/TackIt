@@ -80,7 +80,6 @@ targetZone.addEventListener("click", (e) => {
     itemId = activeItem.dataset.itemId;
     newPoint = L.point([e.clientX, e.clientY]);
     coordinates = map.mouseEventToLatLng(e);
-
     if (activeItem) {
         switch (itemSelection[itemId]) {
             case "paal": L.circle(coordinates, { radius: 1 }).addTo(map);
@@ -89,13 +88,17 @@ targetZone.addEventListener("click", (e) => {
                 newTree.setStyle({ color: 'green' });
                 newTree.addTo(map);
                 break;
-            case "bloem": ;
+            case "bloem": newFlower = L.circle(coordinates, { radius: 0.7 });
+                newFlower.setStyle({ color: 'yellow' });
+                newFlower.addTo(map);
                 break;
-            case "weg": ;
+            case "pictogram": newPicto = L.circle(coordinates, { radius: 0.5 });
+                newPicto.setStyle({ color: 'gray' });
+                newPicto.addTo(map);
                 break;
-            case "pictogram": ;
-                break;
-            case "licht": ;
+            case "licht": newPicto = L.circle(coordinates, { radius: 0.5 });
+                newPicto.setStyle({ color: 'white' });
+                newPicto.addTo(map);
                 break;
             default: ;
         }
