@@ -8,4 +8,4 @@ L.tileLayer(
     maxZoom: 24
 }).addTo(map);
 
-let targetZone = document.querySelector("#map")
+let targetZone = document.querySelector("#map");

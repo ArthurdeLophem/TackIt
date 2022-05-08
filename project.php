@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-        crossorigin="">
-    </script>
+    <link rel="stylesheet" href="app.css"/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
     <title>project</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
         <div class="p-2">
-            <a class="navbar-brand" href="#">logo</a>
+            <a class="navbar-brand" href="index.php">logo</a>
         </div>
 
         <div class="p-2">
@@ -29,9 +27,18 @@
         </div>
     </nav>
     
-    <div style="height: 60vh; background-color: rgba(255,0,0,0.1); display: flex; justify-content: space-around">
-        <div class="itemPicker h-100 d-inline-block" style="width: 25%; background-color: rgba(0,0,255,.1)">
-            
+    <div style="height: 70vh; background-color: rgba(255,0,0,0.1); display: flex; justify-content: space-around">
+        <div class="itemPicker h-100 d-flex flex-wrap justify-content-center align-content-start" style="width: 25%; background-color: rgba(0,0,255,.1)">
+            <div data-itemId="0" class="item"></div>
+            <div data-itemId="1" class="item"></div>
+            <div data-itemId="2" class="item"></div>
+            <div data-itemId="3" class="item"></div>
+            <div data-itemId="4" class="item"></div>
+            <div data-itemId="5" class="item"></div>
+            <div data-itemId="6" class="item"></div>
+            <div data-itemId="7" class="item"></div>
+            <div data-itemId="8" class="item"></div>
+            <div data-itemId="9" class="item"></div>
         </div>
 
         <div id="map" class="h-100 d-inline-block" style="width: 60%;">
