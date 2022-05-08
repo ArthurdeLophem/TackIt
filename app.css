@@ -4,3 +4,11 @@
     width: 50px;
     margin: 12px;
 }
+
+.inactive {
+    background-color: black;
+}
+
+.active {
+    background-color: red;
+}
