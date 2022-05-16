@@ -25,14 +25,14 @@
     </nav>
 
     <div class="container d-flex flex-column">
-        <div class="text-center">
+        <div class="text-center my-3">
             <h1>stem op je favoriet project</h1>
         </div>
         <div class="d-flex flex-row justify-content-between">
             <div class="badge bg-dark text-light">49 Tacks</div>
             <div class="badge bg-dark text-light">0/3 votes</div>
         </div>
-        <div class="container d-flex flex-row flex-wrap justify-content-center">
+        <div class="container d-flex flex-row flex-wrap justify-content-center p-0">
             <div class="col-sm-4 my-3">
                 <div class="card align-self-end flex-column" >
                     <div class="card-img-top rounded-start shadow-1-strong" 
