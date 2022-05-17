@@ -16,7 +16,7 @@ if (!empty($_POST)) {
             if ($loggedUser) {
                 session_start();
                 $_SESSION['user'] = $loggedUser;
-                header("Location: BurgerDashboard.php");
+                header("Location: citizenDashboard.php");
             }
         } catch (Throwable $e) {
             $error = $e->getMessage();
