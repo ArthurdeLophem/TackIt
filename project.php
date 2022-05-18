@@ -29,16 +29,10 @@
     
     <div style="height: 70vh; background-color: rgba(255,0,0,0.1); display: flex; justify-content: space-around">
         <div class="itemPicker h-100 d-flex flex-wrap justify-content-center align-content-start items" style="width: 25%; background-color: rgba(0,0,255,.1)">
-            <div data-item-id="0" class="item inactive"></div>
-            <div data-item-id="1" class="item inactive"></div>
-            <div data-item-id="2" class="item inactive"></div>
-            <div data-item-id="3" class="item inactive"></div>
-            <div data-item-id="4" class="item inactive"></div>
-            <div data-item-id="5" class="item inactive"></div>
-            <div data-item-id="6" class="item inactive"></div>
-            <div data-item-id="7" class="item inactive"></div>
-            <div data-item-id="8" class="item inactive"></div>
-            <div data-item-id="9" class="item inactive"></div>
+            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="boom" class="item inactive"></img>
+            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="verkeerslicht" class="item inactive"></img>
+            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="bank" class="item inactive"></img>
+            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="pad" class="item inactive"></img>
         </div>
 
         <div id="map" class="h-100 d-inline-block" style="width: 60%;">
