@@ -18,13 +18,32 @@ else
 $url = "http://";   
 $url = $_SERVER['REQUEST_URI'];    
 
-if($url ='/tackit/citizenDashboard.php' || $url ='/tackit/GemeenteDashboard.php') {
-    $navClassA = 'selectedTab';
-} else {
-    $navClassB = '';
-    $navClassC = '';
-    $navClassD = '';
-    $navClassE = '';
-    $navClassF = '';
-    $navClassG = '';
+switch ($url) {
+    case '/tackit/citizenDashboard.php':
+        $navClassA = 'selectedTab';
+        $navClassB = '';
+        $navClassC = '';
+        $navClassD = '';
+        $navClassE = '';
+        $navClassF = '';
+        $navClassG = '';
+        break;
+    case '/tackit/GemeenteDashboard.php':
+        $navClassA = 'selectedTab';
+        $navClassB = '';
+        $navClassC = '';
+        $navClassD = '';
+        $navClassE = '';
+        $navClassF = '';
+        $navClassG = '';
+        break;
+    case '/tackit/projecten.php':
+        $navClassA = '';
+        $navClassB = 'selectedTab';
+        $navClassC = '';
+        $navClassD = '';
+        $navClassE = '';
+        $navClassF = '';
+        $navClassG = '';
+        break;
 }

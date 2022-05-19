@@ -21,7 +21,10 @@ include_once("inc/navdefiner.inc.php");
 </section>
 
 <section id="contentSection" class="d-inline-block">
-    <div class="banner">
+    <div class="banner" 
+         style="background: url('https://res.cloudinary.com/dgypufy9k/image/upload/v1652982240/Tackit_Assets/image_1_3_au2xq7.png'); 
+                background-repeat: no-repeat;
+                background-size: cover;">
         <div class="pannel">
             <div class="pannel-ProjectTitle">
                 <h2>Project - bloemenpark</h2>
@@ -58,12 +61,18 @@ include_once("inc/navdefiner.inc.php");
     </div>
 
     <div class="mainDContent">
-        <section id="dNewProject" class="d-inline-block">
+        <section id="dNewProject" class="d-inline-block"
+                style="background: url('https://res.cloudinary.com/dgypufy9k/image/upload/v1652982240/Tackit_Assets/image_1_3_au2xq7.png'); 
+                background-repeat: no-repeat;
+                background-size: cover;">
             <div class=dProjectButton>
                 <a href="project.php"><img src="" alt=""><p>Start een nieuw project</p></a>
             </div>
         </section>
-        <section id="dAllProjects" class="d-inline-block">
+        <section id="dAllProjects" class="d-inline-block" 
+         style="background: url('https://res.cloudinary.com/dgypufy9k/image/upload/v1652982240/Tackit_Assets/image_1_3_au2xq7.png'); 
+                background-repeat: no-repeat;
+                background-size: cover;">
             <div class=dProjectButton>
             <a href=""><img src="" alt=""><p>Alle projecten</p></a>
             </div>

@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+include_once("inc/navdefiner.inc.php");
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
