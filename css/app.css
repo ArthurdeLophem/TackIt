@@ -1,5 +1,5 @@
 body {
-    background-color: #F4F2F3;
+    background-color: #F4F2F3!important;
 }
 
 .item {
@@ -68,10 +68,41 @@ section {
     font-weight: 500;
     border: none;
     padding: 5px 40px 5px 40px;
-
-
 }
 .registerLinkLogin {
     text-decoration: none;
     color: #52B69A;
+}
+.Navigation {
+    font-family: 'Nunito', sans-serif!important;
+    font-weight: 600;
+}
+.Navigation a {
+    text-decoration: none;
+    padding: 10% 20% 10% 20%;
+}
+.Navigation li {
+    border-radius: 0 8px 8px 0;
+    background-color: white;
+    list-style-type: none;
+    color: black;
+    width: 150px;
+    padding: 10% 20% 10% 20%;
+    margin-left: 0;
+}
+.Navigation {
+    margin-left: 0!important;
+    padding-inline-start: 0!important;
+}
+#navSection {
+    width: 10%;
+}
+#contentSection {
+    width: 90%;
+    float:right;
+}
+.selectedTab {
+
+    background-color: #3647FC!important;
+    color: white!important;
 }

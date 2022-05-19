@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<?php
+include_once("inc/NavColor.inc.php"); 
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include_once("inc/header.inc.php"); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <title>TackIt</title>
 </head>
 <body>
@@ -24,7 +27,11 @@
         </div>
     </nav>
     
-    <!-- body container -->
+    <div>
+    <section id="navSection" class="d-inline-block">
+    <?php include_once("inc/nav.inc.php"); ?>
+    </section>
+    <section id="contentSection" class="d-inline-block">
     <div class="container-lg d-flex flex-column">
         <!-- big project container -->
         <div class="align-self-end container mx-0 d-flex justify-content-end bg-image p-5 shadow-1-strong rounded"
@@ -143,6 +150,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </section>
     </div>
 </body>
 </html>
