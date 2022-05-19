@@ -238,3 +238,13 @@ section {
     padding-left: 3%;
     border-radius: 0 0 8px 8px;
 }
+/* Projecten tab */
+
+.new-project-pannel {
+    width: 40%;
+    height: 200px;
+    margin-top: 200px;
+    background-color: white;
+    float: right;
+    border-radius: 8px 0 0 0;
+}
