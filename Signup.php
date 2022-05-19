@@ -61,33 +61,33 @@
                 <?php endif; ?>
                 
         
-                <div class="form__field">
+                <div class="singnup__field">
                    <label for="Burger">Burger</label>
                    <input type="checkbox" id="fooby[1][]" name="burger" checked>
                    <label for="Gemeente">Gemeente</label>
                    <input type="checkbox" id="fooby[1][]" name="gemeente">
                 </div>
-                <div class="form__field">
+                <div class="singnup__field">
                     <label for="Username">Username</label>
                     <input autocomplete="off" type="text" id="username"  name="username" onBlur="userAvailability()"><span id="user-availability-status"></span> 
                 </div>
 
-                <div class="form__field">
+                <div class="singnup__field">
                     <label for="Email">Email</label>
                     <input type="text" id="email" name="email" onBlur="emailAvailability()"><span id="email-availability-status"></span> 
                 </div>
 
-                <div class="form__field">
+                <div class="singnup__field">
                     <label for="Password">Password</label>
                     <input type="password" name="password">
                 </div>
 
-                <div class="form__field">
+                <div class="singnup__field">
                     <label for="Password">Repeat password</label>
                     <input type="password" name="passwordRepeat">
                 </div>
 
-                <div class="form__field">
+                <div class="singnup__field">
                     <input type="submit" value="Sign up" class="formbtn primarybtn">
                 </div>
 

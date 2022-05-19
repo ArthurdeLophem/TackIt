@@ -5,9 +5,29 @@ use tackit\core\Gemeente;
 
 require __DIR__ . '/vendor/autoload.php';
 
+
+
+if (!isset($_GET['u'])) {
+    $user = "Burger";
+    $classA = 'SelectedLogin';
+    $classB = 'unSelectedLogin';
+}
+if (isset($_GET['u'])) {
+    if($_GET[('u')] == 'Burger') {
+        $user = "Burger";
+        $classA = 'SelectedLogin';
+        $classB = 'unSelectedLogin';
+    }
+    if($_GET[('u')] == 'Gemeente') {
+        $user = "Gemeente";
+        $classA = 'unSelectedLogin';
+        $classB = 'SelectedLogin';
+    }
+}
+
 if (!empty($_POST)) {
 
-    if (isset($_POST['burger'])) {
+    if ($user == "Burger") {
         try {
             $user = new Burger();
             $user->setEmail($_POST['email']);
@@ -16,13 +36,13 @@ if (!empty($_POST)) {
             if ($loggedUser) {
                 session_start();
                 $_SESSION['user'] = $loggedUser;
-                header("Location: BurgerDashboard.php");
+                header("Location: citizenDashboard.php");
             }
         } catch (Throwable $e) {
             $error = $e->getMessage();
         }
     }
-    if (isset($_POST['gemeente'])) {
+    if ($user == "Gemeente") {
         try {
             $user = new Gemeente();
             $user->setEmail($_POST['email']);
@@ -39,6 +59,8 @@ if (!empty($_POST)) {
     }
 }
 
+
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,54 +69,57 @@ if (!empty($_POST)) {
   <title>Sign in Tackit</title>
 </head>
 <body class="splitForm">
-	<div class="TackitSignIn">
-		<div class="form form--login">
-			<form action="" method="post">
-				<h1 form__title>Sign In</h1>
+<div class="Login">
+    <section class="LoginAsWho">
+        <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1652810450/Tackit_Assets/street_-_1_1_biypul.png" alt="street">
+        <h2>Als wie wil je aanmelden?</h2>
+        <div class="form__field">
+                   <a class="<?php echo $classA; ?>" href="login.php?u=Burger">Burger</a>
+                   <a class="<?php echo $classB; ?>" href="login.php?u=Gemeente">Gemeente</a>
+        </div>
+    </section>
+    <section>
+        <div class="TackitSignIn">
+		    <div class="form form--login">
+			    <form action="" method="post">
+				    <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1652810434/Tackit_Assets/logo_1_wt0q6w.png" alt="TackitLogo">
 
 
-				<?php if (isset($error)) : ?>
-				<div class="formError">
-					<p>
-						<?php echo $error; ?>
-					</p>
-				</div>
-				<?php endif; ?>
-				<?php if (isset($_GET["newpassword"])):?>
-					<p>
-					please make sure your password is at least 6 characters in length, includes at least one upper case letter, one number, and one special character.
-					</p>
-				<?php endif ?>
-				<?php if (isset($_GET["succes"])):?>
-					<p>
-					Your password has been succesfully updated.
-					</p>
-				<?php endif ?>
-                <div class="form__field">
-                   <label for="Burger">Burger</label>
-                   <input type="checkbox" id="fooby[1][]" name="burger" checked>
-                   <label for="Gemeente">Gemeente</label>
-                   <input type="checkbox" id="fooby[1][]" name="gemeente">
-                </div>
-				<div class="form__field">
-					<label for="Email">Email</label>
-					<input autocomplete="on" type="text" name="email">
-				</div>
-				<div class="form__field">
-					<label for="Password">Password</label>
-					<input type="password" name="password">
-				</div>
-				<p class="extraP extraP--password"><a href="reset-password.php">Forgot your password?</a></p>
+				    <?php if (isset($error)) : ?>
+				    <div class="formError">
+					    <p>
+						    <?php echo $error; ?>
+					    </p>
+				    </div>
+				    <?php endif; ?>
+				    <?php if (isset($_GET["newpassword"])):?>
+					    <p>
+					    please make sure your password is at least 6 characters in length, includes at least one upper case letter, one number, and one special character.
+					    </p>
+				    <?php endif ?>
+				    <?php if (isset($_GET["succes"])):?>
+					    <p>
+					    Your password has been succesfully updated.
+					    </p>
+				    <?php endif ?>
+				    <div class="form__field">
+					    <input autocomplete="on" type="text" name="email" placeholder="email">
+				    </div>
+				    <div class="form__field">
+					    <input type="password" name="password" placeholder="password">
+				    </div>
+                    <a class="registerLinkLogin" href="signup.php">Register</a>
+				    <p class="extraP extraP--password"><a class="registerLinkLogin" href="reset-password.php">Forgot your password?</a></p>
 
 				
-				<input type="submit" value="Sign in" class="formbtn primarybtn">	
+				    <input type="submit" value="Log in" class="formbtn_primarybtn">	
 				
 			
-			</form>
-			<p class="extraP">Don't have an account yet? <a href="signup.php">Make one here.</a></p>
-
-		</div>
-	</div>
+			    </form>
+		        </div>
+	    </div>
+    </section>
+</div>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
