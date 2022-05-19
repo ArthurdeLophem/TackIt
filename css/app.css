@@ -19,6 +19,13 @@ body {
 section {
     display: inline-block;
 }
+.navbar-brand img{
+    height: 50px;
+}
+
+
+/* login */
+
 .Login {
     text-align: center;
 }
@@ -73,6 +80,10 @@ section {
     text-decoration: none;
     color: #52B69A;
 }
+
+
+/* navigation on the left */
+
 .Navigation {
     font-family: 'Nunito', sans-serif!important;
     font-weight: 600;
@@ -82,11 +93,12 @@ section {
     padding: 10% 20% 10% 20%;
 }
 .Navigation li {
+    font-size: 1.5em;
     border-radius: 0 8px 8px 0;
     background-color: white;
     list-style-type: none;
     color: black;
-    width: 150px;
+    width: 80%;
     padding: 10% 20% 10% 20%;
     margin-left: 0;
 }
@@ -95,14 +107,134 @@ section {
     padding-inline-start: 0!important;
 }
 #navSection {
-    width: 10%;
+    width: 20%;
 }
 #contentSection {
-    width: 90%;
+    width: 80%;
     float:right;
 }
 .selectedTab {
 
     background-color: #3647FC!important;
     color: white!important;
+}
+
+
+
+
+
+/* banner on dashbaord */
+
+.banner {
+    margin-top: 0;
+    width: 100%;
+    height: 400px;
+    background-repeat: no-repeat;
+    background: url('https://res.cloudinary.com/dgypufy9k/image/upload/v1652966210/Tackit_Assets/image_1_pmxdm5.png');
+    background-size: cover;
+    border-radius: 20px;
+    -webkit-border-radius: 0 0 0 30px;
+}
+.pannel {
+    width: 40%;
+    height: 200px;
+    margin-top: 200px;
+    background-color: white;
+    float: right;
+    border-radius: 8px 0 0 0;
+}
+.pannel-ProjectTitle {
+    display: flex;
+    background-color: #3647FC;
+    color: white;
+    text-align: center;
+    padding: 1%;
+    flex-direction: column;
+    height: 34%;
+    border-radius: 8px 0 0 0;
+}
+.pannelContent {
+    height: 66%;
+}
+.pannel li {
+    list-style-type: none;
+}
+
+#pannelInfo {
+    width: 60%;
+    margin-left: 0;
+    padding-left: 0;
+}
+#pannelButtons {
+    float: right;
+    width: 40%;
+}
+#pannelInfo li {
+    padding-left: 10%;
+}
+
+#pannelInfo li:first-child {
+    border-color: #C4C4C4;
+    border-bottom-style: solid;
+    border-right-style: solid;
+} 
+#pannelInfo li:nth-child(2) {
+    border-color: #C4C4C4;
+    border-right-style: solid;
+} 
+
+
+#pannelInfo ul {
+    padding-left: 0;
+}
+
+#pannelButtons ul {
+    
+}
+
+/* Gemeente Dashboard content */
+
+.mainDContent {
+    margin-top: 1%;
+}
+
+#dNewProject {
+    background-repeat: no-repeat;
+    background: url('https://res.cloudinary.com/dgypufy9k/image/upload/v1652966210/Tackit_Assets/image_1_pmxdm5.png');
+    background-size: cover;
+    width: 40%;
+    height: 500px;
+    margin-right: 1%;
+    border-radius: 8px;
+    -webkit-border-radius: 30px;
+}
+
+#dAllProjects {
+    background-repeat: no-repeat;
+    background: url('https://res.cloudinary.com/dgypufy9k/image/upload/v1652966210/Tackit_Assets/image_1_pmxdm5.png');
+    background-size: cover;
+    width: 40%;
+    height: 500px;
+    margin-right: 1%;
+    border-radius: 8px;
+    -webkit-border-radius: 30px;
+}
+
+#dStats {
+    background-color: #3647FC;
+    width: 10%;
+    height: 400px;
+    border-radius: 8px;
+    margin-bottom: 2.7%!important;
+}
+
+.dProjectButton {
+    height: 80px;
+    width: 99.5%;
+    margin-left: .5%;
+    margin-top: 420px;
+    background-color: white;
+    text-align: left;
+    padding-left: 3%;
+    border-radius: 0 0 8px 8px;
 }
