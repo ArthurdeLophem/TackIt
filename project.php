@@ -1,6 +1,4 @@
-<?php
-include_once("inc/navdefiner.inc.php");
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,9 +11,21 @@ include_once("inc/navdefiner.inc.php");
     <title>project</title>
 </head>
 <body>
-<?php include_once("inc/topnav.inc.php"); ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+        <div class="p-2">
+            <a class="navbar-brand" href="#"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1652810434/Tackit_Assets/logo_1_wt0q6w.png" alt=""></a>
+        </div>
+
+        <div class="p-2">
+            <h1>Gemeente Tienen</h1>
+        </div>
+
+        <div class="p-2">
+            <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1652970841/Tackit_Assets/Bell_gnlmov.png" alt="">
+        </div>
+    </nav>
     
-    <div style="height: 70vh; background-color: rgba(255,0,0,0.1); display: flex; justify-content: space-around">
+    <div class="map" style="height: 70vh; background-color: rgba(255,0,0,0.1); display: flex; justify-content: space-around">
         <div class="itemPicker h-100 d-flex flex-wrap justify-content-center align-content-start items" style="width: 25%; background-color: rgba(0,0,255,.1)">
             <div data-item-id="0" class="item inactive"></div>
             <div data-item-id="1" class="item inactive"></div>

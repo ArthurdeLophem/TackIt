@@ -31,12 +31,12 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                     <section id="pannelInfo" class="d-inline-block">
                     <ul>
                         <li>
-                            <div class="d-inline-block"><img src="" alt=""><p>p</p></div>
+                            <div class="d-inline-block"><img src="" alt=""><p>i</p></div>
                             <div class="d-inline-block"><p>45 u.</p></div>
                             <div class="d-inline-block"><p>Tijd Resterend</p></div>
                         </li>
                         <li>
-                            <div class="d-inline-block"><img src="" alt=""><p>p</p></div>
+                            <div class="d-inline-block"><img src="" alt=""><p>i</p></div>
                             <div class="d-inline-block"><p>68%</p></div>
                             <div class="d-inline-block"><p>Voltooid</p></div> 
                         </li>
@@ -45,12 +45,12 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                     <section id="pannelButtons" class="d-inline-block">
                     <ul>
                         <li>
-                            <div class="d-inline-block"><img src="" alt=""><p>p</p></div>
+                            <div class="d-inline-block"><img src="" alt=""><p>i</p></div>
                             <div class="d-inline-block"><p>Info</p></div>
                         </li>
                         <li>
-                            <div class="d-inline-block"><img src="" alt=""><p>p</p></div>
-                            <div class="d-inline-block"><p>Hervatten</p></div>
+                            <div class="d-inline-block"><img src="" alt=""><p>i</p></div>
+                            <div class="d-inline-block"><a href="project.php"><p>Hervatten</p></a></div>
                         </li>
                     </ul>
                     </section>

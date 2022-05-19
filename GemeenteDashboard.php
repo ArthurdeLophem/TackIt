@@ -66,7 +66,7 @@ include_once("inc/navdefiner.inc.php");
                 background-repeat: no-repeat;
                 background-size: cover;">
             <div class=dProjectButton>
-                <a href="project.php"><img src="" alt=""><p>Start een nieuw project</p></a>
+                <a href="#"><img src="" alt=""><p>Start een nieuw project</p></a>
             </div>
         </section>
         <section id="dAllProjects" class="d-inline-block" 
