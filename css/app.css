@@ -180,30 +180,55 @@ section {
 }
 .pannelContent {
     height: 66%;
+    display: flex;
 }
 .pannel li {
     list-style-type: none;
 }
 
 #pannelInfo {
+    height: 100%;
     width: 60%;
     margin-left: 0;
     padding-left: 0;
 }
 #pannelButtons {
-    float: right;
+   
     width: 40%;
+}
+#pannelButtons ul {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+#pannelButtons li {
+    height: 50%;
+    padding-left: 10%;
+    padding-top: 13%;
 }
 #pannelInfo li {
     padding-left: 10%;
 }
+#pannelInfo ul {
+    height: 100%;
+    margin-bottom: 0;
+}
+#pannelInfo ul li {
+    padding-top: 6%;
+    box-sizing: border-box;
+    list-style-type: none;
+    height: 50%;
+    width: 100%;
+}
 
 #pannelInfo li:first-child {
+    
     border-color: #C4C4C4;
     border-bottom-style: solid;
     border-right-style: solid;
 } 
 #pannelInfo li:nth-child(2) {
+  
     border-color: #C4C4C4;
     border-right-style: solid;
 } 
