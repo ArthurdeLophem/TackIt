@@ -448,3 +448,45 @@ section {
     margin-top: 24%;
     width: 100%;
 }
+
+@media only screen and (max-width: 1440px) {
+
+    .Navigation {
+        margin-top: 6%;
+    }
+    .BprojectListings {
+        margin-top: 40%;
+    }
+
+    .bStats {
+        margin-top: 34%;
+        height: 250px;
+    }
+
+    #dNewProject {
+    
+    margin-top: 15.5%;
+    width: 40%;
+    height: 280px;
+    }
+    #dAllProjects {
+    width: 40%;
+    height: 280px;
+
+    }
+    .dProjectButton {
+        margin-top: 50%;
+    }
+    #dStats {
+        height: 250px;
+        margin-bottom: 2%!important;
+    }
+    .projectListings {
+        margin-top: 10%;
+    }
+    .Navigation li {
+        padding-top: 15px;
+        padding-left: 30px;
+        height: 70px;
+    }
+}

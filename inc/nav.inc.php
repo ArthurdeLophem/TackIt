@@ -1,5 +1,5 @@
 <ul class="Navigation">
-    <a href="<?php echo $dashboard;?>"><li class="<?php echo $navClassA; ?>">Dashboard</li></a>
+    <a href="Dashboard.php"><li class="<?php echo $navClassA; ?>">Dashboard</li></a>
     <?php if($userType == 1): ?>
     <a href="projecten.php"><li class="<?php echo $navClassB; ?>">Projecten</li></a>
     <?php endif ?>
