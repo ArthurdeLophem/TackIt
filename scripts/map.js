@@ -7,6 +7,8 @@ const map = L.map('map', {
     zoom: 19
 })
 
+const items = [];
+
 //get map from osm
 L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -22,6 +24,14 @@ document.querySelector(".items").addEventListener("mousedown", (e) => {
     }
     e.target.classList.add("active");
 });
+
+removeActive = (e) => {
+    let items = document.querySelectorAll(".item");
+    for (let i = 0; i < items.length; i++) {
+        items[i].classList.remove("active");
+    }
+    e.target.classList.add("inactive");
+}
 
 //drop new instance of image on the map
 targetZone.ondragover = (e) => {
@@ -46,6 +56,8 @@ targetZone.ondrop = (e) => {
         icon: newIcon,
         draggable: true,
     }).addTo(map)
-    console.log(L.LayerGroup)
+    items.push({ "coordinates": coordinates, "itemType": itemType })
+    console.log(items);
+    removeActive();
 }
 
