@@ -25,15 +25,18 @@
         </div>
     </nav>
     
-    <div class="map" style="height: 70vh; background-color: rgba(255,0,0,0.1); display: flex; justify-content: space-around">
-        <div class="itemPicker h-100 d-flex flex-wrap justify-content-center align-content-start items" style="width: 25%; background-color: rgba(0,0,255,.1)">
-            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="boom" class="item inactive"></img>
-            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="verkeerslicht" class="item inactive"></img>
-            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="bank" class="item inactive"></img>
-            <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="pad" class="item inactive"></img>
+    <div class="map" style="height: 70vh; display: flex; justify-content: space-around">
+        <div class="shadow bg-white d-flex flex-column align-items-center" style="width: 25%; background-color: rgba(0,0,255,.1); border-radius: 10px;">
+            <p class="my-3"><strong>choose your item and drop it on the map</strong></p>
+            <div class="d-flex flex-wrap justify-content-center align-content-start items">
+                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="boom" class="item inactive"></img>
+                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="verkeerslicht" class="item inactive"></img>
+                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="bank" class="item inactive"></img>
+                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="pad" class="item inactive"></img>
+            </div>
         </div>
 
-        <div id="map" class="h-100 d-inline-block" style="width: 60%;">
+        <div id="map" class="shadow h-100 d-inline-block" style="width: 60%; border: 5px solid white; border-radius: 10px;">
 
         </div>
     </div>
