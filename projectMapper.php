@@ -25,9 +25,9 @@
         </div>
     </nav>
     
-    <div class="map" style="height: 70vh; display: flex; justify-content: space-around">
-        <div class="shadow bg-white d-flex flex-column align-items-center" style="width: 25%; background-color: rgba(0,0,255,.1); border-radius: 10px;">
-            <p class="my-3"><strong>choose your item and drop it on the map</strong></p>
+    <div class="map" style="height: 80vh; display: flex; justify-content: space-around">
+        <div class="shadow bg-white d-flex flex-column align-items-center" style="width: 20%; height: 80%; background-color: rgba(0,0,255,.1); border-radius: 10px;">
+            <p class="my-3 mx-auto text-center"><strong>choose your item and drop it on the map</strong></p>
             <div class="d-flex flex-wrap justify-content-center align-content-start items">
                 <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="boom" class="item inactive"></img>
                 <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="verkeerslicht" class="item inactive"></img>
@@ -36,10 +36,19 @@
             </div>
         </div>
 
-        <div id="map" class="shadow h-100 d-inline-block" style="width: 60%; border: 5px solid white; border-radius: 10px;">
+        <div id="map" class="shadow h-100 d-inline-block" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>
 
+        <div class="shadow bg-white d-flex flex-column align-items-center"  style="width: 12%; height: fit-content; background-color: rgba(0,0,255,.1); border-radius: 10px;">
+            <div class="my-2">
+                <a type="button" class="btn btn-primary saveBtn">save</a>
+            </div>
+            <div class="my-2">
+                <a type="button" class="btn btn-outline-primary renderBtn ">render</a>
+            </div>
         </div>
+        
     </div>
+    
     <script src="./scripts/map.js"></script>
 </body>
 </html>

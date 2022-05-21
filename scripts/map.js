@@ -18,19 +18,16 @@ L.tileLayer(
 
 //check which type of item was dropped by user
 document.querySelector(".items").addEventListener("mousedown", (e) => {
-    let items = document.querySelectorAll(".item");
-    for (let i = 0; i < items.length; i++) {
-        items[i].classList.remove("active");
-    }
+    removeActive();
     e.target.classList.add("active");
 });
 
-removeActive = (e) => {
+//remove active class
+removeActive = () => {
     let items = document.querySelectorAll(".item");
     for (let i = 0; i < items.length; i++) {
         items[i].classList.remove("active");
     }
-    e.target.classList.add("inactive");
 }
 
 //drop new instance of image on the map
@@ -38,7 +35,6 @@ targetZone.ondragover = (e) => {
     e.preventDefault()
     e.dataTransfer.dropEffect = "move"
 }
-
 targetZone.ondrop = (e) => {
     e.preventDefault()
 
@@ -57,7 +53,12 @@ targetZone.ondrop = (e) => {
         draggable: true,
     }).addTo(map)
     items.push({ "coordinates": coordinates, "itemType": itemType })
-    console.log(items);
+    //console.log(items);
     removeActive();
 }
 
+saveItems = () => {
+    console.log(items);
+}
+
+document.querySelector(".saveBtn").addEventListener("click", saveItems);
