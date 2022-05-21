@@ -49,27 +49,3 @@ targetZone.ondrop = (e) => {
     console.log(L.LayerGroup)
 }
 
-//console.log(imagePath);
-//coordinates = map.containerPointToLatLng(L.point([e.clientX, e.clientY]))
-/*
-itemId = activeItem.dataset.itemId;
-newPoint = L.point([e.clientX, e.clientY]);
-coordinates = map.mouseEventToLatLng(e);
-if (activeItem) {
-    switch (itemSelection[itemId]) {
-        case "paal": L.circle(coordinates, { radius: 1 }).addTo(map);
-            break;
-        case "boom": L.circle(coordinates, { color: 'green', radius: 2 }).addTo(map);
-            break;
-        case "bloem": L.circle(coordinates, { color: 'yellow', radius: 0.7 }).addTo(map);
-            break;
-        case "pictogram": L.circle(coordinates, { color: 'gray', radius: 0.5 }).addTo(map);
-            break;
-        case "licht": L.circle(coordinates, { color: 'white', radius: 0.5 }).addTo(map);
-            break;
-        default: ;
-    }
-} else {
-    console.log("error no item selected")
-}*/
-
