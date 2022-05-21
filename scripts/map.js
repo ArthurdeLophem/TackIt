@@ -4,7 +4,7 @@ const latitude = 50.8144;
 const longitude = 4.8855;
 const map = L.map('map', {
     center: [latitude, longitude],
-    zoom: 19
+    zoom: 19,
 })
 
 const items = [];
@@ -12,7 +12,8 @@ const items = [];
 //get map from osm
 L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 24,
+    maxNativeZoom: 19,
+    maxZoom: 25,
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
