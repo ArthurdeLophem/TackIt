@@ -90,35 +90,25 @@
         $statement->bindValue(':projectId', $projectId);
         $statement->bindValue(':userId', $userId);
         $statement->execute();
-        if ($statement){
-            $response = [
-                "status" => "failed",
-                "message" => "already has items"
-            ];
-        }
-        else {
-            $response = [
-                "status" => "success",
-                "message" => "can save items"
-            ];
-        }
-        echo json_encode($response);
+        return $statement->fetchAll();
     }
 
     public function saveItems(){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("insert into project_items (items, project_id, user_id) values (:items, :project_id, :user_id)");
+        $statement = $conn->prepare("insert into project_items (items, project_id, user_id, status) values (:items, :projectId, :userId, :status)");
         $statement->bindValue(':items', $this->items);
         $statement->bindValue(':projectId', $this->projectId);
         $statement->bindValue(':userId', $this->userId);
+        $statement->bindValue(':status', "finished");
         $statement->execute();
     }
 
-    public function getProjectStatus($userId, $projectId){
+    public static function getProjectStatus($userId, $projectId){
         $conn = DB::getConnection();
         $statement = $conn->prepare("select status from project_items where project_id = :projectId and user_id = :userId");
         $statement->bindValue(':projectId', $projectId);
         $statement->bindValue(':userId', $userId);
-        return $statement->execute();
+        $statement->execute();
+        return $statement->fetch();
     }
 }

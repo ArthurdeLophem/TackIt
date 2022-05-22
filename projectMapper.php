@@ -1,3 +1,7 @@
+<?php
+include_once("inc/navdefiner.inc.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,21 +15,8 @@
     <title>project</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
-        <div class="p-2">
-            <a class="navbar-brand" href="#"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1652810434/Tackit_Assets/logo_1_wt0q6w.png" alt=""></a>
-        </div>
-
-        <div class="p-2">
-            <h1>Gemeente Tienen</h1>
-        </div>
-
-        <div class="p-2">
-            <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1652970841/Tackit_Assets/Bell_gnlmov.png" alt="">
-        </div>
-    </nav>
-    
-    <div class="map" style="height: 80vh; display: flex; justify-content: space-around">
+    <?php include_once("inc/topnav.inc.php"); ?>    
+    <div class="map" style="height: 80vh; display: flex; justify-content: space-around; position: relative; top: 120px">
         <div class="shadow bg-white d-flex flex-column align-items-center" style="width: 20%; height: 80%; background-color: rgba(0,0,255,.1); border-radius: 10px;">
             <p class="my-3 mx-auto text-center"><strong>choose your item and drop it on the map</strong></p>
             <div class="d-flex flex-wrap justify-content-center align-content-start items">
@@ -40,15 +31,15 @@
 
         <div class="shadow bg-white d-flex flex-column align-items-center"  style="width: 12%; height: fit-content; background-color: rgba(0,0,255,.1); border-radius: 10px;">
             <div class="my-2">
-                <a type="button" class="btn btn-primary saveBtn">save</a>
+                <a type="button"  data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="1" class="btn btn-primary saveBtn">save</a>
             </div>
             <div class="my-2">
-                <a type="button" class="btn btn-outline-primary renderBtn ">render</a>
+                <a type="button" class="btn btn-outline-primary renderBtn"></a>
             </div>
         </div>
         
     </div>
-    
+
     <script src="./scripts/map.js"></script>
 </body>
 </html>
