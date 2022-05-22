@@ -15,7 +15,7 @@ include_once("inc/navdefiner.inc.php");
     <title>project</title>
 </head>
 <body>
-    <?php include_once("inc/topnav.inc.php"); ?>    
+    <?php include_once("inc/topnav.inc.php"); ?>  
     <div class="map" style="height: 80vh; display: flex; justify-content: space-around; position: relative; top: 120px">
         <div class="shadow bg-white d-flex flex-column align-items-center" style="width: 20%; height: 80%; background-color: rgba(0,0,255,.1); border-radius: 10px;">
             <p class="my-3 mx-auto text-center"><strong>choose your item and drop it on the map</strong></p>
@@ -34,7 +34,7 @@ include_once("inc/navdefiner.inc.php");
                 <a type="button"  data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="1" class="btn btn-primary saveBtn">save</a>
             </div>
             <div class="my-2">
-                <a type="button" class="btn btn-outline-primary renderBtn"></a>
+                <a type="button" class="btn btn-outline-primary renderBtn">render</a>
             </div>
         </div>
         

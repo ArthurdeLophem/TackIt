@@ -76,12 +76,14 @@
         return $this;
     }
 
-    public static function findItemsByProject($projectId){
+    public static function findItemsByProjectAndUser($projectId, $userId){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("select * from project_items where project_id = :projectId");
+        $statement = $conn->prepare("select items from project_items where project_id = :projectId and user_id = :userId");
         $statement->bindValue(':projectId', $projectId);
-        $results = $statement->execute();
-        return $results;
+        $statement->bindValue(':userId', $userId);
+        $statement->execute();
+        return $statement->fetch();
+        
     }
 
     public static function itemValidation($userId, $projectId){
