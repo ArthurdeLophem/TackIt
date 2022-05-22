@@ -82,3 +82,51 @@ saveItems = (e) => {
 }
 
 document.querySelector(".saveBtn").addEventListener("click", saveItems);
+
+drawItems = (item) => {
+    console.log(item)
+    itemType = item.itemType;
+
+    //imagePath = "/css/images/" + itemType + ".png"
+    imagePath = "https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png"
+
+    //console.log(imagePath);
+    newIcon = L.icon({
+        iconUrl: imagePath,
+        iconSize: [50, 50]
+    })
+
+    coordinates = { "lat": item.coordinates.lat, "lng": item.coordinates.lng };
+
+    //console.log(coordinates + imagePath)
+    newMarker = L.marker(coordinates, {
+        icon: newIcon,
+        draggable: true
+    }).addTo(map)
+    items.push({ "coordinates": coordinates, "itemType": itemType })
+}
+
+getItems = (e) => {
+    e.preventDefault();
+
+    let userId = document.querySelector(".saveBtn").dataset.userId;
+    let projectId = document.querySelector(".saveBtn").dataset.projectId;
+    let data = new FormData()
+    data.append("userId", userId)
+    data.append("projectId", projectId)
+
+    fetch('ajax/getItems.php', {
+        method: 'POST', // or 'PUT'
+        body: data,
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            data.Items.forEach(drawItems)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+window.addEventListener("load", getItems)

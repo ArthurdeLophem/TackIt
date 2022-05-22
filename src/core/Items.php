@@ -105,6 +105,15 @@
         $statement->execute();
     }
 
+    public static function updateItems($items, $projectId, $userId){
+        $conn = DB::getConnection();
+        $statement = $conn->prepare("update project_items set items = :items, project_id = :projectId, user_id = :userId");
+        $statement->bindValue(':items', $items);
+        $statement->bindValue(':projectId', $projectId);
+        $statement->bindValue(':userId', $userId);
+        $statement->execute();
+    }
+
     public static function getProjectStatus($userId, $projectId){
         $conn = DB::getConnection();
         $statement = $conn->prepare("select status from project_items where project_id = :projectId and user_id = :userId");
