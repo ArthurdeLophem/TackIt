@@ -15,6 +15,27 @@ L.tileLayer(
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+drawItems = (item) => {
+    console.log(item)
+    itemType = item.itemType;
+
+    //imagePath = "/css/images/" + itemType + ".png"
+    imagePath = "https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png"
+
+    //console.log(imagePath);
+    newIcon = L.icon({
+        iconUrl: imagePath,
+        iconSize: [50, 50]
+    })
+
+    coordinates = [item.coordinates.lat, item.coordinates.lng];
+
+    //console.log(coordinates + imagePath)
+    newMarker = L.marker(coordinates, {
+        icon: newIcon
+    }).addTo(map)
+}
+
 getItems = (e) => {
     e.preventDefault();
 
@@ -30,7 +51,7 @@ getItems = (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            data.Items.forEach(drawItems)
         })
         .catch((error) => {
             console.error('Error:', error);
