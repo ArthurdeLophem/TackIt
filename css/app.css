@@ -12,17 +12,17 @@ body {
 }
 
 .item {
-    background-color: black;
     height: 40px;
     width: 40px;
     margin: 12px;
 }
 
 .inactive {
-    background-color: black;
+    background-color: transparent;
 }
 
 .active {
+    background-color: #3647FC;
     height: 50px;
     width: 50px;
 }

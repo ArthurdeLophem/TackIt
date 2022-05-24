@@ -39,7 +39,13 @@ targetZone.ondragover = (e) => {
 targetZone.ondrop = (e) => {
     e.preventDefault()
 
-    itemType = document.querySelector(".active").dataset.itemType
+    console.log(items)
+
+    if (document.querySelector(".active") == null) {
+        itemType = item.itemtype;
+    } else {
+        itemType = document.querySelector(".active").dataset.itemType
+    }
 
     imagePath = e.dataTransfer.getData("text/plain")
     newIcon = L.icon({
@@ -48,12 +54,34 @@ targetZone.ondrop = (e) => {
     })
 
     coordinates = map.mouseEventToLatLng(e);
-    //console.log(coordinates + itemType)
+    console.log(coordinates + itemType)
+
     newMarker = L.marker(coordinates, {
         icon: newIcon,
         draggable: true,
+        itemType: itemType
     }).addTo(map)
+
     items.push({ "coordinates": coordinates, "itemType": itemType })
+
+    let oldCoords
+
+    newMarker.addEventListener('mousedown', (e) => {
+        oldCoords = e.target.getLatLng(e)
+    })
+
+    newMarker.addEventListener('dragend', (e) => {
+        const getIndex = items.findIndex(item => {
+            if (item.coordinates == oldCoords) return true
+        });
+
+        newCoordinates = e.target.getLatLng(e);
+        itemType = items[getIndex].itemType
+
+        items.push({ "coordinates": newCoordinates, "itemType": itemType })
+        items.splice(getIndex, 1)
+    })
+
     //console.log(items);
     removeActive();
 }
@@ -84,13 +112,10 @@ saveItems = (e) => {
 document.querySelector(".saveBtn").addEventListener("click", saveItems);
 
 drawItems = (item) => {
-    console.log(item)
     itemType = item.itemType;
+    imagePath = "/css/images/items/" + itemType + ".svg"
+    console.log(itemType)
 
-    //imagePath = "/css/images/" + itemType + ".png"
-    imagePath = "https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png"
-
-    //console.log(imagePath);
     newIcon = L.icon({
         iconUrl: imagePath,
         iconSize: [50, 50]
@@ -98,12 +123,36 @@ drawItems = (item) => {
 
     coordinates = { "lat": item.coordinates.lat, "lng": item.coordinates.lng };
 
-    //console.log(coordinates + imagePath)
-    newMarker = L.marker(coordinates, {
+    aMarker = L.marker(coordinates, {
         icon: newIcon,
-        draggable: true
+        draggable: true,
+        itemType: itemType
     }).addTo(map)
+
     items.push({ "coordinates": coordinates, "itemType": itemType })
+    console.log(items)
+
+    let oldCoords
+
+    aMarker.addEventListener('mousedown', (e) => {
+        oldCoords = e.target.getLatLng(e)
+        itemType = e.target.options.itemType
+    })
+
+    aMarker.addEventListener('dragend', (e) => {
+        const getIndex = items.findIndex(item => {
+            if (item.coordinates.lat == oldCoords.lat && item.coordinates.lng == oldCoords.lng) return true
+        });
+
+        console.log(oldCoords + itemType)
+        console.log(getIndex)
+
+        newCoordinates = e.target.getLatLng(e);
+        //itemType = items[getIndex].itemType
+
+        items.push({ "coordinates": newCoordinates, "itemType": itemType })
+        items.splice(getIndex, 1)
+    })
 }
 
 getItems = (e) => {
