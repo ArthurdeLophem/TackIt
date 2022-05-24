@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 19, 2022 at 07:41 PM
+-- Generation Time: May 24, 2022 at 02:34 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -20,6 +20,44 @@ SET time_zone = "+00:00";
 --
 -- Database: `tackit`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `budget` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_items`
+--
+
+CREATE TABLE `project_items` (
+  `id` int(11) NOT NULL,
+  `items` json DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `project_items`
+--
+
+INSERT INTO `project_items` (`id`, `items`, `user_id`, `project_id`, `status`) VALUES
+(8, '[{\"itemType\": \"boom\", \"coordinates\": {\"lat\": 50.81462244629948, \"lng\": 4.885061749853978}}, {\"itemType\": \"fontein\", \"coordinates\": {\"lat\": 50.81435833697735, \"lng\": 4.885372658123429}}]', 1, 1, 'finished');
 
 -- --------------------------------------------------------
 
@@ -49,6 +87,18 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `ProfilePicture`, `T
 --
 
 --
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_items`
+--
+ALTER TABLE `project_items`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -57,6 +107,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `project_items`
+--
+ALTER TABLE `project_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
