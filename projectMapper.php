@@ -20,10 +20,11 @@ include_once("inc/navdefiner.inc.php");
         <div class="shadow bg-white d-flex flex-column align-items-center" style="width: 20%; height: 80%; background-color: rgba(0,0,255,.1); border-radius: 10px;">
             <p class="my-3 mx-auto text-center"><strong>choose your item and drop it on the map</strong></p>
             <div class="d-flex flex-wrap justify-content-center align-content-start items">
-                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="boom" class="item inactive"></img>
-                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="verkeerslicht" class="item inactive"></img>
-                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="bank" class="item inactive"></img>
-                <img src="https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png" data-item-type="pad" class="item inactive"></img>
+                <img src="/css/images/items/boom.svg" data-item-type="boom" class="item inactive"></img>
+                <img src="/css/images/items/bank.svg" data-item-type="bank" class="item inactive"></img>
+                <img src="/css/images/items/fontein.svg" data-item-type="fontein" class="item inactive"></img>
+                <img src="/css/images/items/straatlamp.svg" data-item-type="straatlamp" class="item inactive"></img>
+                <img src="/css/images/items/struik.svg" data-item-type="struik" class="item inactive"></img>
             </div>
         </div>
 
