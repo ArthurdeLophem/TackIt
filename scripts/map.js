@@ -1,7 +1,7 @@
 //inotializing the map
 const targetZone = document.querySelector("#map");
-const latitude = 50.8144;
-const longitude = 4.8855;
+const latitude = 51.0259;
+const longitude = 4.4776;
 const map = L.map('map', {
     center: [latitude, longitude],
     zoom: 19,

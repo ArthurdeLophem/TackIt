@@ -4,7 +4,7 @@
         </div>
 
         <div class="p-2">
-            <h1>Gemeente Tienen</h1>
+            <h1>Gemeente Mechelen</h1>
         </div>
 
         <div class="p-2">
