@@ -66,7 +66,7 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 background-repeat: no-repeat;
                 background-size: cover;">
             <div class=dProjectButton>
-                <a href="#"><img src="" alt=""><p>Start een nieuw project</p></a>
+                <a href="new-project.php"><img src="" alt=""><p>Start een nieuw project</p></a>
             </div>
         </section>
         <section id="dAllProjects" class="d-inline-block" 

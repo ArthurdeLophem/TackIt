@@ -20,7 +20,11 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
             background-repeat: no-repeat;
             background-size: cover;">
         <div class="new-project-pannel">
-                <img src="" alt="image"><h2>Start een nieuw project</h2>
+                <img src="" alt="image"><h2>
+                    <a href="new-project.php">    
+                    Start een nieuw project
+                    </a>
+                </h2>
         </div>
 </div>
 

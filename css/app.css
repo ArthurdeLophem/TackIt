@@ -333,6 +333,11 @@ section {
     align-items: center;
 }
 
+.new-project-pannel a {
+    color: black;
+    text-decoration: none;
+}
+
 .new-project-pannel img {
     width: 20%;
     box-sizing: border-box;
@@ -519,6 +524,205 @@ section {
     width: 100%;
 }
 
+/* new-project */
+
+.new-project-form {
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+.new-project-form label {
+    font-size: 1.5em;
+    color: #7D7E83;
+}
+
+
+.project-details {
+    padding: 1%;
+    margin: 20px;
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+}
+
+.communicatie {
+    padding: 1%;
+    margin: 20px;
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    border-radius: 9px;
+}
+
+.project-name {
+    font-size: 2.5em;
+    background-color:#F4F2F3;
+    border: none;
+    border-radius: 9px;
+    text-align: center;
+    width: 70%;
+    height: 2em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+
+.project-dates {
+    display: flex;
+    margin-bottom: 2%;
+}
+.project-dates div:first-of-type {
+    margin-right: 2%;
+}
+.project-dates div {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-project-form-field {
+    margin-bottom: 2%;
+}
+.new-project-form-field-file {
+    margin-bottom: 2%;
+}
+
+.new-project-form-field label {
+    margin-right: 3%;
+    width: 10%;
+}
+
+
+.new-project-form-field input{
+    background-color:#F4F2F3;
+    border: none;
+    border-radius: 5px;
+    width: 15%;
+    font-size: 1.5em;
+}
+.new-project-form-field-file {
+    display: flex;
+}
+.new-project-form-field-file p {
+    font-size: 1.5em;
+    margin-right: 3%;
+    width: 10%;
+}
+
+.new-project-form-field-file input[type="file"] {
+    display: none;
+
+}
+.new-project-form-field-file label {
+    border-radius: 5px;
+    margin-left: 0.5%;
+    padding: 0.2% 1% 0.2% 1%;
+    background-color: #3647FC;
+    color: white;
+}
+
+.new-project-form-field-file p {
+    color: #7D7E83;
+}
+
+.form-vereisten {
+    display: flex; 
+}
+
+.form-vereisten label {
+    font-size: 1.5em;
+    margin-right: 3%;
+    width: 10%;
+}
+
+.form-vereisten div {
+    width: 22%;
+    font-size: 1.5em;
+    display: flex;
+    border-radius: 5px;
+    margin-left: 0.5%;
+    padding: 0.2% 1% 0.2% 1%;
+    background-color: #3647FC;
+    color: white;
+}
+.form-vereisten div p {
+    margin: 0;
+}
+.form-vereisten div img {
+    margin-left: 10%;
+}
+
+
+.communicatie .project-dates{
+    flex-direction: column;
+    width: 20%;
+    font-size: .5em;
+}
+.communicatie .project-dates div {
+    margin-right:0;
+}
+
+.communicatie .project-dates input{
+    width: 50%;
+    font-size: 1.5em;
+}
+
+
+.comm-form-split {
+   
+    display: flex;
+
+}
+.criteria {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.criteria label {
+    font-size: 1em;
+}
+
+.add-criteria {
+    margin-top: 5%;
+    display: flex;
+    background-color: #3647FC;
+    color: white;
+    justify-content: space-evenly;
+    border-radius: 6px;
+    font-size: 1.2em;
+    padding: 2% 0 2% 0;
+
+}
+.add-criteria p {
+    margin: 0;
+}
+
+.form-c {
+    margin-left: 75%;
+    padding: .5% 1% .5% 1%;
+    border-radius: 6px;
+    font-size: 1.5em;
+    border:none;
+    background-color: #7D7E83;
+}
+.form-c a {
+    text-decoration: none;
+    color: white;
+}
+.form-n {
+    margin-left:1%;
+    padding: .8% 1% .8% 1%;
+    border-radius: 6px;
+    font-size: 1.5em;
+    border:none;
+    background-color: #C4C4C4;
+    color: white;
+}
+
+/* media query */
 @media only screen and (max-width: 1440px) {
 
     .Navigation {

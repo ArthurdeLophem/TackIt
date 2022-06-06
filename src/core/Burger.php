@@ -73,14 +73,14 @@
          */
         public function setPassword($Password)
         {
-            $uppercase = preg_match('@[A-Z]@', $Password);
-            $lowercase = preg_match('@[a-z]@', $Password);
-            $number = preg_match('@[0-9]@', $Password);
-            $specialChars = preg_match('@[^\w]@', $Password);
+            // $uppercase = preg_match('@[A-Z]@', $Password);
+            // $lowercase = preg_match('@[a-z]@', $Password);
+            // $number = preg_match('@[0-9]@', $Password);
+            // $specialChars = preg_match('@[^\w]@', $Password);
 
-            if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($Password) < 6) {
-                throw new Exception("Password should be at least 6 characters in length and should include at least one upper case letter, one number, and one special character.");
-            }
+            // if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($Password) < 6) {
+            //     throw new Exception("Password should be at least 6 characters in length and should include at least one upper case letter, one number, and one special character.");
+            // }
             $this->Password = $Password;
             return $this;
         }
