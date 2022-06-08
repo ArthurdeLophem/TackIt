@@ -20,8 +20,8 @@
     Logout</li></a>
     <a href="account.php"><li class="<?php echo $navClassF; ?>">
     <img src="<?php echo $navimgF ?>" alt="">
-    User</li></a>
-    <a href=""><li class="<?php echo $navClassG; ?>">
+    Account</li></a>
+    <a href="help.php"><li class="<?php echo $navClassG; ?>">
     <img src="<?php echo $navimgG ?>" alt="">
     Help</li></a>
 </ul>

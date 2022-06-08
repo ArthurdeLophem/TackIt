@@ -1,5 +1,6 @@
 html {
     scrollbar-width: none;
+    font-family: 'Nunito', sans-serif;
 }
 
 body {
@@ -219,70 +220,103 @@ section {
 .pannelContent {
     height: 66%;
     display: flex;
+    width: 100%;
 }
 
 .pannel li {
     list-style-type: none;
 }
 
-#pannelInfo {
+.pannelInfo {
+    width: 50%;
     height: 100%;
-    width: 60%;
-    margin-left: 0;
-    padding-left: 0;
 }
 
-#pannelButtons {
-
-    width: 40%;
-}
-
-#pannelButtons ul {
-    height: 100%;
-    margin-bottom: 0;
-}
-
-#pannelButtons li {
-    height: 50%;
-    padding-left: 6%;
-    padding-top: 7%;
-}
-
-#pannelInfo li {
-    padding-left: 10%;
-}
-
-#pannelInfo ul {
-    height: 100%;
-    margin-bottom: 0;
-}
-
-#pannelInfo ul li {
-    padding-top: 3.5%;
-    box-sizing: border-box;
-    list-style-type: none;
-    height: 50%;
+.pannelInfo ul{
+    display: flex;
     width: 100%;
+    height: 100%;
+    flex-direction: column;
 }
 
-#pannelInfo li:first-child {
+.pannelInfo li {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50%;
+    border-right: 1.5px solid #C4C4C4;
+    padding-left: 5%;
+}
 
-    border-color: #C4C4C4;
+.pannelInfo li >:nth-child(2) {
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+.pannelInfo li >:nth-child(3) {
+    font-size: 1em;
+    color: #7D7E83;
+}
+
+.pannelInfo li >:nth-child(2), .pannelInfo li >:nth-child(3) {
+    width: 40%;
+
+}
+.pannelInfo li >:nth-child(1) {
+    width: 20%;
+} 
+
+.pannelInfo li:first-of-type{
     border-bottom: 1.5px solid #C4C4C4;
-    border-right: 1.5px solid #C4C4C4;
 }
 
-#pannelInfo li:nth-child(2) {
-
-    border-color: #C4C4C4;
-    border-right: 1.5px solid #C4C4C4;
-}
-
-
-#pannelInfo ul {
+.pannelInfo ul {
     padding-left: 0;
 }
 
+
+.pannelButtons {
+    width: 50%;
+}
+
+.pannelButtons li {
+    display: flex;
+    align-items: center;
+    height: 50%;
+}
+
+.pannelButtons li:first-of-type div {
+    width: 10%;
+    text-align: center;
+} 
+.pannelButtons li:first-of-type >:nth-child(2) {
+    font-size: 1.5em;
+    width: 80%;
+    padding-left: 10%;
+} 
+
+.pannelButtons li:last-of-type div {
+    text-align: center;
+    width: 10%;
+} 
+
+.pannelButtons li:last-of-type img {
+    width: 60%;
+} 
+.pannelButtons li:last-of-type >:nth-child(2) {
+    font-size: 1.5em;
+    width: 80%;
+    padding-left: 10%;
+    color: black;
+} 
+.pannelButtons li:last-of-type >:nth-child(2):hover {
+    text-decoration: none;
+} 
+
+.pannelButtons ul {
+    height: 100%;
+}
 
 /* Gemeente Dashboard content */
 
@@ -444,17 +478,22 @@ section {
 
 
 .projectListing-title {
-    border-color: #C4C4C4;
-    border-right-style: solid;
     width: 27.5%;
 }
 
 .projectListing-title ul li {
-    padding-top: 6%;
-    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
     height: 50%;
     width: 100%;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.projectListing-title li:first-of-type {
+    border-right: 1.5px solid #C4C4C4;
 }
 
 .projectListing-title ul li:nth-child(2) {
@@ -465,6 +504,7 @@ section {
 .projectListing-title ul {
     text-align: center;
     height: 100%;
+    width: 100%;
     padding-left: 0 !important;
 }
 
@@ -472,28 +512,45 @@ section {
 
 .projectListing-info {
     width: 27.5%;
+    height: 100%;
 }
 
 .projectListing-info ul li {
     list-style-type: none;
-    height: 33%;
+    height: 50%;
     width: 100%;
     display: flex;
     box-sizing: border-box;
     align-items: center;
     justify-content: flex-start;
     padding-left: 3%;
-    padding-top: 3%;
 
 }
 
+
+.projectListing-info ul li:first-of-type {
+    border-bottom: 1.5px solid #C4C4C4;
+}
+
+.projectListing-info ul li:last-of-type {
+    border-left: none!important;
+}
+
+.projectListing-info ul li:last-of-type p:first-of-type {
+    padding-left: 0;
+}
+
 .projectListing-info ul li p {
+    border-left: none!important;
     box-sizing: border-box;
     width: 40%;
 }
 
 .projectListing-info ul p:first-of-type {
     padding-left: 10%;
+    font-size: 1.5em;
+    font-weight: 600;
+
 }
 
 .projectListing-info ul {
@@ -513,20 +570,82 @@ section {
     border-bottom: 1.5px solid #C4C4C4;
 }
 
+.projectListing-info li:first-of-type >:nth-child(2), .projectListing-info li:first-of-type >:nth-child(3) {
+    width: 45%;
+}	
+.projectListing-info li:first-of-type >:first-child {
+    width: 10%;
+}
+.projectListing-info li:last-of-type >:first-child {
+    width: 20%;
+}
+.projectListing-info li:first-of-type >:nth-child(3) {
+    font-size: 1.3em;
+    color: #7D7E83;
+}	
 
+.projectListing-info li:last-of-type >:last-child {
+    font-size: 1.3em;
+}
+
+.projectListing-info li:last-of-type {
+    display: flex;
+    align-items: center;
+}
 
 
 .projectListing-button {
     background-color: #3647FC;
     width: 10%;
     border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.projectListing-button img {
-    margin-top: 40%;
-    margin-left: 35%;
+
+.pannelButtons li:first-of-type div:first-of-type {
+    color:#3647FC;
+    font-weight: 600;
+    font-size: 2em;
 }
 
+.projectGListing-info {
+    width: 27.5%;
+}
+.projectGListing-info ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    padding-left: 0;
+}
+.projectGListing-info li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid #C4C4C4;
+    padding-left: 10%;
+
+}
+
+.projectGListing-info li:last-of-type {
+    border-bottom: none;
+}
+
+.projectGListing-info li >:nth-child(1) {
+    width: 10%;
+}
+
+.projectGListing-info li >:nth-child(2), .projectGListing-info li >:nth-child(3) {
+    width: 40%;
+    font-size: 1.3em;
+}
+
+.projectGListing-info li >:nth-child(2) {
+    padding-left: 10%;
+    font-weight: 600;
+}
 
 /* citizenDashboard - project listing */
 .mainBContent {
@@ -553,7 +672,7 @@ section {
     margin-top: 2%;
     margin-left: 5%;
     width: 80%;
-    height: 180px;
+    height: 12%;
     display: flex;
     background-color: white;
     border-radius: 8px;
@@ -567,6 +686,24 @@ section {
     margin-left: 10%;
     margin-top: 24%;
     width: 100%;
+}
+
+.projectListing-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.projectListing-info ul {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.projectListing-info li {
+    height: 33%;
 }
 
 /* new-project */
@@ -996,7 +1133,7 @@ section {
     display: flex;
     align-items: center;
     border-radius: 5px;
-    width: 12%;
+    width: 13%;
     padding: .5% 1% .5% 1%;
     background-color: #3647FC;
     color: white;
@@ -1066,4 +1203,84 @@ section {
     padding: 3px;
     background-color: #3647FC;
     border-radius: 10%;
+}
+
+/* help */
+
+.help-pannel {
+    width: 70%;
+    margin-left: 18%;
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 9px;
+    padding: 2%;
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+        0 2px 2px rgba(0, 0, 0, 0.04),
+        0 4px 4px rgba(0, 0, 0, 0.08),
+        0 8px 8px rgba(0, 0, 0, 0.10);
+
+}  
+
+.help-pannel section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.help-pannel-left {
+    width: 50%;
+    border-right: 1.5px solid #C4C4C4;   
+}
+.help-pannel-right {
+    width: 50%;
+}
+
+.help-pannel-right p {
+    text-align: center;
+     width: 70%;
+}
+
+.help-pannel li {
+    font-size: 1.5em;
+    width: 100%;
+    list-style-type: none;
+    padding-bottom: 2.5%;
+}
+
+.help-pannel p {
+    font-size: 1.5em; 
+}
+
+.help-pannel li:last-of-type {
+    color:#3647FC;
+}
+
+.help-pannel h1 {
+    width: 70%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 3.5em;
+    font-weight: 600;
+    text-align: center;
+    color: #3647FC;
+    margin-bottom: 5%;
+}
+
+.help-pannel-right div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5%;
+    border-radius: 9px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+        0 2px 2px rgba(0, 0, 0, 0.04),
+        0 4px 4px rgba(0, 0, 0, 0.08),
+        0 8px 8px rgba(0, 0, 0, 0.10);
+    color:#3647FC; 
+    margin-bottom: 3%;
+}
+.help-pannel-right div img {
+    margin-bottom: 5%;
 }

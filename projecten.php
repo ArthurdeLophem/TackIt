@@ -52,7 +52,7 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                         <li>Fase 2: cocreatie</li>
                     </ul>
                 </div>
-                <div class="projectListing-info">
+                <div class="projectGListing-info">
                     <ul>
                         <li>
                             <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609817/Tackit_Assets/users_v6ieti.png" alt="I">
