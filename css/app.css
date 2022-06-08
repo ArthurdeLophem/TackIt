@@ -7,8 +7,19 @@ body {
 
 }
 
+p {
+    margin-bottom: 0!important;
+}
 ::-webkit-scrollbar {
     display: none;
+}
+
+
+.blue {
+    color:#3647FC;
+}
+.green {
+    color:#52B69A;
 }
 
 .item {
@@ -116,14 +127,18 @@ section {
 .Navigation {
     margin-top: 3.6%;
     position: fixed;
-    width: 20%;
+    width: 15%;
     font-family: 'Nunito', sans-serif !important;
     font-weight: 600;
 }
 
 .Navigation a {
     text-decoration: none;
-    padding: 10% 20% 10% 20%;
+    padding: 10% 10% 10% 10%;
+}
+
+.Navigation a:hover {
+    text-decoration: none;
 }
 
 .Navigation li {
@@ -132,8 +147,8 @@ section {
     background-color: white;
     list-style-type: none;
     color: black;
-    width: 80%;
-    padding: 10% 20% 10% 20%;
+    width: 90%;
+    padding: 5% 10% 5% 10%;
     margin-left: 0;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
         0 2px 2px rgba(0, 0, 0, 0.04),
@@ -229,8 +244,8 @@ section {
 
 #pannelButtons li {
     height: 50%;
-    padding-left: 10%;
-    padding-top: 13%;
+    padding-left: 6%;
+    padding-top: 7%;
 }
 
 #pannelInfo li {
@@ -243,7 +258,7 @@ section {
 }
 
 #pannelInfo ul li {
-    padding-top: 6%;
+    padding-top: 3.5%;
     box-sizing: border-box;
     list-style-type: none;
     height: 50%;
@@ -253,14 +268,14 @@ section {
 #pannelInfo li:first-child {
 
     border-color: #C4C4C4;
-    border-bottom-style: solid;
-    border-right-style: solid;
+    border-bottom: 1.5px solid #C4C4C4;
+    border-right: 1.5px solid #C4C4C4;
 }
 
 #pannelInfo li:nth-child(2) {
 
     border-color: #C4C4C4;
-    border-right-style: solid;
+    border-right: 1.5px solid #C4C4C4;
 }
 
 
@@ -320,6 +335,23 @@ section {
     padding-left: 3%;
     border-radius: 0 0 8px 8px;
 }
+.dProjectButton a {
+    text-decoration: none;
+    padding-top: 2%;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.dProjectButton a:hover {
+    text-decoration: none;
+    color:black;
+}
+
+.dProjectButton a p {
+    font-size: 2em;
+    margin-left: 1%;
+}
 
 /* Projecten tab */
 
@@ -336,6 +368,11 @@ section {
 .new-project-pannel a {
     color: black;
     text-decoration: none;
+}
+
+.new-project-pannel a:hover {
+    text-decoration: none;
+    color: black;
 }
 
 .new-project-pannel img {
@@ -360,8 +397,11 @@ section {
 }
 
 .filter {
+    display: flex;
+    align-items: center;
     width: 15%;
-    padding: 0.5% 1% 0 1%;
+    font-size: 1.5em;
+    padding: 0.5% 1% 0.5% 1%;
     background-color: white;
     margin-right: 1%;
     border-radius: 8px;
@@ -369,6 +409,11 @@ section {
         0 2px 2px rgba(0, 0, 0, 0.04),
         0 4px 4px rgba(0, 0, 0, 0.08),
         0 8px 8px rgba(0, 0, 0, 0.10);
+}
+
+.filter select {
+    border: none;
+    width: 100%;
 }
 
 .filterTitle {
@@ -459,13 +504,13 @@ section {
 
 .projectListing-info li:first-child {
     border-color: #C4C4C4;
-    border-bottom-style: solid;
+    border-bottom: 1.5px solid #C4C4C4;
 
 }
 
 .projectListing-info li:nth-child(2) {
     border-color: #C4C4C4;
-    border-bottom-style: solid;
+    border-bottom: 1.5px solid #C4C4C4;
 }
 
 
@@ -546,6 +591,10 @@ section {
     border-radius: 9px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+        0 2px 2px rgba(0, 0, 0, 0.04),
+        0 4px 4px rgba(0, 0, 0, 0.08),
+        0 8px 8px rgba(0, 0, 0, 0.10);
 }
 
 .communicatie {
@@ -555,6 +604,10 @@ section {
     width: 70%;
     height: 100%;
     border-radius: 9px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+        0 2px 2px rgba(0, 0, 0, 0.04),
+        0 4px 4px rgba(0, 0, 0, 0.08),
+        0 8px 8px rgba(0, 0, 0, 0.10);
 }
 
 .project-name {
@@ -769,4 +822,248 @@ section {
         padding-left: 30px;
         height: 70px;
     }
+}
+
+/* users */
+
+.users-personeel {
+    width: 40%;
+    margin-bottom: 1%;
+}
+
+.users-burgers {
+    width: 40%;
+}
+
+.users-nav {
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.users-nav div{
+    display: flex;
+    background-color: white;
+    padding: 1%;
+    width: 15%;
+    border-radius: 6px;
+    align-items: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+    0 2px 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.08),
+    0 8px 8px rgba(0, 0, 0, 0.10);
+}
+
+.users-nav div p {
+    margin-right: 10%;
+}
+
+.users-content {
+    padding: 1%;
+    background-color: white;
+    border-radius: 9px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+        0 2px 2px rgba(0, 0, 0, 0.04),
+        0 4px 4px rgba(0, 0, 0, 0.08),
+        0 8px 8px rgba(0, 0, 0, 0.10);
+}
+
+.users-content ul {
+    padding-left: 0;
+}
+
+.user-item div {
+    display: flex;
+    align-items: center;
+    padding: 1%;
+    justify-content: space-between;
+}
+
+.user-item div > * {
+    margin-right: 3%;
+}
+.user-item {
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
+    list-style-type: none;
+    border-bottom: 1px solid #C4C4C4;
+    font-size: 1.25em!important;
+}
+.user-item h2 {
+    font-size: 1.25em!important;
+}
+
+.user-item div p:nth-of-type(2) {
+    color: #7D7E83;
+}
+.user-item div p:nth-of-type(1) {
+    font-weight: bold;
+}
+
+.users-content ul li:last-child {
+    border-bottom: none;
+}
+
+.user-content-section {
+    margin-top: 5%;
+    margin-left: 30%;
+    width: 100%;
+}
+
+.users-nav select{
+    border: none;
+    background-color: white;
+    width: 100%;
+
+}
+
+
+/* settings */
+
+.settings-content {
+
+    margin-left: 30%;
+    margin-top:5%;
+
+}
+
+.settings-content h3 {
+    margin-bottom: 2%;
+}
+
+.settings-pannel {
+    background-color: white;
+    width: 55%;
+    border-radius: 9px;
+    padding: 2%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+    0 2px 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.08),
+    0 8px 8px rgba(0, 0, 0, 0.10);
+}
+
+.settings-pannel form div {
+    display: flex;
+    align-items: center;
+ 
+    margin-bottom: 3%;
+    border-bottom: 1px solid #C4C4C4;
+    padding-bottom: 2.5%;
+    
+}
+
+.settings-pannel form div:nth-child(3) {
+    border-bottom: none;
+}
+
+.settings-pannel form div > * {
+    width: 10%;
+    margin-right: 3%;
+}
+
+
+
+.settings-pannel form div p:first-child {
+    font-weight: bold;
+}
+.settings-pannel form div:first-child img {
+    width: 3%;
+    height: 3%;
+    padding: 3px;
+    background-color: #3647FC;
+    border-radius: 10%;
+}
+.settings-pannel form div:nth-child(2) img {
+    width: 3%;
+    height: 3%;
+}
+
+.settings-pannel div #settings-file {
+    display: none;
+}
+
+.settings-pannel button {
+    border: none;
+    border-radius: 5px;
+    width: 12%;
+    padding: 0.5% 1% 0.5% 1%;
+    background-color: #3647FC;
+    color: white;
+    margin-bottom: 0;
+}
+
+.settings-pannel div label {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 12%;
+    padding: .5% 1% .5% 1%;
+    background-color: #3647FC;
+    color: white;
+    margin-bottom: 0;
+}
+.settings-pannel div label img {
+    margin-left: 10%;
+}
+
+/* account */
+
+.account {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 8%;
+    background-color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+    0 2px 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.08),
+    0 8px 8px rgba(0, 0, 0, 0.10);
+    padding: 1%;
+    border-radius: 9px;
+}
+
+.account div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 2.5%;
+    border-bottom: 1.5px solid #C4C4C4;
+    padding-bottom: 2.5%;
+    justify-content: space-between;
+}
+
+.account div:last-of-type {
+    border-bottom: none;
+}
+
+.account div:nth-child(2) div img:first-of-type{
+    width: 25%;
+}
+
+.account div:nth-child(2) div {
+    width: 30%;
+}
+
+.account div p:first-of-type {
+    font-weight: bold;
+}
+
+.account div > * {
+    width: 30%;
+}
+.account h1 {
+    border-right: 1.5px solid #C4C4C4;
+    padding-right: 2.5%;
+    box-sizing: border-box;
+    width: 40%;
+}
+
+.account div:first-of-type img{
+    width: 20%;
+}
+.wrench {
+    width: 3%!important;
+    height: 3%!important;
+    padding: 3px;
+    background-color: #3647FC;
+    border-radius: 10%;
 }

@@ -65,7 +65,7 @@ include_once("inc/navdefiner.inc.php");
                     </div>
                 </div>
             </div>
-            <button class="form-c"><a href="Dashboard.php">annuleren</a></button>
+            <button class="form-c"><a href="dashboard.php">annuleren</a></button>
             <button class="form-n" type="submit" action="submit">Volgende</button>
         </section>
     </form>

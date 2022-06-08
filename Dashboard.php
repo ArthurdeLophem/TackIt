@@ -33,12 +33,12 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 <section id="pannelInfo" class="d-inline-block">
                 <ul>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
+                        <div class="d-inline-block"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539701/Tackit_Assets/clock_xk008v.png" alt=""></div>
                         <div class="d-inline-block"><p>45 u.</p></div>
                         <div class="d-inline-block"><p>Tijd Resterend</p></div>
                     </li>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
+                        <div class="d-inline-block"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539695/Tackit_Assets/approve_image_wklbws.png" alt="i"></div>
                         <div class="d-inline-block"><p>68%</p></div>
                         <div class="d-inline-block"><p>voltooide Projecten</p></div> 
                     </li>
@@ -47,11 +47,11 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 <section id="pannelButtons" class="d-inline-block">
                 <ul>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
+                        <div class="d-inline-block"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539711/Tackit_Assets/data_siyjhb.png" alt="i"></div>
                         <div class="d-inline-block"><p>Data</p></div>
                     </li>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
+                        <div class="d-inline-block"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539706/Tackit_Assets/Setting_fkdj6a.png" alt="i"></div>
                         <div class="d-inline-block"><p>Settings</p></div>
                     </li>
                 </ul>
@@ -66,7 +66,8 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 background-repeat: no-repeat;
                 background-size: cover;">
             <div class=dProjectButton>
-                <a href="new-project.php"><img src="" alt=""><p>Start een nieuw project</p></a>
+                <a href="new-project.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539681/Tackit_Assets/add_folder_mlujzj.png" alt="">
+                <p class="blue">Start</p><p>een nieuw project</p></a>
             </div>
         </section>
         <section id="dAllProjects" class="d-inline-block" 
@@ -74,11 +75,12 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 background-repeat: no-repeat;
                 background-size: cover;">
             <div class=dProjectButton>
-            <a href=""><img src="" alt=""><p>Alle projecten</p></a>
+            <a href="projecten.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539688/Tackit_Assets/landscape_document_j9qbib.png" alt="">
+            <p class="green">Alle</p><p>projecten</p></a>
             </div>
         </section>
         <section id="dStats" class="d-inline-block">
-            <div ></div>
+            <div></div>
         </section>
 
     </div>
