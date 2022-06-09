@@ -177,7 +177,15 @@ section {
     color: white !important;
 }
 
+@media only screen and (max-width: 1440px) {
 
+
+.Navigation li {
+    font-size: 1em;
+}
+
+
+}    
 
 
 
@@ -317,6 +325,13 @@ section {
 .pannelButtons ul {
     height: 100%;
 }
+
+@media screen and (max-width: 1440px) {
+    .pannelButtons li:last-of-type div img{
+        width: 100%;
+    }
+}
+    
 
 /* Gemeente Dashboard content */
 
@@ -647,6 +662,40 @@ section {
     font-weight: 600;
 }
 
+
+@media screen and (max-width: 1440px) {
+
+    .pannelButtons ul {
+        padding-left: 0;
+    }
+
+    .pannelButtons li div:first-of-type {
+        width: 40%;
+    }
+    .pannelButtons li >:nth-child(2) {
+        width: 60%!important;
+        padding-left: 0!important;
+    }
+
+    .pannelButtons li >:nth-child(2) p{
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .pannelButtons li:last-of-type div img {
+        width: 50%;
+    }
+
+    .pannelButtons li:first-of-type div:first-of-type img {
+        width: 40%;
+    }
+
+    .BpannelResume {
+        width: 20%!important;
+    }
+    
+}
+
 /* citizenDashboard - project listing */
 .mainBContent {
     display: flex;
@@ -912,6 +961,45 @@ section {
     color: white;
 }
 
+
+@media only screen and (max-width: 1440px) {
+
+    .BprojectListing {
+        width: 90%;
+    }
+
+    .projectListing-title ul li {
+        font-size: 1.5em;
+    }
+
+    .projectListing-info li:first-of-type >:nth-child(3) {
+        font-size: 1em;
+    }
+
+    .projectListing-info li:last-of-type >:last-child {
+        font-size: 1em;
+        width: 60%;
+        margin-left: 10%;
+    }
+
+    }
+
+    @media only screen and (max-width: 1920px) {
+
+        
+       .BprojectListing .projectListing-info ul li p {
+           width: 60%;
+           margin-left: 10%;
+       }
+
+       .BprojectListing .projectListing-info li:first-of-type >:nth-child(2), .projectListing-info li:first-of-type >:nth-child(3) {
+           width: 20%;
+           padding-left: 0;
+           font-size: 1em;
+           margin-left:5%;
+       }
+    }
+
 /* media query */
 @media only screen and (max-width: 1440px) {
 
@@ -951,13 +1039,21 @@ section {
     }
 
     .projectListings {
-        margin-top: 10%;
+        margin-top: 5%;
     }
 
     .Navigation li {
         padding-top: 15px;
         padding-left: 30px;
         height: 70px;
+    }
+
+    .filterSection {
+        margin-top: 45%;
+    }
+
+    .user-item h2 {
+        font-size: 1em!important;
     }
 }
 
@@ -1027,7 +1123,7 @@ section {
     font-size: 1.25em!important;
 }
 .user-item h2 {
-    font-size: 1.25em!important;
+    font-size: 1.25em;
 }
 
 .user-item div p:nth-of-type(2) {
@@ -1142,6 +1238,25 @@ section {
 .settings-pannel div label img {
     margin-left: 10%;
 }
+
+@media screen and (max-width: 1920px) {
+    .settings-pannel form div > * {
+        width: auto;
+    }
+
+    .settings-pannel div label {
+        padding-right: 2.8%;
+    }
+}
+@media screen and (max-width: 1440px) {
+
+    .settings-pannel form div:first-child img {
+        padding: 1px;
+    }
+}
+    
+
+    
 
 /* account */
 
@@ -1283,4 +1398,13 @@ section {
 }
 .help-pannel-right div img {
     margin-bottom: 5%;
+}
+
+@media screen and (max-width: 1920px) {
+    
+    .help-pannel {
+        margin-top: 10%;
+        margin-bottom: 2%;
+    }
+    
 }
