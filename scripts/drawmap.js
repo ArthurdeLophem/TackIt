@@ -1,11 +1,13 @@
 //inotializing the map
 const targetZone = document.querySelector("#map");
-const latitude = 50.8144;
-const longitude = 4.8855;
+const latitude = 51.0259;
+const longitude = 4.4776;
 const map = L.map('map', {
     center: [latitude, longitude],
     zoom: 19,
 })
+
+const items = [];
 
 //get map from osm
 L.tileLayer(
@@ -16,24 +18,47 @@ L.tileLayer(
 }).addTo(map);
 
 drawItems = (item) => {
-    console.log(item)
     itemType = item.itemType;
+    imagePath = "/css/images/items/" + itemType + ".svg"
+    console.log(itemType)
 
-    //imagePath = "/css/images/" + itemType + ".png"
-    imagePath = "https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png"
-
-    //console.log(imagePath);
     newIcon = L.icon({
         iconUrl: imagePath,
         iconSize: [50, 50]
     })
 
-    coordinates = [item.coordinates.lat, item.coordinates.lng];
+    coordinates = { "lat": item.coordinates.lat, "lng": item.coordinates.lng };
 
-    //console.log(coordinates + imagePath)
-    newMarker = L.marker(coordinates, {
-        icon: newIcon
+    aMarker = L.marker(coordinates, {
+        icon: newIcon,
+        draggable: true,
+        itemType: itemType
     }).addTo(map)
+
+    items.push({ "coordinates": coordinates, "itemType": itemType })
+    console.log(items)
+
+    let oldCoords
+
+    aMarker.addEventListener('mousedown', (e) => {
+        oldCoords = e.target.getLatLng(e)
+        itemType = e.target.options.itemType
+    })
+
+    aMarker.addEventListener('dragend', (e) => {
+        const getIndex = items.findIndex(item => {
+            if (item.coordinates.lat == oldCoords.lat && item.coordinates.lng == oldCoords.lng) return true
+        });
+
+        console.log(oldCoords + itemType)
+        console.log(getIndex)
+
+        newCoordinates = e.target.getLatLng(e);
+        //itemType = items[getIndex].itemType
+
+        items.push({ "coordinates": newCoordinates, "itemType": itemType })
+        items.splice(getIndex, 1)
+    })
 }
 
 getItems = (e) => {
