@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 24, 2022 at 02:34 PM
--- Server version: 5.7.24
--- PHP Version: 8.0.1
+-- Host: 127.0.0.1
+-- Generation Time: Jun 09, 2022 at 05:46 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,13 +30,22 @@ SET time_zone = "+00:00";
 CREATE TABLE `project` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `created_by` int(11) NOT NULL,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
-  `created_at` datetime NOT NULL,
-  `budget` int(11) NOT NULL
+  `budget` int(11) NOT NULL,
+  `start_date_cocreatie` datetime NOT NULL,
+  `start_date_voting` datetime NOT NULL,
+  `end_date_cocreatie_voting` datetime NOT NULL,
+  `Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `name`, `start_date`, `end_date`, `budget`, `start_date_cocreatie`, `start_date_voting`, `end_date_cocreatie_voting`, `Type`) VALUES
+(1, 'weeble', '2022-06-02 00:00:00', '2022-06-10 00:00:00', 654165, '2022-07-01 00:00:00', '2022-06-12 00:00:00', '2022-06-29 00:00:00', 'renovatie'),
+(2, 'weeble', '2022-06-02 00:00:00', '2022-06-10 00:00:00', 654165, '2022-07-01 00:00:00', '2022-06-12 00:00:00', '2022-06-29 00:00:00', 'renovatie');
 
 -- --------------------------------------------------------
 
@@ -44,20 +53,21 @@ CREATE TABLE `project` (
 -- Table structure for table `project_items`
 --
 
-CREATE TABLE `creatie` (
+CREATE TABLE `project_items` (
   `id` int(11) NOT NULL,
-  `items` json DEFAULT NULL,
+  `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`items`)),
   `user_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `status` varchar(255) NOT NULL,
+  `budget` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `project_items`
 --
 
-INSERT INTO `creatie` (`id`, `items`, `user_id`, `project_id`, `status`) VALUES
-(8, '[{\"itemType\": \"boom\", \"coordinates\": {\"lat\": 50.81462244629948, \"lng\": 4.885061749853978}}, {\"itemType\": \"fontein\", \"coordinates\": {\"lat\": 50.81435833697735, \"lng\": 4.885372658123429}}]', 1, 1, 'finished');
+INSERT INTO `project_items` (`id`, `items`, `user_id`, `project_id`, `status`, `budget`) VALUES
+(8, '[{\"itemType\": \"boom\", \"coordinates\": {\"lat\": 50.81462244629948, \"lng\": 4.885061749853978}}, {\"itemType\": \"fontein\", \"coordinates\": {\"lat\": 50.81435833697735, \"lng\": 4.885372658123429}}]', 1, 1, 'finished', '');
 
 -- --------------------------------------------------------
 
@@ -80,7 +90,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `ProfilePicture`, `Type`) VALUES
 (1, 'burger', 'test@test.com', '$2y$12$0aEeqD8GSuVMM3a/ML.7D.gcIIDNMzE/jF3NvamIR8SWMiMEVqTsS', NULL, 0),
-(2, 'testGemeente', 'test2@test.com', '$2y$12$nG/HZmGWP6qoItPCBzxXxeAAfz2chYG.bwbYKpMDYsy4nulv6PqPK', NULL, 1);
+(2, 'testGemeente', 'test2@test.com', '$2y$12$nG/HZmGWP6qoItPCBzxXxeAAfz2chYG.bwbYKpMDYsy4nulv6PqPK', NULL, 1),
+(3, 'testB', 'testB@test.com', '$2y$12$.lWQbnLSsBBB1SJDvt2SM.GtFoo1mxHsWXyf7JiSGHv75igHygBTC', NULL, 0),
+(4, 'testG', 'testG@test.com', '$2y$12$g2DIRHfSkwnnqqsvbzMb9uQpGLXyrCKFcs0TbSvKIvH63dSybh34y', NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -95,7 +107,7 @@ ALTER TABLE `project`
 --
 -- Indexes for table `project_items`
 --
-ALTER TABLE `creatie`
+ALTER TABLE `project_items`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -112,19 +124,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `project_items`
 --
-ALTER TABLE `creatie`
+ALTER TABLE `project_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
