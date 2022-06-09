@@ -1787,3 +1787,137 @@ input[type="date"] {
     text-decoration: none;
     color: white;
 }
+
+.vereisten-popup div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.vereisten-popup div:first-of-type {
+    justify-content: space-between;
+}
+
+.vereisten-popup div:first-of-type img {
+    width: 5%;
+    height: 5%;
+}
+
+.vereisten-popup h3 {
+    margin-top: 0;
+}
+
+.vereisten-popup select {
+    margin-right: 5%;
+}
+
+.vereisten-popup select, .vereisten-popup input  {
+    padding: 1%;
+    border:none;
+    border-radius: 3px;
+    background-color: #F4F2F3;
+}
+
+.vereisten-popup p {
+    background-color: #3647FC;
+    color: white;
+    width: 25%;
+    text-align: center;
+    padding: 2%;
+    border-radius: 3px;
+}
+
+.vereisten-popup {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+    0 2px 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.08),
+    0 8px 8px rgba(0, 0, 0, 0.10);
+    z-index: 10;
+    position: absolute;
+    margin-left: 18%;
+    margin-top: 15%;
+    width: 12%;
+}
+
+.vereisten-popup-show {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01),
+    0 2px 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.08),
+    0 8px 8px rgba(0, 0, 0, 0.10);
+    z-index: 10;
+    position: absolute;
+    margin-left: 18%;
+    margin-top: 15%;
+    width: 12%;
+}
+
+.vereisten-popup-show p {
+    background-color: #3647FC;
+    color: white;
+    width: 25%;
+    text-align: center;
+    padding: 2%;
+    border-radius: 3px;
+}
+
+.vereisten-popup-show div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.vereisten-popup-show div:first-of-type {
+    justify-content: space-between;
+}
+
+.vereisten-popup-show div:first-of-type img {
+    width: 5%;
+    height: 5%;
+}
+
+.vereisten-popup-show h3 {
+    margin-top: 0;
+}
+
+.vereisten-popup-show select {
+    margin-right: 5%;
+}
+
+.vereisten-popup-show select, .vereisten-popup input  {
+    padding: 1%;
+    border:none;
+    border-radius: 3px;
+    background-color: #F4F2F3;
+}
+
+.vereisten {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vereisten li {
+    list-style: none;
+    margin-right: 15%;
+}
+.vereisten div {
+    width: 100%;
+    padding: 10%;
+    color: black;
+    background-color: #F4F2F3;
+
+}
+.vereisten div p:first-of-type {
+    margin-right: 5%;
+}

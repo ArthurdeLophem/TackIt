@@ -1,10 +1,12 @@
 <?php
 use tackit\core\Project;
+use tackit\core\Vereisten;
 
 require __DIR__ . '/vendor/autoload.php';
 include_once("inc/navdefiner.inc.php");
 
 if (!empty($_POST)) {
+
     $project = new Project();
     $project->setTitle($_POST['title']);
     $project->setStartdatum($_POST['startdatum-project']);
@@ -14,8 +16,21 @@ if (!empty($_POST)) {
     $project->setStartdatum_cocreatie($_POST['startdatum-cocreatie']);
     $project->setStartdatum_cocreatie_voting($_POST['startdatum-cocreatie-voting']);
     $project->setEinddatum_cocreatie_voting($_POST['einddatum-cocreatie-voting']);
+    $project->save();
+
+    $liCount = $_POST['liCount'];
+
+    for($i = 0; $i < $liCount; $i++) {
+        $number = $i + 1;
+        $vereisten = new Vereisten();
+        $vereisten->setItem($_POST['vereisten-item-' . $number]);
+        $vereisten->setAmount((int)$_POST['vereisten-hoeveelheid-' . $number]);
+        $vereisten->setProjectId($project->getId());
+        $vereisten->save();
+    };
+
     session_start();
-    $_SESSION['project'] = $project;
+    $_SESSION['project_id'] = $project->getId();
     header("Location: new-project-next.php");
 };    
 
@@ -69,14 +84,32 @@ if (!empty($_POST)) {
                 <input type="text" name="budget">
             </div>
             <div class="form-vereisten">
+                <input id="hiddenCounter" type="hidden" name="liCount">
                 <label for="">
                    <p>Vereisten</p> 
                 </label>
-                <div>
+                <div onclick="vereistenPopupShow()">
                     <p>Vereisten toevoegen</p>
                     <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654774526/Tackit_Assets/Vector_gelxnu.png" alt="U">
                 </div>
-                <ul id="vereisten"></ul>
+                <ul id="vereisten" class="vereisten"></ul>
+            </div>
+            <div id="vereisten-popup" class="vereisten-popup">
+                <div>
+                    <h3>Vereisten</h3>
+                    <img onclick="vereistenPopupHide()" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654791984/Tackit_Assets/Vector_rsybph.png" alt="X">
+                </div>    
+                <div>
+                    <select name="vereisten-selector" id="vereisten-selector">
+                        <option value="bomen">bomen</option>
+                        <option value="straatlamp">straatlamp</option>
+                        <option value="fontein">fontein</option>
+                        <option value="bank">bank</option>
+                        <option value="struik">struik</option>
+                    </select> 
+                    <input class="vereisten-hoeveelheid" type="text" placeholder="hoeveelheid">
+                </div>    
+                <p onclick="vereistenAdd()" class="vereisten-confirm">Toevoegen</p>
             </div>
         </section>
         <section class="communicatie">
@@ -115,5 +148,7 @@ if (!empty($_POST)) {
             <button class="form-n" type="submit">Volgende</button>
         </section>
     </form>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

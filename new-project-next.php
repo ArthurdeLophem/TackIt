@@ -4,30 +4,23 @@
     require __DIR__ . '/vendor/autoload.php';
     include_once("inc/navdefiner.inc.php");
 
-    $project = $_SESSION['project'];
+    $projectId = $_SESSION['project_id'];
 
-    $projectTitle = $project->getTitle();
-    $projectStartdatum = $project->getStartdatum();
-    $projectEinddatum = $project->getEinddatum();
-    $projectType = $project->getType();
-    $projectBudget = $project->getBudget();
-    $projectStartdatum_cocreatie = $project->getStartdatum_cocreatie();
-    $projectStartdatum_cocreatie_voting = $project->getStartdatum_cocreatie_voting();
-    $projectEinddatum_cocreatie_voting = $project->getEinddatum_cocreatie_voting();
+    $project = Project::getProject($projectId);
 
+    $projectTitle = $project['name'];
+    $projectStartdatum = $project['start_date'];
+    $projectEinddatum = $project[('end_date')];
+    $projectType = $project['Type'];
+    $projectBudget = $project['budget'];
+    $projectStartdatum_cocreatie = $project['start_date_cocreatie'];
+    $projectStartdatum_cocreatie_voting = $project['start_date_voting'];
+    $projectEinddatum_cocreatie_voting = $project['end_date_cocreatie_voting'];
 
+    
     if (!empty($_POST)) {
 
-    $saveProject = new Project();
-    $saveProject->setTitle($projectTitle);
-    $saveProject->setStartdatum($projectStartdatum);
-    $saveProject->setEinddatum($projectEinddatum);
-    $saveProject->setType($projectType);
-    $saveProject->setBudget($projectBudget);
-    $saveProject->setStartdatum_cocreatie($projectStartdatum_cocreatie);
-    $saveProject->setStartdatum_cocreatie_voting($projectStartdatum_cocreatie_voting);
-    $saveProject->setEinddatum_cocreatie_voting($projectEinddatum_cocreatie_voting);
-    $saveProject->save();
+
     header("Location: dashboard.php");
 
     };

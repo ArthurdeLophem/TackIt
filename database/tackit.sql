@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2022 at 05:46 PM
+-- Generation Time: Jun 09, 2022 at 08:25 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -38,14 +38,6 @@ CREATE TABLE `project` (
   `end_date_cocreatie_voting` datetime NOT NULL,
   `Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `project`
---
-
-INSERT INTO `project` (`id`, `name`, `start_date`, `end_date`, `budget`, `start_date_cocreatie`, `start_date_voting`, `end_date_cocreatie_voting`, `Type`) VALUES
-(1, 'weeble', '2022-06-02 00:00:00', '2022-06-10 00:00:00', 654165, '2022-07-01 00:00:00', '2022-06-12 00:00:00', '2022-06-29 00:00:00', 'renovatie'),
-(2, 'weeble', '2022-06-02 00:00:00', '2022-06-10 00:00:00', 654165, '2022-07-01 00:00:00', '2022-06-12 00:00:00', '2022-06-29 00:00:00', 'renovatie');
 
 -- --------------------------------------------------------
 
@@ -94,6 +86,19 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `ProfilePicture`, `T
 (3, 'testB', 'testB@test.com', '$2y$12$.lWQbnLSsBBB1SJDvt2SM.GtFoo1mxHsWXyf7JiSGHv75igHygBTC', NULL, 0),
 (4, 'testG', 'testG@test.com', '$2y$12$g2DIRHfSkwnnqqsvbzMb9uQpGLXyrCKFcs0TbSvKIvH63dSybh34y', NULL, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vereisten`
+--
+
+CREATE TABLE `vereisten` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `item` varchar(255) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -117,6 +122,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `vereisten`
+--
+ALTER TABLE `vereisten`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -124,7 +135,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `project_items`
@@ -137,6 +148,12 @@ ALTER TABLE `project_items`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `vereisten`
+--
+ALTER TABLE `vereisten`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
