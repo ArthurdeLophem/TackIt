@@ -119,13 +119,8 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                             <p>Info</p>
                         </li>
                         <li>
-<<<<<<< HEAD
                             <div><a href="projectMapper.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694880/Tackit_Assets/Vector_v82hfd.png" alt="i"></a></div>
                             <a href="projectMapper.php"><p>Hervatten</p></a>
-=======
-                            <div><a href="project.php"><img class="BpannelResume" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694880/Tackit_Assets/Vector_v82hfd.png" alt="i"></a></div>
-                            <a href="project.php"><p>Hervatten</p></a>
->>>>>>> affff9e896396c120b25f0e9524b8b5bf5f31878
                         </li>
                     </ul>
                     </section>
