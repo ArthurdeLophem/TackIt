@@ -44,7 +44,7 @@ CREATE TABLE `project` (
 -- Table structure for table `project_items`
 --
 
-CREATE TABLE `project_items` (
+CREATE TABLE `creatie` (
   `id` int(11) NOT NULL,
   `items` json DEFAULT NULL,
   `user_id` int(11) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `project_items` (
 -- Dumping data for table `project_items`
 --
 
-INSERT INTO `project_items` (`id`, `items`, `user_id`, `project_id`, `status`) VALUES
+INSERT INTO `creatie` (`id`, `items`, `user_id`, `project_id`, `status`) VALUES
 (8, '[{\"itemType\": \"boom\", \"coordinates\": {\"lat\": 50.81462244629948, \"lng\": 4.885061749853978}}, {\"itemType\": \"fontein\", \"coordinates\": {\"lat\": 50.81435833697735, \"lng\": 4.885372658123429}}]', 1, 1, 'finished');
 
 -- --------------------------------------------------------
@@ -95,7 +95,7 @@ ALTER TABLE `project`
 --
 -- Indexes for table `project_items`
 --
-ALTER TABLE `project_items`
+ALTER TABLE `creatie`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -117,7 +117,7 @@ ALTER TABLE `project`
 --
 -- AUTO_INCREMENT for table `project_items`
 --
-ALTER TABLE `project_items`
+ALTER TABLE `creatie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
