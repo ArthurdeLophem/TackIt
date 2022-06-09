@@ -36,7 +36,7 @@ if (!empty($_POST)) {
             if ($loggedUser) {
                 session_start();
                 $_SESSION['user'] = $loggedUser;
-                header("Location: Dashboard.php");
+                header("Location: dashboard.php");
             }
         } catch (Throwable $e) {
             $error = $e->getMessage();
@@ -51,7 +51,7 @@ if (!empty($_POST)) {
             if ($loggedUser) {
                 session_start();
                 $_SESSION['user'] = $loggedUser;
-                header("Location: Dashboard.php");
+                header("Location: dashboard.php");
             }
         } catch (Throwable $e) {
             $error = $e->getMessage();

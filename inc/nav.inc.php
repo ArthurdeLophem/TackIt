@@ -1,13 +1,27 @@
 <ul class="Navigation">
-    <a href="Dashboard.php"><li class="<?php echo $navClassA; ?>">Dashboard</li></a>
+    <a href="dashboard.php"><li class="<?php echo $navClassA; ?>">
+    <img src="<?php echo $navimgA ?>" alt="">
+    Dashboard</li></a>
     <?php if($userType == 1): ?>
-    <a href="projecten.php"><li class="<?php echo $navClassB; ?>">Projecten</li></a>
+    <a href="projecten.php"><li class="<?php echo $navClassB; ?>">
+    <img src="<?php echo $navimgB ?>" alt="">
+    Projecten</li></a>
     <?php endif ?>
     <?php if($userType == 1): ?>
-    <a href=""><li class="<?php echo $navClassC; ?>">Gebruikers</li></a>
+    <a href="gebruikers.php"><li class="<?php echo $navClassC; ?>">
+    <img src="<?php echo $navimgC ?>" alt="">
+    Gebruikers</li></a>
     <?php endif ?>
-    <a href=""><li class="<?php echo $navClassD; ?>">Instellingen</li></a>
-    <a href="Logout.php"><li class="<?php echo $navClassE; ?>">Logout</li></a>
-    <a href=""><li class="<?php echo $navClassF; ?>">User</li></a>
-    <a href=""><li class="<?php echo $navClassG; ?>">Help</li></a>
+    <a href="instellingen.php"><li class="<?php echo $navClassD; ?>">
+    <img src="<?php echo $navimgD ?>" alt="">
+    Instellingen</li></a>
+    <a href="Logout.php"><li class="<?php echo $navClassE; ?>">
+    <img src="<?php echo $navimgE ?>" alt="">
+    Logout</li></a>
+    <a href="account.php"><li class="<?php echo $navClassF; ?>">
+    <img src="<?php echo $navimgF ?>" alt="">
+    Account</li></a>
+    <a href="help.php"><li class="<?php echo $navClassG; ?>">
+    <img src="<?php echo $navimgG ?>" alt="">
+    Help</li></a>
 </ul>

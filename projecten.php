@@ -20,13 +20,25 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
             background-repeat: no-repeat;
             background-size: cover;">
         <div class="new-project-pannel">
-                <img src="" alt="image"><h2>Start een nieuw project</h2>
+                <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609719/Tackit_Assets/add_folder_obiszy.png" alt="image"><h2>
+                    <a href="new-project.php">    
+                    Start een nieuw project
+                    </a>
+                </h2>
         </div>
 </div>
 
 <div class="filterSection">
     <div class="filterTitle"><h3>Alle Projecten</h3></div>
-    <div class="filter"><p>Sorteren op</p><img src="" alt="V"></div>
+    <div class="filter">
+                <select name="user-filter" id="user-filter">
+                        <option value="">sorteren op</option>
+                        <option value="">Alfabetisch</option>
+                        <option value="">Tijd resterend</option>
+                        <option value="">Participanten</option>
+                        <option value="">Voltooide creaties</option>
+                </select> 
+            </div>
 </div>
 
 <section class="projectListings">
@@ -40,27 +52,27 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                         <li>Fase 2: cocreatie</li>
                     </ul>
                 </div>
-                <div class="projectListing-info">
+                <div class="projectGListing-info">
                     <ul>
                         <li>
-                            <img src="" alt="I">
+                            <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609817/Tackit_Assets/users_v6ieti.png" alt="I">
                             <p>45</p>
                             <p>Participanten</p>
                         </li>
                         <li>
-                            <img src="" alt="I">
+                            <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609817/Tackit_Assets/approve_file_um7l5f.png" alt="I">
                             <p>22</p>
                             <p>Voltooide Creaties</p>
                         </li>
                         <li>
-                            <img src="" alt="I">
+                            <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609817/Tackit_Assets/clock_s1d6jn.png" alt="I">
                             <p>49 u.</p>
                             <p>Tijd resterend</p>
                         </li>
                     </ul>
                 </div>
                 <div class="projectListing-button">
-                    <a href=""><img src="" alt="button"></a>
+                    <a href=""><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609817/Tackit_Assets/Setting_gycl0c.png" alt="button"></a>
                 </div>
             </div>
             <?php endforeach; ?>

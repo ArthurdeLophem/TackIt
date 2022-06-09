@@ -30,29 +30,29 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 <h2>Project - bloemenpark</h2>
             </div>
             <div class="pannelContent">
-                <section id="pannelInfo" class="d-inline-block">
+                <section class="pannelInfo">
                 <ul>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
-                        <div class="d-inline-block"><p>45 u.</p></div>
-                        <div class="d-inline-block"><p>Tijd Resterend</p></div>
+                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539701/Tackit_Assets/clock_xk008v.png" alt=""></div>
+                        <div><p>45 u.</p></div>
+                        <div><p>Tijd Resterend</p></div>
                     </li>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
-                        <div class="d-inline-block"><p>68%</p></div>
-                        <div class="d-inline-block"><p>voltooide Projecten</p></div> 
+                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539695/Tackit_Assets/approve_image_wklbws.png" alt="i"></div>
+                        <div><p>68%</p></div>
+                        <div><p>voltooide Projecten</p></div> 
                     </li>
                 </ul>
                 </section>
-                <section id="pannelButtons" class="d-inline-block">
+                <section class="pannelButtons">
                 <ul>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
-                        <div class="d-inline-block"><p>Data</p></div>
+                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539711/Tackit_Assets/data_siyjhb.png" alt="i"></div>
+                        <div><p>Data</p></div>
                     </li>
                     <li>
-                        <div class="d-inline-block"><img src="" alt="i"></div>
-                        <div class="d-inline-block"><p>Settings</p></div>
+                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539706/Tackit_Assets/Setting_fkdj6a.png" alt="i"></div>
+                        <div><p>Settings</p></div>
                     </li>
                 </ul>
                 </section>
@@ -66,7 +66,8 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 background-repeat: no-repeat;
                 background-size: cover;">
             <div class=dProjectButton>
-                <a href="#"><img src="" alt=""><p>Start een nieuw project</p></a>
+                <a href="new-project.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539681/Tackit_Assets/add_folder_mlujzj.png" alt="">
+                <p class="blue">Start</p><p>een nieuw project</p></a>
             </div>
         </section>
         <section id="dAllProjects" class="d-inline-block" 
@@ -74,11 +75,12 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                 background-repeat: no-repeat;
                 background-size: cover;">
             <div class=dProjectButton>
-            <a href=""><img src="" alt=""><p>Alle projecten</p></a>
+            <a href="projecten.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539688/Tackit_Assets/landscape_document_j9qbib.png" alt="">
+            <p class="green">Alle</p><p>projecten</p></a>
             </div>
         </section>
         <section id="dStats" class="d-inline-block">
-            <div ></div>
+            <div></div>
         </section>
 
     </div>
@@ -96,29 +98,29 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                     <h2>Project - bloemenpark</h2>
                 </div>
                 <div class="pannelContent">
-                    <section id="pannelInfo" class="d-inline-block">
+                    <section class="pannelInfo">
                     <ul>
                         <li>
-                            <div class="d-inline-block"><img src="" alt="i"></div>
-                            <div class="d-inline-block"><p>45 u.</p></div>
-                            <div class="d-inline-block"><p>Tijd Resterend</p></div>
+                            <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654702302/Tackit_Assets/clock_fkiepp.png" alt="i"></div>
+                            <div><p>45 u.</p></div>
+                            <p>Tijd Resterend</p>
                         </li>
                         <li>
-                            <div class="d-inline-block"><img src="" alt="i"></div>
-                            <div class="d-inline-block"><p>68%</p></div>
-                            <div class="d-inline-block"><p>Voltooid</p></div> 
+                            <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694895/Tackit_Assets/image_reload_xw5b7d.png" alt="i"></div>
+                            <div><p>68%</p></div>
+                            <p>Voltooid</p> 
                         </li>
                     </ul>
                     </section>
-                    <section id="pannelButtons" class="d-inline-block">
+                    <section class="pannelButtons">
                     <ul>
                         <li>
-                            <div class="d-inline-block"><img src="" alt="i"></div>
-                            <div class="d-inline-block"><p>Info</p></div>
+                            <div><p>i</p></div>
+                            <p>Info</p>
                         </li>
                         <li>
-                            <div class="d-inline-block"><img src="" alt="i"></div>
-                            <div class="d-inline-block"><a href="project.php"><p>Hervatten</p></a></div>
+                            <div><a href="projectMapper.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694880/Tackit_Assets/Vector_v82hfd.png" alt="i"></a></div>
+                            <a href="projectMapper.php"><p>Hervatten</p></a>
                         </li>
                     </ul>
                     </section>
@@ -142,24 +144,18 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                             <div class="projectListing-info">
                                 <ul>
                                     <li>
-                                        <img src="" alt="I">
-                                        <p>45</p>
-                                        <p>Participanten</p>
-                                    </li>
-                                    <li>
-                                        <img src="" alt="I">
-                                        <p>22</p>
-                                        <p>Voltooide Creaties</p>
-                                    </li>
-                                    <li>
-                                        <img src="" alt="I">
+                                        <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609817/Tackit_Assets/clock_s1d6jn.png" alt="I">
                                         <p>49 u.</p>
                                         <p>Tijd resterend</p>
+                                    </li>
+                                    <li>
+                                        <p>Type</p>
+                                        <p>Park renovatie</p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="projectListing-button">
-                                <a href=""><img src="" alt="button"></a>
+                                <a href="projectMapper.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694716/Tackit_Assets/start_npchap.png" alt="button"></a>
                             </div>
                     </div>
                     <?php endforeach; ?>    
