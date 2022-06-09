@@ -9,6 +9,7 @@
     use PDO;
 
     class Project {
+        private $id;
         private $title;
         private $startdatum;
         private $einddatum;
@@ -115,6 +116,10 @@
 
                 return $this;
         }
+        public function getId()
+        {
+                return $this->id;
+        }
 
         public function save() {
             $conn = DB::getConnection();
@@ -129,5 +134,25 @@
             $statement->bindValue(':startdatum_cocreatie_voting', $this->startdatum_cocreatie_voting);
             $statement->bindValue(':einddatum_cocreatie_voting', $this->einddatum_cocreatie_voting);
             $statement->execute();
+            $statement2 = $conn->prepare("SELECT LAST_INSERT_ID()");
+            $statement2->execute();
+            $this->id = $statement2->fetchColumn();
+
+        }
+
+        public function delete() {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("DELETE FROM project WHERE id = :id");
+                $statement->bindValue(':id', $this->id);
+                $statement->execute();
+        }
+
+        public static function getProject($id) {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("SELECT * FROM project WHERE id = :id");
+                $statement->bindValue(':id', $id);
+                $statement->execute();
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
+                return $result;
         }
     }
