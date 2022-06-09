@@ -172,6 +172,12 @@
             }
         }
 
-
+        public static function getUserById($userId){
+            $conn = DB::getConnection();
+            $statement = $conn->prepare("select * from users where id = :id");
+            $statement->bindValue("id", $userId);
+            $statement->execute();
+            return $statement->fetch();
+        }
 
 }

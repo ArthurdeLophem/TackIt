@@ -83,7 +83,14 @@
         $statement->bindValue(':userId', $userId);
         $statement->execute();
         return $statement->fetch();
-        
+    }
+    
+    public static function findAllItemsByProject($projectId){
+        $conn = DB::getConnection();
+        $statement = $conn->prepare("select * from project_items where project_id = :projectId");
+        $statement->bindValue(':projectId', $projectId);
+        $statement->execute();
+        return $statement->fetchAll();
     }
 
     public static function itemValidation($userId, $projectId){
