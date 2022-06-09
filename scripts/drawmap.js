@@ -31,34 +31,9 @@ drawItems = (item) => {
 
     aMarker = L.marker(coordinates, {
         icon: newIcon,
-        draggable: true,
+        draggable: false,
         itemType: itemType
     }).addTo(map)
-
-    items.push({ "coordinates": coordinates, "itemType": itemType })
-    console.log(items)
-
-    let oldCoords
-
-    aMarker.addEventListener('mousedown', (e) => {
-        oldCoords = e.target.getLatLng(e)
-        itemType = e.target.options.itemType
-    })
-
-    aMarker.addEventListener('dragend', (e) => {
-        const getIndex = items.findIndex(item => {
-            if (item.coordinates.lat == oldCoords.lat && item.coordinates.lng == oldCoords.lng) return true
-        });
-
-        console.log(oldCoords + itemType)
-        console.log(getIndex)
-
-        newCoordinates = e.target.getLatLng(e);
-        //itemType = items[getIndex].itemType
-
-        items.push({ "coordinates": newCoordinates, "itemType": itemType })
-        items.splice(getIndex, 1)
-    })
 }
 
 getItems = (e) => {
