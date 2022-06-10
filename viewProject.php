@@ -1,5 +1,12 @@
 <?php
 include_once("inc/navdefiner.inc.php");
+
+if(isset($_GET['projectId']) && isset($_GET['userId'])){
+    $userProjects = "set";
+}else{
+    $userProjects = "";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +23,19 @@ include_once("inc/navdefiner.inc.php");
 </head>
 <body>
     <?php include_once("inc/topnav.inc.php"); ?>
-    <div class="map" style="height: 80vh; display: flex; justify-content: space-around; position: relative; top: 120px">
-        <div data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="1" id="map" class="shadow h-100 d-inline-block" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>       
-    </div>
+    <?php if ($userProjects == null) : ?>
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="container d-flex flex-column">
+                <div class="mt-5 alert alert-danger" role="alert">
+                    probleem met het vinden van de projecten probeer opnieuw
+                </div>
+            </div>
+        </div>
+    <?php else : ?>
+        <div class="map" style="height: 80vh; display: flex; justify-content: space-around; position: relative; top: 120px">
+            <div data-user-id="<?php echo $_GET['userId']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" id="map" class="shadow h-100 d-inline-block" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>       
+        </div>
+    <?php endif; ?>
     <script src="./scripts/drawmap.js"></script>
     <script src="js/main.js"></script>
 </body>

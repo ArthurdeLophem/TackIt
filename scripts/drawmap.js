@@ -1,11 +1,13 @@
 //inotializing the map
 const targetZone = document.querySelector("#map");
-const latitude = 50.8144;
-const longitude = 4.8855;
+const latitude = 51.0259;
+const longitude = 4.4776;
 const map = L.map('map', {
     center: [latitude, longitude],
     zoom: 19,
 })
+
+const items = [];
 
 //get map from osm
 L.tileLayer(
@@ -16,23 +18,21 @@ L.tileLayer(
 }).addTo(map);
 
 drawItems = (item) => {
-    console.log(item)
     itemType = item.itemType;
+    imagePath = "/css/images/items/" + itemType + ".svg"
+    console.log(itemType)
 
-    //imagePath = "/css/images/" + itemType + ".png"
-    imagePath = "https://static.twinesocial.com/uploads/appProfiles/3986IUR95CHD0LYJ.png"
-
-    //console.log(imagePath);
     newIcon = L.icon({
         iconUrl: imagePath,
         iconSize: [50, 50]
     })
 
-    coordinates = [item.coordinates.lat, item.coordinates.lng];
+    coordinates = { "lat": item.coordinates.lat, "lng": item.coordinates.lng };
 
-    //console.log(coordinates + imagePath)
-    newMarker = L.marker(coordinates, {
-        icon: newIcon
+    aMarker = L.marker(coordinates, {
+        icon: newIcon,
+        draggable: false,
+        itemType: itemType
     }).addTo(map)
 }
 

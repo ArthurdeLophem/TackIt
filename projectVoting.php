@@ -1,6 +1,22 @@
+<?php
+
+include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+use tackit\core\Items;
+use tackit\core\Burger;
+use tackit\core\Votes;
+
+if(isset($_GET['projectId'])){
+    $userProjects = Items::findAllItemsByProject($_GET['projectId']);
+}else{
+    $userProjects = "";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php include_once("inc/header.inc.php"); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,106 +24,59 @@
     <title>TackIt</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
-        <div class="p-2">
-            <a class="navbar-brand" href="#">logo</a>
-        </div>
+    <?php include_once("inc/topnav.inc.php"); ?>
+    
+    <div class="d-flex justify-content-center " style="height: 100vh; top: 50px; position: relative">
+        <div class="container d-flex flex-column">
+            <div class="text-center my-3">
+                <h1>stem op je favoriet project</h1>
+            </div>
+            <?php if ($userProjects == null) : ?>
+                <div class="alert alert-danger" role="alert">
+                    probleem met het vinden van de projecten probeer opnieuw
+                </div>
+            <?php else : ?>
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="badge bg-dark text-light"><?php echo count($userProjects) ?> Tacks</div>
+                    <div class="badge bg-dark text-light"><strong id="voteAmount"><?php echo Votes::getVotes($_SESSION['user']['id']) ?></strong> /3 votes</div>
+                </div>
+                <div id="voteError" class="justify-content-center align-items-center my-3" style="height: 40px; display: none;">
+                    <div class="container d-flex flex-column">
+                        <div class="mt-5 alert alert-danger" id="errorMessage" role="alert">
+                            error
+                        </div>
+                    </div>
+                </div>
 
-        <div class="p-2">
-            <span>Gemeente Tienen</span>
-        </div>
-
-        <div class="p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-            </svg>
-        </div>
-    </nav>
-
-    <div class="container d-flex flex-column">
-        <div class="text-center my-3">
-            <h1>stem op je favoriet project</h1>
-        </div>
-        <div class="d-flex flex-row justify-content-between">
-            <div class="badge bg-dark text-light">49 Tacks</div>
-            <div class="badge bg-dark text-light">0/3 votes</div>
-        </div>
-        <div class="container d-flex flex-row flex-wrap justify-content-center p-0">
-            <div class="col-sm-4 my-3">
-                <div class="card align-self-end flex-column" >
-                    <div class="card-img-top rounded-start shadow-1-strong" 
-                        style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
-                    </div>
-                    <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span>X votes</span> <span>by <strong>Geert Duhoux</strong></span> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                        </svg>
-                    </li>
-                </div>
-            </div>
-            <div class="col-sm-4 my-3">
-                <div class="card align-self-end flex-column" >
-                    <div class="card-img-top rounded-start shadow-1-strong" 
-                        style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
-                    </div>
-                    <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span>X votes</span> <span>by <strong>Geert Duhoux</strong></span> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                        </svg>
-                    </li>
-                </div>
-            </div>
-            <div class="col-sm-4 my-3">
-                <div class="card align-self-end flex-column" >
-                    <div class="card-img-top rounded-start shadow-1-strong" 
-                        style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
-                    </div>
-                    <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span>X votes</span> <span>by <strong>Geert Duhoux</strong></span> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                        </svg>
-                    </li>
-                </div>
-            </div>
-            <div class="col-sm-4 my-3">
-                <div class="card align-self-end flex-column" >
-                    <div class="card-img-top rounded-start shadow-1-strong" 
-                        style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
-                    </div>
-                    <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span>X votes</span> <span>by <strong>Geert Duhoux</strong></span> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                        </svg>
-                    </li>
-                </div>
-            </div>
-            <div class="col-sm-4 my-3">
-                <div class="card align-self-end flex-column" >
-                    <div class="card-img-top rounded-start shadow-1-strong" 
-                        style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
-                    </div>
-                    <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span>X votes</span> <span>by <strong>Geert Duhoux</strong></span> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                        </svg>
-                    </li>
-                </div>
-            </div>
-            <div class="col-sm-4 my-3">
-                <div class="card align-self-end flex-column" >
-                    <div class="card-img-top rounded-start shadow-1-strong" 
-                        style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
-                    </div>
-                    <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span>X votes</span> <span>by <strong>Geert Duhoux</strong></span> 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-                        </svg>
-                    </li>
-                </div>
+                <div class="d-flex flex-row flex-wrap" style=" width: 100%;">
+                    <?php foreach($userProjects as $userProject) : ?>
+                            <div class="col-sm-4 my-3">
+                                <div class="card align-self-end flex-column" >
+                                    <div class="card-img-top rounded-start shadow-1-strong" 
+                                        style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
+                                    </div>
+                                    <a class="card-title" href="viewProject.php?projectId=<?php echo $userProject['project_id']?>&userId=<?php echo $userProject['user_id']?>"> go to project</a>
+                                    <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span>X votes</span> <span>by <strong><?php echo Burger::getUserById($userProject['user_id'])['username'] ?></strong></span> 
+                                        <?php if (Votes::isVoted($userProject['user_id'], $_SESSION['user']['id'])) : ?>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#52B69A" class="bi bi-star-fill" viewBox="0 0 16 16" data-user-id="<?php echo $userProject['user_id']?>" data-voter-id="<?php echo $_SESSION['user']['id']?>">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                            </svg>
+                                        <?php else : ?>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" data-user-id="<?php echo $userProject['user_id']?>" data-voter-id="<?php echo $_SESSION['user']['id']?>">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                            </svg>
+                                        <?php endif; ?>
+                                    </li>
+                                </div>
+                            </div>
+                    <?php endforeach; ?>
+                <div>
+            <?php endif; ?>
             </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script src="/scripts/saveVote.js"></script>
 </body>
 </html>
