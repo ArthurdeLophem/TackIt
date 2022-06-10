@@ -83,7 +83,14 @@
         $statement->bindValue(':userId', $userId);
         $statement->execute();
         return $statement->fetch();
-        
+    }
+    
+    public static function findAllItemsByProject($projectId){
+        $conn = DB::getConnection();
+        $statement = $conn->prepare("select * from project_items where project_id = :projectId");
+        $statement->bindValue(':projectId', $projectId);
+        $statement->execute();
+        return $statement->fetchAll();
     }
 
     public static function itemValidation($userId, $projectId){
@@ -97,11 +104,12 @@
 
     public function saveItems(){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("insert into project_items (items, project_id, user_id, status) values (:items, :projectId, :userId, :status)");
+        $statement = $conn->prepare("insert into project_items (items, project_id, user_id, status, budget) values (:items, :projectId, :userId, :status, :budget)");
         $statement->bindValue(':items', $this->items);
         $statement->bindValue(':projectId', $this->projectId);
         $statement->bindValue(':userId', $this->userId);
         $statement->bindValue(':status', "finished");
+        $statement->bindValue(':budget', "eenbudget");
         $statement->execute();
     }
 

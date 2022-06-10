@@ -1,11 +1,7 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 10, 2022 at 09:28 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,6 +50,13 @@ CREATE TABLE `project` (
   `Fase` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `name`, `start_date`, `end_date`, `budget`, `start_date_cocreatie`, `start_date_voting`, `end_date_cocreatie_voting`, `Type`) VALUES
+(1, 'mijlpaal imd', '2022-06-13 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-13 00:00:00', '2022-06-15 00:00:00', '2022-06-29 00:00:00', 'imdstud');
+
 -- --------------------------------------------------------
 
 --
@@ -62,7 +65,7 @@ CREATE TABLE `project` (
 
 CREATE TABLE `project_items` (
   `id` int(11) NOT NULL,
-  `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`items`)),
+  `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `user_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
@@ -100,6 +103,26 @@ CREATE TABLE `vereisten` (
   `amount` int(11) NOT NULL,
   `project_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `votes`
+--
+
+CREATE TABLE `votes` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `voter_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `votes`
+--
+
+INSERT INTO `votes` (`id`, `user_id`, `voter_id`) VALUES
+(73, 1, 7),
+(74, 5, 7);
 
 --
 -- Dumping data for table `vereisten`
@@ -152,6 +175,12 @@ ALTER TABLE `vereisten`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `votes`
+--
+ALTER TABLE `votes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -165,25 +194,41 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+=======
 
 --
 -- AUTO_INCREMENT for table `project_items`
 --
 ALTER TABLE `project_items`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
 
 --
 -- AUTO_INCREMENT for table `vereisten`
 --
 ALTER TABLE `vereisten`
+
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+--
+-- AUTO_INCREMENT for table `votes`
+--
+ALTER TABLE `votes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
