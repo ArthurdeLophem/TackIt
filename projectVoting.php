@@ -26,7 +26,7 @@ if(isset($_GET['projectId'])){
 <body>
     <?php include_once("inc/topnav.inc.php"); ?>
     
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="d-flex justify-content-center " style="height: 100vh; top: 50px; position: relative">
         <div class="container d-flex flex-column">
             <div class="text-center my-3">
                 <h1>stem op je favoriet project</h1>
