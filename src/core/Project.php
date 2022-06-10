@@ -185,4 +185,11 @@
                 $result = $statement->fetch(PDO::FETCH_ASSOC);
                 return $result;
         }
+
+        public static function getAllProjects() {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("SELECT * FROM project");
+                $statement->execute();
+                return $statement->fetchAll();
+        }
     }

@@ -2,6 +2,10 @@
 -- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
+-- Host: localhost:3306
+-- Generation Time: Jun 10, 2022 at 08:45 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -55,7 +59,8 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`id`, `name`, `start_date`, `end_date`, `budget`, `start_date_cocreatie`, `start_date_voting`, `end_date_cocreatie_voting`, `Type`) VALUES
-(1, 'mijlpaal imd', '2022-06-13 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-13 00:00:00', '2022-06-15 00:00:00', '2022-06-29 00:00:00', 'imdstud');
+(1, 'park de Ham', '2022-06-13 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-13 00:00:00', '2022-06-15 00:00:00', '2022-06-29 00:00:00', 'park'),
+(2, 'kruidtuin straat', '2022-06-11 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-11 00:00:00', '2022-06-14 00:00:00', '2022-06-29 00:00:00', 'verkeer');
 
 -- --------------------------------------------------------
 
@@ -71,6 +76,15 @@ CREATE TABLE `project_items` (
   `status` varchar(255) NOT NULL,
   `budget` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `project_items`
+--
+
+INSERT INTO `project_items` (`id`, `items`, `user_id`, `project_id`, `status`, `budget`) VALUES
+(22, '[{\"coordinates\":{\"lat\":51.02610844145942,\"lng\":4.477755046722859},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.02562050044223,\"lng\":4.477382131400436},\"itemType\":\"fontein\"}]', 5, 2, 'finished', 'eenbudget'),
+(23, '[{\"coordinates\":{\"lat\":51.026170911045746,\"lng\":4.478012599751322},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.026013892736174,\"lng\":4.4778274835121055},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.026088181034964,\"lng\":4.477913334521606},\"itemType\":\"straatlamp\"}]', 6, 2, 'finished', 'eenbudget'),
+(24, '[{\"coordinates\":{\"lat\":51.025858562272184,\"lng\":4.477604807456271},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.02605441364116,\"lng\":4.4779294315858875},\"itemType\":\"bank\"},{\"coordinates\":{\"lat\":51.026103376354136,\"lng\":4.477746998190738},\"itemType\":\"fontein\"}]', 7, 2, 'finished', 'eenbudget');
 
 -- --------------------------------------------------------
 
@@ -121,8 +135,7 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `user_id`, `voter_id`) VALUES
-(73, 1, 7),
-(74, 5, 7);
+(80, 6, 7);
 
 --
 -- Dumping data for table `vereisten`
@@ -194,17 +207,13 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `project_items`
 --
 ALTER TABLE `project_items`
-
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -227,8 +236,7 @@ ALTER TABLE `vereisten`
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
