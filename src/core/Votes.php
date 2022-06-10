@@ -65,7 +65,7 @@ use tackit\Data\DB;
         return count($statement->fetchAll());
     }
 
-    public static function isVoted($voterId, $userId){
+    public static function isVoted($userId, $voterId){
         $conn = DB::getConnection();
         $statement = $conn->prepare("select * from votes where voter_id = :voterId and user_id = :userId");
         $statement->bindValue(':voterId', $voterId);

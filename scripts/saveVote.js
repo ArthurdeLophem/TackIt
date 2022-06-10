@@ -15,6 +15,8 @@ document.querySelectorAll(".bi-star-fill").forEach((e) => {
         data.append("userId", userId);
         data.append("voterId", voterId);
 
+
+
         if (userId == voterId) {
             errorBox.style.display = 'flex';
             errorMessage.innerHTML = "je kan niet voor je eigen creatie voten";
@@ -27,6 +29,16 @@ document.querySelectorAll(".bi-star-fill").forEach((e) => {
             error = true;
         }
 
+        if (e.target.getAttribute('fill') == "currentColor" && !error) {
+            e.target.setAttribute('fill', '#52B69A')
+            vote.innerHTML = voteAmount += 1;
+        }
+        else if (e.target.getAttribute('fill') == "#52B69A") {
+            e.target.setAttribute('fill', 'currentColor')
+            vote.innerHTML = voteAmount -= 1;
+            error = false;
+        }
+
         if (!error) {
             document.querySelector("#voteError").style.display = 'none';
             fetch('ajax/saveVotes.php', {
@@ -35,14 +47,7 @@ document.querySelectorAll(".bi-star-fill").forEach((e) => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    if (e.target.getAttribute('fill') == "currentColor") {
-                        e.target.setAttribute('fill', '#52B69A')
-                        vote.innerHTML = voteAmount += 1;
-                    }
-                    else {
-                        e.target.setAttribute('fill', 'currentColor')
-                        vote.innerHTML = voteAmount -= 1;
-                    }
+                    console.log(data)
                 })
                 .catch((error) => {
                     console.error('Error:', error);
