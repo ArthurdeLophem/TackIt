@@ -1,7 +1,8 @@
 <?php
     namespace tackit\core;
     use Exception;
-    use tackit\Data\DB;
+use PDO;
+use tackit\Data\DB;
 
     class Votes {
 
@@ -65,6 +66,15 @@
         if ($votes === 3){
            return new Exception("already registered 3 votes ");
         }
+    }
+
+    public static function isVoted($voterId, $userId){
+        $conn = DB::getConnection();
+        $statement = $conn->prepare("select * from votes where voter_id = :voterId and user_id = :userId");
+        $statement->bindValue(':voterId', $voterId);
+        $statement->bindValue(':userId', $userId);
+        $statement->execute();
+        return $statement->fetchAll();
     }
 
     public static function voteValidation($userId, $voterId){
