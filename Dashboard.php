@@ -144,7 +144,12 @@ if (isset($_SESSION["user"])) {
                             <div class="projectListing-title">
                                 <ul>
                                     <li><?php echo $project['name']?></li>
-                                    <li>Fase 2: cocreatie</li>
+                                    <?php if ($project['start_date_cocreatie'] == "2022-06-13 00:00:00") : ?>
+                                        <li>Fase 2: cocreatie</li>
+                                    <?php elseif($project['start_date_voting'] == "2022-06-14 00:00:00") : ?>
+                                        <li>Fase 3: voting</li>
+                                    <?php endif; ?>
+                                   
                                 </ul>
                             </div>
                             <div class="projectListing-info">
@@ -161,7 +166,11 @@ if (isset($_SESSION["user"])) {
                                 </ul>
                             </div>
                             <div class="projectListing-button">
+                                <?php if ($project['start_date_cocreatie'] == "2022-06-13 00:00:00") : ?>
                                 <a href="projectMapper.php?projectId=<?php echo $project['id']?>"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694716/Tackit_Assets/start_npchap.png" alt="button"></a>
+                                <?php elseif($project['start_date_voting'] == "2022-06-14 00:00:00") : ?>
+                                <a href="projectVoting.php?projectId=<?php echo $project['id']?>"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694716/Tackit_Assets/start_npchap.png" alt="button"></a>
+                                <?php endif; ?>
                             </div>
                     </div>
                     <?php endforeach; ?>    
