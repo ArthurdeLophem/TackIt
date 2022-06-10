@@ -106,17 +106,7 @@
                 </div>
                 <h2>Upload informatie</h2>
                 <input type="hidden" value="0" id="infoCount">
-                <ul id="updatedInfoList">
-                    <li>
-                        <p>Uitleg project</p>
-                        <p>uitleg.mp4</p>
-                        <div>
-                            <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="y">
-                        </div>
-                        <div class="delete">
-                            <p>verwijderen</p>
-                        </div>
-                    </li>
+                <ul id="updatedInfoList" class="updatedInfoList">
                 </ul>
                 <ul id="infoList">
                 </ul>

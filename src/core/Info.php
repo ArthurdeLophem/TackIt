@@ -20,13 +20,16 @@
           'secure' => true]]);
 
     class Info {
-
+        private $id;
         private $name;
         private $file;
         private $filePath;
         private $projectId;
 
         
+        public function getId() {
+                return $this->id;
+        }
     
         public function getName()
         {
@@ -73,7 +76,7 @@
 
                 return $this;
         }
-
+        
         public function save() {
             
             $file = $this->file;
@@ -103,6 +106,10 @@
                     $statement->bindValue(':file_path', $this->filePath);
                     $statement->bindValue(':projectId', $this->projectId);
                     $statement->execute();
+                    $statement2 = $conn->prepare("SELECT LAST_INSERT_ID()");
+                    $statement2->execute();
+                    $this->id = $statement2->fetchColumn();
+
                 } else {
                     throw new Exception("Your file is too big!");
                 }
@@ -111,5 +118,22 @@
             }
 
         }
+
+        public static function delete($id) {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("DELETE FROM info WHERE id = :id");
+                $statement->bindValue(':id', $id);
+                $statement->execute();
+        }
+
+        public static function deleteAll($id) {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("DELETE * FROM info WHERE projectId = :projectId");
+                $statement->bindValue(':projectId', $id);
+                $statement->execute();
+        }
+
+
+
 
     }

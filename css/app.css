@@ -1970,3 +1970,25 @@ input[type="date"] {
     border-radius: 5px;
     padding:1%;
 }
+
+.updatedInfoList li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.updatedInfoList li > * {
+    margin-right: 5%;
+}
+
+.updatedInfoList li >:first-of-type {
+    font-weight: 600;
+}
+
+.updatedInfoList li >:last-of-type {
+    background-color:#3647FC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding:1%;
+}

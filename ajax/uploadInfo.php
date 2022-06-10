@@ -20,6 +20,7 @@ if (!empty($_POST)) {
     $response = [
         'status' => 'success',
         'message' => 'File uploaded successfully',
+        'id' => $info->getId(),
         'file' => $info->getName()
     ];
     

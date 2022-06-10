@@ -159,7 +159,6 @@ function confirmInfo(id) {
     let infoTitle = document.querySelector("#info-text-item-" + id);
     let infoFile = document.querySelector("#info-file-item-" + id);
 
-    console.log(infoFile.files[0]);
 
     let formData = new FormData();
     formData.append("infoTitle", infoTitle.value);
@@ -177,14 +176,21 @@ function confirmInfo(id) {
             let list = document.querySelector("#updatedInfoList");
 
             let newItem = document.createElement("li");
+            newItem.setAttribute("id", "info-id-item-" + result.id);
+            let itemId = document.createElement("input");
+            itemId.setAttribute("type", "hidden");
+            itemId.setAttribute("value", result.id);
+            itemId.setAttribute("id", "info-id-item-" + result.id);
             let itemTitle = document.createElement("p");
             itemTitle.innerHTML = infoTitle.value;
             let fileName = document.createElement("p");
             fileName.innerHTML = infoFile.files[0].name;
             let itemRemove = document.createElement("p");
             itemRemove.innerHTML = "verwijderen";
+            itemRemove.setAttribute("onclick", "deleteInfo(" + result.id + ")");
 
             list.appendChild(newItem);
+            newItem.appendChild(itemId);
             newItem.appendChild(itemTitle);
             newItem.appendChild(fileName);
             newItem.appendChild(itemRemove);
@@ -195,6 +201,35 @@ function confirmInfo(id) {
             console.error("Error:", error);
         })
 
+
+
+}
+
+function deleteInfo(id) {
+
+    let formData = new FormData(); 
+
+    formData.append("id", id);
+
+    fetch("ajax/deleteInfo.php", {
+
+        method: "POST",
+        body: formData
+        
+    })
+
+    .then(response => response.json())
+    .then(result => {
+
+        let list = document.querySelector("#updatedInfoList");
+        let child = document.getElementById("info-id-item-" + id);
+
+        list.removeChild(child);
+
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    })
 
 
 }
