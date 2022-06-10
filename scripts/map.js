@@ -88,6 +88,7 @@ targetZone.ondrop = (e) => {
 
 saveItems = (e) => {
     e.preventDefault();
+    let activityPanel = document.querySelector("#activityPanel")
 
     let userId = e.target.dataset.userId;
     let projectId = e.target.dataset.projectId;
@@ -102,7 +103,17 @@ saveItems = (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            if (data.status == "failed") {
+                feedback = `<div class="d-flex flex-column align-items-center">
+            <div id="feedbackAlert" class="alert alert-danger" role="alert">${data.message}</div>
+            </div>`;
+            }
+            else {
+                feedback = `<div class="d-flex flex-column align-items-center">
+            <div id="feedbackAlert" class="alert alert-success" role="alert">${data.message}</div>
+            </div>`;
+            }
+            activityPanel.innerHTML += feedback
         })
         .catch((error) => {
             console.error('Error:', error);

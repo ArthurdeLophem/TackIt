@@ -30,12 +30,14 @@ include_once("inc/navdefiner.inc.php");
 
         <div id="map" class="shadow h-100 d-inline-block" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>
 
-        <div class="shadow bg-white d-flex flex-column align-items-center"  style="width: 12%; height: fit-content; background-color: rgba(0,0,255,.1); border-radius: 10px;">
-            <div class="my-2">
-                <a type="button" data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" class="btn btn-primary saveBtn">save</a>
-            </div>
-            <div class="my-2">
-                <a type="button" class="btn btn-outline-primary renderBtn">render</a>
+        <div id="activityPanel" class="shadow bg-white d-flex flex-column align-items-center"  style="width: 12%; height: fit-content; background-color: rgba(0,0,255,.1); border-radius: 10px;">
+            <div class="d-flex flex-column align-items-center">  
+                <div class="my-2">
+                    <a type="button" data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" class="btn btn-primary saveBtn">save</a>
+                </div>
+                <div class="my-2">
+                    <a type="button" class="btn btn-outline-primary renderBtn">render</a>
+                </div>
             </div>
         </div>
         
