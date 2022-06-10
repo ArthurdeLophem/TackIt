@@ -65,7 +65,7 @@ function addInfo() {
     let newItemInput = document.createElement("input");
     newItemInput.setAttribute("type", "text");
     newItemInput.setAttribute("name", "info-text-item-" + newCount);
-    newItemInput.setAttribute("placeholder", "Name of item");
+    newItemInput.setAttribute("placeholder", "Naam van de info");
     newItemInput.setAttribute("class", "info-text-item");
     newItemInput.setAttribute("id", "info-text-item-" + newCount);
     let inputLabel = document.createElement("label");
@@ -244,4 +244,25 @@ function notificationPopupShow() {
 function notificationPopupHide() {
     var popup = document.querySelector(".notification-show");
     popup.className = "notification";
+}
+
+function cancelProject() {
+
+    let formData = new FormData();
+
+    formData.append("type", "1");
+    
+    fetch("ajax/cancelProject.php", {
+
+        method: "POST",
+        body: formData
+
+    })
+
+    .then(result => {
+        console.log("success");
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    })
 }

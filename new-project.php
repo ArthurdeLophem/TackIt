@@ -1,6 +1,7 @@
 <?php
 use tackit\core\Project;
 use tackit\core\Vereisten;
+use tackit\core\Info;
 
 require __DIR__ . '/vendor/autoload.php';
 include_once("inc/navdefiner.inc.php");
@@ -88,10 +89,12 @@ if (!empty($_POST)) {
     header("Location: new-project-next.php");
 };    
 
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include_once("inc/header.inc.php"); ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>TackIt</title>
 </head>
 <body>
@@ -161,7 +164,7 @@ if (!empty($_POST)) {
             </div>
             <div class="new-project-form-field">
                 <label for="budget"><p>Budget</p></label>
-                <input type="text" name="budget" placeholder="00,00" value="<?php
+                <input type="text" name="budget" value="<?php
                 
                 if(!empty($_SESSION['project_id'])) {
                     echo $project['budget'];
@@ -257,16 +260,14 @@ if (!empty($_POST)) {
                     </div>
                 </div>
                 <div class="criteria">
-                    <label for="">criteria participanten</label>
+                    <label for="">straal participanten</label>
                     <input type="text">
-                    <div class="add-criteria">
-                        <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654774582/Tackit_Assets/add_account_yj8clz.png" alt="P">
-                        <p> criteria toevoegen</p>
-                    </div>
                 </div>
             </div>
-            <button class="form-c"><a href="dashboard.php">annuleren</a></button>
+            <div class="new-project-first-buttons">
+            <p onclick="cancelProject()" class="form-c"><a href="dashboard.php">annuleren</a></p>
             <button class="form-n" type="submit">Volgende</button>
+            </div>
         </section>
     </form>
 
