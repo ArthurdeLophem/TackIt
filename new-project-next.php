@@ -105,7 +105,8 @@
                     </div>
                 </div>
                 <h2>Upload informatie</h2>
-                <ul>
+                <input type="hidden" value="0" id="infoCount">
+                <ul id="infoList">
                     <li>
                         <p>Uitleg project</p>
                         <p>uitleg.mp4</p>
@@ -116,8 +117,8 @@
                             <p>verwijderen</p>
                         </div>
                     </li>
-                    <li>
-                        <p class="newFile">Nieuw bestand</p>
+                </ul>
+                <p onclick="addInfo()" class="newFile">Nieuw bestand</p>
                         <!-- <div class="newUpload">
                             <p>nieuw bestand</p>
                             <label for="infoFile">
@@ -126,8 +127,6 @@
                             </label>
                             <input id="infoFile" type="file">
                         </div> -->
-                    </li>
-                </ul>
             </section>
         </section>  
         <section class="new-project-buttons">
@@ -147,5 +146,6 @@
             </div>  
         </section>  
     </section>
+    <script src="js/main.js"></script>
 </body>
 </html>

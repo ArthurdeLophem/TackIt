@@ -1732,6 +1732,8 @@ input[type="date"] {
 }
 
 .new-project-pannel-next-content-right .newFile {
+    width: 15%;
+    text-align: center;
     background-color: #3647FC;
     color: white;
     border-radius: 6px;
@@ -1920,4 +1922,50 @@ input[type="date"] {
 }
 .vereisten div p:first-of-type {
     margin-right: 5%;
+}
+
+
+/* upload info */
+
+.info-text-item {
+    background-color: #F4F2F3;
+    border: none;
+    border-radius: 5px;
+    padding:1%;
+}
+
+.info-label-item {
+    background-color:#3647FC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding:1%;
+}
+
+.info-remove-item {
+    font-family: 'Nunito', sans-serif!important;
+    font-weight: 300!important;
+    background-color: #7D7E83;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding:1%;
+}
+
+.info-item {
+    display: flex;
+    justify-content: flex-start!important;
+    align-items: center;
+}
+
+.info-item > * {
+    margin-right: 5%;
+}
+
+.info-confirm {
+    background-color:#3647FC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding:1%;
 }
