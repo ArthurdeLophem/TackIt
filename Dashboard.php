@@ -165,5 +165,6 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
      </section>
 <?php endif ?>
 </div>
+<script src="js/main.js"></script>
 </body>
 </html>

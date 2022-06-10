@@ -37,5 +37,6 @@ if(isset($_GET['projectId']) && isset($_GET['userId'])){
         </div>
     <?php endif; ?>
     <script src="./scripts/drawmap.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

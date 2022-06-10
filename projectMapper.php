@@ -41,6 +41,7 @@ include_once("inc/navdefiner.inc.php");
         
     </div>
 
+    <script src="js/main.js"></script>
     <script src="./scripts/map.js"></script>
 </body>
 </html>
