@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 10, 2022 at 12:23 PM
+-- Generation Time: Jun 10, 2022 at 08:45 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -44,7 +44,8 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`id`, `name`, `start_date`, `end_date`, `budget`, `start_date_cocreatie`, `start_date_voting`, `end_date_cocreatie_voting`, `Type`) VALUES
-(1, 'mijlpaal imd', '2022-06-13 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-13 00:00:00', '2022-06-15 00:00:00', '2022-06-29 00:00:00', 'imdstud');
+(1, 'park de Ham', '2022-06-13 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-13 00:00:00', '2022-06-15 00:00:00', '2022-06-29 00:00:00', 'park'),
+(2, 'kruidtuin straat', '2022-06-11 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-11 00:00:00', '2022-06-14 00:00:00', '2022-06-29 00:00:00', 'verkeer');
 
 -- --------------------------------------------------------
 
@@ -66,10 +67,9 @@ CREATE TABLE `project_items` (
 --
 
 INSERT INTO `project_items` (`id`, `items`, `user_id`, `project_id`, `status`, `budget`) VALUES
-(8, '[{\"coordinates\":{\"lat\":50.81462244629948,\"lng\":4.885061749853978},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":50.81435833697735,\"lng\":4.885372658123429},\"itemType\":\"fontein\"},{\"coordinates\":{\"lat\":51.02591259031871,\"lng\":4.4776235873646195},\"itemType\":\"fontein\"}]', 1, 1, 'finished', ''),
-(9, '[{\"coordinates\":{\"lat\":51.026032738777424,\"lng\":4.477630913224858},\"itemType\":\"boom\"}]', 5, 1, 'finished', 'eenbudget'),
-(10, '[{\"coordinates\":{\"lat\":51.026075028320534,\"lng\":4.477810621228856},\"itemType\":\"bank\"},{\"coordinates\":{\"lat\":51.02588445431762,\"lng\":4.477604091134709},\"itemType\":\"fontein\"}]', 6, 1, 'finished', 'eenbudget'),
-(11, '[{\"coordinates\":{\"lat\":51.026012628069566,\"lng\":4.477689921823186},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.025921557282274,\"lng\":4.4778428077370345},\"itemType\":\"struik\"},{\"coordinates\":{\"lat\":51.02586421632437,\"lng\":4.477590680089635},\"itemType\":\"straatlamp\"}]', 7, 1, 'finished', 'eenbudget');
+(22, '[{\"coordinates\":{\"lat\":51.02610844145942,\"lng\":4.477755046722859},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.02562050044223,\"lng\":4.477382131400436},\"itemType\":\"fontein\"}]', 5, 2, 'finished', 'eenbudget'),
+(23, '[{\"coordinates\":{\"lat\":51.026170911045746,\"lng\":4.478012599751322},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.026013892736174,\"lng\":4.4778274835121055},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.026088181034964,\"lng\":4.477913334521606},\"itemType\":\"straatlamp\"}]', 6, 2, 'finished', 'eenbudget'),
+(24, '[{\"coordinates\":{\"lat\":51.025858562272184,\"lng\":4.477604807456271},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.02605441364116,\"lng\":4.4779294315858875},\"itemType\":\"bank\"},{\"coordinates\":{\"lat\":51.026103376354136,\"lng\":4.477746998190738},\"itemType\":\"fontein\"}]', 7, 2, 'finished', 'eenbudget');
 
 -- --------------------------------------------------------
 
@@ -129,8 +129,7 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `user_id`, `voter_id`) VALUES
-(73, 1, 7),
-(74, 5, 7);
+(80, 6, 7);
 
 --
 -- Indexes for dumped tables
@@ -174,13 +173,13 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `project_items`
 --
 ALTER TABLE `project_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -198,7 +197,7 @@ ALTER TABLE `vereisten`
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
