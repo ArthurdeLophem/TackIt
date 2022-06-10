@@ -57,27 +57,15 @@ use tackit\Data\DB;
         $statement->execute();
     }
 
-    public static function canVote($voterId){
+    public static function getVotes($voterId){
         $conn = DB::getConnection();
         $statement = $conn->prepare("select * from votes where voter_id = :voterId");
         $statement->bindValue(':voterId', $voterId);
         $statement->execute();
-        $votes = count($statement->fetchAll());
-        if ($votes === 3){
-           return new Exception("already registered 3 votes ");
-        }
+        return count($statement->fetchAll());
     }
 
     public static function isVoted($voterId, $userId){
-        $conn = DB::getConnection();
-        $statement = $conn->prepare("select * from votes where voter_id = :voterId and user_id = :userId");
-        $statement->bindValue(':voterId', $voterId);
-        $statement->bindValue(':userId', $userId);
-        $statement->execute();
-        return $statement->fetchAll();
-    }
-
-    public static function voteValidation($userId, $voterId){
         $conn = DB::getConnection();
         $statement = $conn->prepare("select * from votes where voter_id = :voterId and user_id = :userId");
         $statement->bindValue(':voterId', $voterId);

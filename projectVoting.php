@@ -38,7 +38,7 @@ if(isset($_GET['projectId'])){
             <?php else : ?>
                 <div class="d-flex flex-row justify-content-between">
                     <div class="badge bg-dark text-light"><?php echo count($userProjects) ?> Tacks</div>
-                    <div class="badge bg-dark text-light">0/3 votes</div>
+                    <div class="badge bg-dark text-light"><strong id="voteAmount"><?php echo Votes::getVotes($_SESSION['user']['id']) ?></strong> /3 votes</div>
                 </div>
                 <?php foreach($userProjects as $userProject) : ?>
                         <div class="col-sm-4 my-3">

@@ -6,7 +6,7 @@ require_once(__DIR__ . "/../vendor/autoload.php");
 
 if (!empty($_POST)) {
     try {
-        if(Votes::voteValidation($_POST['userId'], $_POST['voterId'])){
+        if(Votes::isVoted($_POST['userId'], $_POST['voterId'])){
             Votes::removeVote($_POST['userId'], $_POST['voterId']);
             $response = [
                 "status" => "success",
