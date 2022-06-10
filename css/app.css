@@ -1636,6 +1636,8 @@ input[type="date"] {
     display: flex;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+    margin-left: 2%;
 }
 
 
@@ -1656,7 +1658,7 @@ input[type="date"] {
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-bottom: 3%;
     padding-top: 3%;
     border-bottom: 1.5px solid #C4C4C4;
@@ -1747,6 +1749,8 @@ input[type="date"] {
     align-items: center;
     text-align: center;
     color: white;
+    font-family: 'Nunito', sans-serif!important;
+    font-size: 1.2em!important;
 }
 
 .new-project-buttons div:first-of-type {
@@ -1754,6 +1758,19 @@ input[type="date"] {
     background-color: #7D7E83;
     height: auto;
     border-radius: 6px;
+}
+
+.new-project-buttons div:last-of-type >:last-child form button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2em;
+}
+
+.new-project-buttons div:first-of-type form button {
+    background-color: #7D7E83;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2em;
+    border: none;
 }
 
 .new-project-buttons p {

@@ -1,5 +1,7 @@
 <?php
     use tackit\core\Project;
+    use tackit\core\Vereisten;
+    use tackit\core\Info;
 
     require __DIR__ . '/vendor/autoload.php';
     include_once("inc/navdefiner.inc.php");
@@ -7,6 +9,8 @@
     $projectId = $_SESSION['project_id'];
 
     $project = Project::getProject($projectId);
+
+    $info = Info::getAll($projectId);
 
     $projectTitle = $project['name'];
     $projectStartdatum = $project['start_date'];
@@ -18,12 +22,22 @@
     $projectEinddatum_cocreatie_voting = $project['end_date_cocreatie_voting'];
 
     
-    if (!empty($_POST)) {
+    if (!empty($_POST['save'])) {
 
-
+    unset($_SESSION['project_id']);    
     header("Location: dashboard.php");
 
     };
+    if (!empty($_POST['cancel'])) {
+    
+    Info::deleteAll($projectId);    
+    Vereisten::deleteAll($projectId);
+    Project::delete($projectId);
+    unset($_SESSION['project_id']);      
+    header("Location: dashboard.php");
+    
+    };
+
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -86,44 +100,39 @@
                         <p>einddatum cocreatie</p>
                         <p><?php echo $projectEinddatum_cocreatie_voting; ?></p>
                     </div>
-                    <div>
-                        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
-                    </div>
                 </div>
                 <div class="new-project-pannel-next-content-edit">
                     <p>Type</p>
                     <p><?php echo $projectType; ?></p>
-                    <div>
-                        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
-                    </div>
                 </div>
                 <div class="new-project-pannel-next-content-edit">
                     <p>Budget</p>
                     <p><?php echo $projectBudget; ?></p>
-                    <div>
-                        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
-                    </div>
                 </div>
                 <h2>Upload informatie</h2>
                 <input type="hidden" value="0" id="infoCount">
                 <ul id="updatedInfoList" class="updatedInfoList">
+
+                <?php foreach($info as $infoItem): ?>
+                    <li id="info-id-item-<?php echo $infoItem['id'];?>">
+                        <input type="hidden" value="<?php echo $infoItem['id'];?>" id="info-id-item-<?php echo $infoItem['id'];?>">
+                        <p><?php echo $infoItem['name']; ?></p>
+                        <p><?php echo $infoItem['file_name']; ?></p>
+                        <p onclick="deleteInfo(<?php echo $infoItem['id'];?>)" >verwijderen</p>
+                    </li>
+                <?php endforeach ?>    
                 </ul>
                 <ul id="infoList">
                 </ul>
                 <p onclick="addInfo()" class="newFile">Nieuw bestand</p>
-                        <!-- <div class="newUpload">
-                            <p>nieuw bestand</p>
-                            <label for="infoFile">
-                                <p>Uploaden</p>
-                                <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609118/Tackit_Assets/Vector_ibe3vt.png" alt="">
-                            </label>
-                            <input id="infoFile" type="file">
-                        </div> -->
             </section>
         </section>  
         <section class="new-project-buttons">
             <div>
-                <p>annuleren</p>
+                    <form action="" method="POST">
+                        <input type="hidden" name="cancel" value="something">
+                        <button type="submit">annuleren</button>
+                    </form>
             </div> 
             <div>
                 <div>
@@ -131,7 +140,7 @@
                 </div>         
                 <div>
                     <form action="" method="POST">
-                        <input type="hidden" name="nothing" value="something">
+                        <input type="hidden" name="save" value="something">
                         <button type="submit">opslaan</button>
                     </form>
                 </div>

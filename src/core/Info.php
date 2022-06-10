@@ -22,6 +22,7 @@
     class Info {
         private $id;
         private $name;
+        private $fileName;
         private $file;
         private $filePath;
         private $projectId;
@@ -41,6 +42,17 @@
                 $this->name = $name;
 
                 return $this;
+        }
+
+        public function setFileName($fileName)
+        {
+                $this->fileName = $fileName;
+
+                return $this;
+        }
+        public function getFileName()
+        {
+                return $this->fileName;
         }
 
         public function getFile()
@@ -99,12 +111,14 @@
                     );
                     //stores the new url in the class
                     $this->setFilePath($cloudinary['url']);
+                    $this->setFileName($fileName);
 
                     $conn = DB::getConnection();
-                    $statement = $conn->prepare("INSERT INTO info (name, file_path, projectId) VALUES (:name, :file_path, :projectId)");
+                    $statement = $conn->prepare("INSERT INTO info (name, file_path, projectId, file_name) VALUES (:name, :file_path, :projectId, :file_name)");
                     $statement->bindValue(':name', $this->name);
                     $statement->bindValue(':file_path', $this->filePath);
                     $statement->bindValue(':projectId', $this->projectId);
+                    $statement->bindValue(':file_name', $this->fileName);
                     $statement->execute();
                     $statement2 = $conn->prepare("SELECT LAST_INSERT_ID()");
                     $statement2->execute();
@@ -128,9 +142,18 @@
 
         public static function deleteAll($id) {
                 $conn = DB::getConnection();
-                $statement = $conn->prepare("DELETE * FROM info WHERE projectId = :projectId");
+                $statement = $conn->prepare("DELETE FROM info WHERE projectId = :projectId");
                 $statement->bindValue(':projectId', $id);
                 $statement->execute();
+        }
+
+        public static function getAll($id) {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("SELECT * FROM info WHERE projectId = :projectId");
+                $statement->bindValue(':projectId', $id);
+                $statement->execute();
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                return $result;
         }
 
 
