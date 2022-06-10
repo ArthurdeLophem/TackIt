@@ -2,8 +2,14 @@
 
 
 include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+use tackit\core\Project;
 
-$posts = [1,2,3,4,5,6,7,8,9,10];
+
+if (isset($_SESSION["user"])) {
+    $projects = Project::getAllProjects();
+}
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,13 +137,13 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
         <div class="mainBContent">
                 <div class="bStats"></div>
                 <div class="BprojectListings">
-                    <?php foreach($posts as $post): ?>
+                    <?php foreach($projects as $project): ?>
                     <div class="BprojectListing">
                             <div class="projectListing-banner" style="background: url('https://res.cloudinary.com/dgypufy9k/image/upload/v1652982240/Tackit_Assets/image_1_3_au2xq7.png');">
                             </div>
                             <div class="projectListing-title">
                                 <ul>
-                                    <li>Project: zwaluwenstraat</li>
+                                    <li><?php echo $project['name']?></li>
                                     <li>Fase 2: cocreatie</li>
                                 </ul>
                             </div>
@@ -150,12 +156,12 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
                                     </li>
                                     <li>
                                         <p>Type</p>
-                                        <p>Park renovatie</p>
+                                        <p><?php echo $project['Type']?></p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="projectListing-button">
-                                <a href="projectMapper.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694716/Tackit_Assets/start_npchap.png" alt="button"></a>
+                                <a href="projectMapper.php?projectId=<?php echo $project['id']?>"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654694716/Tackit_Assets/start_npchap.png" alt="button"></a>
                             </div>
                     </div>
                     <?php endforeach; ?>    
