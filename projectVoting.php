@@ -40,6 +40,13 @@ if(isset($_GET['projectId'])){
                     <div class="badge bg-dark text-light"><?php echo count($userProjects) ?> Tacks</div>
                     <div class="badge bg-dark text-light"><strong id="voteAmount"><?php echo Votes::getVotes($_SESSION['user']['id']) ?></strong> /3 votes</div>
                 </div>
+                <div id="voteError" class="justify-content-center align-items-center my-3" style="height: 40px; display: none;">
+                    <div class="container d-flex flex-column">
+                        <div class="mt-5 alert alert-danger" id="errorMessage" role="alert">
+                            error
+                        </div>
+                    </div>
+                </div>
                 <?php foreach($userProjects as $userProject) : ?>
                         <div class="col-sm-4 my-3">
                             <div class="card align-self-end flex-column" >
