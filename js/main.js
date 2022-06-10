@@ -93,6 +93,7 @@ function addInfo() {
     newItem.appendChild(inputFile);
     newItem.appendChild(confirm);
     newItem.appendChild(remove);
+
 }
 
 function removeInfo(id) {
@@ -151,7 +152,48 @@ function removeInfo(id) {
 
     infoCount.setAttribute("value", newCount);
 }
+}
 
+function confirmInfo(id) {
+    
+    let infoTitle = document.querySelector("#info-text-item-" + id);
+    let infoFile = document.querySelector("#info-file-item-" + id);
+
+    console.log(infoFile.files[0]);
+
+    let formData = new FormData();
+    formData.append("infoTitle", infoTitle.value);
+    formData.append("infoFile", infoFile.files[0]);
+
+        fetch("ajax/uploadInfo.php", {
+
+            method: "POST",
+            body: formData
+        })
+
+        .then(response => response.json())
+        .then(result => {
+            console.log(result);
+            let list = document.querySelector("#updatedInfoList");
+
+            let newItem = document.createElement("li");
+            let itemTitle = document.createElement("p");
+            itemTitle.innerHTML = infoTitle.value;
+            let fileName = document.createElement("p");
+            fileName.innerHTML = infoFile.files[0].name;
+            let itemRemove = document.createElement("p");
+            itemRemove.innerHTML = "verwijderen";
+
+            list.appendChild(newItem);
+            newItem.appendChild(itemTitle);
+            newItem.appendChild(fileName);
+            newItem.appendChild(itemRemove);
+
+            removeInfo(id);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        })
 
 
 

@@ -1953,6 +1953,7 @@ input[type="date"] {
 }
 
 .info-item {
+    width: 100%;
     display: flex;
     justify-content: flex-start!important;
     align-items: center;

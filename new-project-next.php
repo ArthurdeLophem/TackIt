@@ -106,7 +106,7 @@
                 </div>
                 <h2>Upload informatie</h2>
                 <input type="hidden" value="0" id="infoCount">
-                <ul id="infoList">
+                <ul id="updatedInfoList">
                     <li>
                         <p>Uitleg project</p>
                         <p>uitleg.mp4</p>
@@ -117,6 +117,8 @@
                             <p>verwijderen</p>
                         </div>
                     </li>
+                </ul>
+                <ul id="infoList">
                 </ul>
                 <p onclick="addInfo()" class="newFile">Nieuw bestand</p>
                         <!-- <div class="newUpload">
