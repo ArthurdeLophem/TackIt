@@ -120,6 +120,13 @@
         {
                 return $this->id;
         }
+        public function setId($id) {
+                
+                $this->id = $id;
+
+                return $this;
+
+        }
 
         public function save() {
             $conn = DB::getConnection();
@@ -140,10 +147,33 @@
 
         }
 
-        public function delete() {
+        public function update(){
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("UPDATE project SET name = :title , start_date = :startdatum ,
+                end_date = :einddatum ,
+                Type = :type ,
+                budget = :budget ,
+                start_date_cocreatie = :startdatum_cocreatie ,
+                start_date_voting = :startdatum_cocreatie_voting ,
+                end_date_cocreatie_voting = :einddatum_cocreatie_voting
+                WHERE id = :id");
+                $statement->bindValue(':title', $this->title);
+                $statement->bindValue(':startdatum', $this->startdatum);
+                $statement->bindValue(':einddatum', $this->einddatum);
+                $statement->bindValue(':type', $this->type);
+                $statement->bindValue(':budget', $this->budget);
+                $statement->bindValue(':startdatum_cocreatie', $this->startdatum_cocreatie);
+                $statement->bindValue(':startdatum_cocreatie_voting', $this->startdatum_cocreatie_voting);
+                $statement->bindValue(':einddatum_cocreatie_voting', $this->einddatum_cocreatie_voting);
+                $statement->bindValue(':id', $this->id);
+                $statement->execute();
+        }
+
+
+        public static function delete($id) {
                 $conn = DB::getConnection();
                 $statement = $conn->prepare("DELETE FROM project WHERE id = :id");
-                $statement->bindValue(':id', $this->id);
+                $statement->bindValue(':id', $id);
                 $statement->execute();
         }
 

@@ -24,19 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `info`
+--
+
+CREATE TABLE `info` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `projectId` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `project`
 --
 
 CREATE TABLE `project` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `start_date` datetime NOT NULL,
-  `end_date` datetime NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
   `budget` int(11) NOT NULL,
-  `start_date_cocreatie` datetime NOT NULL,
-  `start_date_voting` datetime NOT NULL,
-  `end_date_cocreatie_voting` datetime NOT NULL,
-  `Type` varchar(255) NOT NULL
+  `start_date_cocreatie` date NOT NULL,
+  `start_date_voting` date NOT NULL,
+  `end_date_cocreatie_voting` date NOT NULL,
+  `Type` varchar(255) NOT NULL,
+  `Fase` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -90,15 +105,6 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `ProfilePicture`, `Type`) VALUES
-(1, 'burger', 'test@test.com', '$2y$12$0aEeqD8GSuVMM3a/ML.7D.gcIIDNMzE/jF3NvamIR8SWMiMEVqTsS', NULL, 0),
-(2, 'testGemeente', 'test2@test.com', '$2y$12$nG/HZmGWP6qoItPCBzxXxeAAfz2chYG.bwbYKpMDYsy4nulv6PqPK', NULL, 1),
-(3, 'testB', 'testB@test.com', '$2y$12$.lWQbnLSsBBB1SJDvt2SM.GtFoo1mxHsWXyf7JiSGHv75igHygBTC', NULL, 0),
-(4, 'testG', 'testG@test.com', '$2y$12$g2DIRHfSkwnnqqsvbzMb9uQpGLXyrCKFcs0TbSvKIvH63dSybh34y', NULL, 1),
-(5, 'adl', 'adl@gmail.com', '$2y$12$Yt//eY8X6f0Vo/xIRsfDt.QQZtYDci/WT.y.TAoAfzQyCZyyHooZe', NULL, 0),
-(6, 'dllaaaa', 'aaddd@g.com', '$2y$12$n3rdq1WHLVnAA4QpUaUY8eZ.421vGBBBJ.JLWHe9TAsCmqekh./ca', NULL, 0),
-(7, 'imag', 'imag@gmail.com', '$2y$12$bn8KXYQrLv1oROnIVgNUnelvVNqYikilu.WMRtyZFeTYOSDTWokzq', NULL, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -132,8 +138,30 @@ INSERT INTO `votes` (`id`, `user_id`, `voter_id`) VALUES
 (80, 6, 7);
 
 --
+-- Dumping data for table `vereisten`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `votes`
+--
+
+CREATE TABLE `votes` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `voter_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `info`
+--
+ALTER TABLE `info`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project`
@@ -170,6 +198,12 @@ ALTER TABLE `votes`
 --
 
 --
+-- AUTO_INCREMENT for table `info`
+--
+ALTER TABLE `info`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+--
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
@@ -185,13 +219,18 @@ ALTER TABLE `project_items`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
 
 --
 -- AUTO_INCREMENT for table `vereisten`
 --
 ALTER TABLE `vereisten`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 
 --
 -- AUTO_INCREMENT for table `votes`

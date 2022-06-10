@@ -43,6 +43,6 @@ include_once("inc/navdefiner.inc.php");
         </section>
     </section>    
 
-
+<script src="js/main.js"></script>
 </body>
 </html>

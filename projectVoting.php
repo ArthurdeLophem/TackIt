@@ -75,6 +75,8 @@ if(isset($_GET['projectId'])){
             </div>
         </div>
     </div>
+
+    <script src="js/main.js"></script>
     <script src="/scripts/saveVote.js"></script>
 </body>
 </html>

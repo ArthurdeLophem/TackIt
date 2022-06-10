@@ -180,5 +180,6 @@ if (isset($_SESSION["user"])) {
      </section>
 <?php endif ?>
 </div>
+<script src="js/main.js"></script>
 </body>
 </html>
