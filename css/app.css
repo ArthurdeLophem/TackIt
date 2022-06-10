@@ -75,6 +75,10 @@ section {
 
 }
 
+.topnav div:last-of-type {
+    margin-right: 1%;
+}
+
 .topnav h1 {
   
     font-size: 2.5rem;    
@@ -2008,4 +2012,79 @@ input[type="date"] {
     border: none;
     border-radius: 5px;
     padding:1%;
+}
+
+.notification {
+    visibility: hidden;
+    position: fixed;
+    z-index: 12;
+    right: 0;
+    background-color: white;
+    border: 1.5px solid #C1C1C1;
+    padding: .5%;
+    margin-top: .4%;
+    margin-right: .4%;
+    border-radius: 10px;
+    width: 15%;
+}
+
+.notification-show {
+    visibility: visible;
+    position: fixed;
+    z-index: 12;
+    right: 0;
+    background-color: white;
+    border: 1.5px solid #C1C1C1;
+    padding: .5%;
+    margin-top: .4%;
+    margin-right: .4%;
+    border-radius: 10px;
+    width: 15%;
+}
+
+.notification-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5%;
+}
+
+.notification-list {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.notification-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.notification-list li:last-of-type {
+    border-bottom: none;
+}
+
+.notification-list li >:first-child {
+    font-weight: 600;
+}
+
+.notification-list li >:nth-child(2) {
+    background-color: #3647FC;
+    color:white;
+    border-radius: 9px;
+    padding: 1% 4% 2% 4%;
+}
+
+.notification-list li p {
+    margin-top: 0;
+}
+
+.notification-nav >:first-child {
+    font-weight: 600;
+    font-size: 1.3em;
+    color: #6C6C6C;
 }

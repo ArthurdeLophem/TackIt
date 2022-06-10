@@ -233,3 +233,15 @@ function deleteInfo(id) {
 
 
 }
+
+
+
+function notificationPopupShow() {
+    var popup = document.querySelector(".notification");
+    popup.className = "notification-show";
+}
+
+function notificationPopupHide() {
+    var popup = document.querySelector(".notification-show");
+    popup.className = "notification";
+}

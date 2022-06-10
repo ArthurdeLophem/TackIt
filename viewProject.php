@@ -20,5 +20,6 @@ include_once("inc/navdefiner.inc.php");
         <div data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="1" id="map" class="shadow h-100 d-inline-block" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>       
     </div>
     <script src="./scripts/drawmap.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
