@@ -104,11 +104,12 @@
 
     public function saveItems(){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("insert into project_items (items, project_id, user_id, status) values (:items, :projectId, :userId, :status)");
+        $statement = $conn->prepare("insert into project_items (items, project_id, user_id, status, budget) values (:items, :projectId, :userId, :status, :budget)");
         $statement->bindValue(':items', $this->items);
         $statement->bindValue(':projectId', $this->projectId);
         $statement->bindValue(':userId', $this->userId);
         $statement->bindValue(':status', "finished");
+        $statement->bindValue(':budget', "eenbudget");
         $statement->execute();
     }
 
