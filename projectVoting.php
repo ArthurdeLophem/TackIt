@@ -26,7 +26,11 @@ if(isset($_GET['projectId'])){
 <body>
     <?php include_once("inc/topnav.inc.php"); ?>
     
-    <div class="d-flex justify-content-center " style="height: 100vh; top: 50px; position: relative">
+    <section id="navSection" class="d-inline-block">
+    <?php include_once("inc/nav.inc.php"); ?>
+    </section>
+
+    <div class="d-flex justify-content-center" style="height: 100vh; top: 50px; position: relative; margin-left: 100px;">
         <div class="container d-flex flex-column">
             <div class="text-center my-3">
                 <h1>stem op je favoriet project</h1>
@@ -37,8 +41,8 @@ if(isset($_GET['projectId'])){
                 </div>
             <?php else : ?>
                 <div class="d-flex flex-row justify-content-between">
-                    <div class="badge bg-dark text-light"><?php echo count($userProjects) ?> Tacks</div>
-                    <div class="badge bg-dark text-light"><strong id="voteAmount"><?php echo Votes::getVotes($_SESSION['user']['id']) ?></strong> /3 votes</div>
+                    <div class="shadow badge bg-light text-dark px-4 py-3"><?php echo count($userProjects) ?> Tacks</div>
+                    <div class="shadow badge bg-light text-dark px-4 py-3"><strong id="voteAmount"><?php echo Votes::getVotes($_SESSION['user']['id']) ?></strong> /3 votes</div>
                 </div>
                 <div id="voteError" class="justify-content-center align-items-center my-3" style="height: 40px; display: none;">
                     <div class="container d-flex flex-column">
