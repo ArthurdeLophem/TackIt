@@ -1,6 +1,6 @@
 <nav id="" class="topnav">
         <div class="">
-            <a class="" href="<?php echo $dashboard;?>"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1652810434/Tackit_Assets/logo_1_wt0q6w.png" alt=""></a>
+            <a class="" href="dashboard.php"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654942012/Tackit_Assets/tackit_logo_vupbtk.svg" style="height: 35px; margin: 10px;" alt=""></a>
         </div>
 
         <div class="">
