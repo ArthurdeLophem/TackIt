@@ -2,6 +2,7 @@
 const targetZone = document.querySelector("#map");
 const latitude = 51.0259;
 const longitude = 4.4776;
+const saveBTN = document.querySelector(".saveBtn");
 const map = L.map('map', {
     center: [latitude, longitude],
     zoom: 19,
@@ -96,6 +97,7 @@ saveItems = (e) => {
     data.append("userId", userId)
     data.append("projectId", projectId)
     data.append("items", JSON.stringify(items))
+    console.log(projectId, userId)
 
     fetch('ajax/saveItems.php', {
         method: 'POST', // or 'PUT'
@@ -103,6 +105,7 @@ saveItems = (e) => {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             if (data.status == "failed") {
                 feedback = `<div class="d-flex flex-column align-items-center">
             <div id="feedbackAlert" class="alert alert-danger" role="alert">${data.message}</div>
@@ -120,7 +123,7 @@ saveItems = (e) => {
         });
 }
 
-document.querySelector(".saveBtn").addEventListener("click", saveItems);
+saveBTN.addEventListener("click", saveItems);
 
 drawItems = (item) => {
     itemType = item.itemType;
@@ -169,11 +172,12 @@ drawItems = (item) => {
 getItems = (e) => {
     e.preventDefault();
 
-    let userId = document.querySelector(".saveBtn").dataset.userId;
-    let projectId = document.querySelector(".saveBtn").dataset.projectId;
+    let userId = saveBTN.dataset.userId;
+    let projectId = saveBTN.dataset.projectId;
     let data = new FormData()
     data.append("userId", userId)
     data.append("projectId", projectId)
+    console.log(userId, projectId)
 
     fetch('ajax/getItems.php', {
         method: 'POST', // or 'PUT'
