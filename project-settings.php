@@ -6,13 +6,18 @@
     require __DIR__ . '/vendor/autoload.php';
     include_once("inc/navdefiner.inc.php");
 
+    session_start();
+
     $projectId = $_GET['projectId'];
 
-    $project = Project::getProject($projectId);
-
-    $info = Info::getAll($projectId);
-
     if (!empty($_GET['projectId'])) {
+
+        $_SESSION['project_id'] = $projectId;
+        $project = Project::getProject($projectId);
+        $vereisten = Vereisten::getAll($projectId);
+        $info = Info::getAll($projectId);
+        $rowcount = Vereisten::vereistenCount($projectId);
+        $i = 0;
 
         $projectTitle = $project['name'];
         $projectStartdatum = $project['start_date'];
@@ -25,22 +30,22 @@
 
         $projectId = $_GET['projectId'];
     
-        $project = Project::getProject($projectId);
-        $vereisten = Vereisten::getAll($projectId);
-        $rowcount = Vereisten::vereistenCount($projectId);
-        $i = 0;
     }
     
-    if (!empty($_POST['save'])) {
+    if (!empty($_POST['cancel'])) {
 
+    unset($_SESSION['project_id']);      
     header("Location: projecten.php");
 
     };
+
+    
     if (!empty($_POST['delete'])) {
     
     Info::deleteAll($projectId);    
     Vereisten::deleteAll($projectId);
     Project::delete($projectId);   
+    unset($_SESSION['project_id']);  
     header("Location: projecten.php");
     
     };
@@ -68,7 +73,7 @@
                 <p>map.esp</p>
                 <div>
                     <p>aanpassen</p>
-                    <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
+                    <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
                 </div>
                 <div class="progress">
                     <div class="background-blue">
@@ -86,36 +91,63 @@
                 </div>
             </section>
             <section class="new-project-pannel-next-content-right">
-                <h1>Project: title</h1>
+                <h1>Project: <?php echo $project['name']; ?></h1>
                 <div class="datums">
-                    <div>
+                    <div id="project-edit-dates" class="show">
                         <p>startdatum project</p>
-                        <p>45</p>
+                        <p id="project-edit-dates-1"><?php echo $project['start_date']; ?></p>
                     </div>
-                    <div>
+                    <div id="project-edit-dates-input-div" class="hidden">
+                        <input id="project-edit-dates-input" type="date" value="<?php echo $project['start_date']; ?>">
+                    </div>
+                    <div id="project-edit-dates" class="show">
                         <p>einddatum project</p>
-                        <p>252</p>
+                        <p id="project-edit-dates-2"><?php echo $project['end_date']; ?></p>
                     </div>
-                    <div>
+                    <div id="project-edit-dates-input-div" class="hidden">
+                        <input id="project-edit-dates-input" type="date" value="<?php echo $project['end_date']; ?>">
+                    </div>
+                    <div id="project-edit-dates" class="show">
                         <p>startdatum cocreatie</p>
-                        <p>542</p>
+                        <p id="project-edit-dates-3"><?php echo $project['start_date_cocreatie']; ?></p>
                     </div>
-                    <div>
+                    <div id="project-edit-dates-input-div" class="hidden">
+                        <input id="project-edit-dates-input" type="date" value="<?php echo $project['start_date_cocreatie']; ?>">
+                    </div>
+                    <div id="project-edit-dates" class="show">
                         <p>startdatum voting</p>
-                        <p>245</p>
+                        <p id="project-edit-dates-4"><?php echo $project['start_date_voting']; ?></p>
                     </div>
-                    <div>
+                    <div id="project-edit-dates-input-div" class="hidden">
+                        <input id="project-edit-dates-input" type="date" value="<?php echo $project['start_date_voting']; ?>">
+                    </div>
+                    <div id="project-edit-dates" class="show">
                         <p>einddatum cocreatie</p>
-                        <p>452</p>
+                        <p id="project-edit-dates-5"><?php echo $project['end_date_cocreatie_voting']; ?></p>
+                    </div>
+                    <div id="project-edit-dates-input-div" class="hidden">
+                        <input id="project-edit-dates-input" type="date" value="<?php echo $project['end_date_cocreatie_voting']; ?>">
+                    </div>
+                    <div onclick="editDate()" id="project-edit-date-edit" class="project-edit-date-edit">
+                        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
+                    </div>
+                    <div onclick="saveDate()" id="project-edit-date" class="project-edit-date">
+                        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655058499/Tackit_Assets/Save_ijoxrb.svg" alt="Y">
                     </div>
                 </div>
                 <div class="new-project-pannel-next-content-edit">
                     <p>Type</p>
-                    <p>fdsq</p>
+                    <p id="type-edit-p" class="show"><?php echo $project['Type']; ?></p>
+                    <input id="type-edit-input" class="hidden" type="text" value="<?php echo $project['Type']; ?>">
+                    <img onclick="editType()" id="type-edit-edit" class="wrench show" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="y">
+                    <img onclick="saveType()" id="type-edit-save" class="wrench hidden" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655058499/Tackit_Assets/Save_ijoxrb.svg" alt="y">
                 </div>
                 <div class="new-project-pannel-next-content-edit">
                     <p>Budget</p>
-                    <p>2524</p>
+                    <p id="budget-edit-p" class="show"><?php echo $project['budget']; ?></p>
+                    <input type="text" id="budget-edit-input" class="hidden" value="<?php echo $project['budget']; ?>">
+                    <img onclick="editBudget()" id="budget-edit-edit" class="wrench show" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="y">
+                    <img onclick="saveBudget()" id="budget-edit-save" class="wrench hidden" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655058499/Tackit_Assets/Save_ijoxrb.svg" alt="y">
                 </div>
                 <h2>Upload informatie</h2>
                 <input type="hidden" value="0" id="infoCount">
@@ -136,25 +168,24 @@
 
                 <h2>Vereisten</h2>
                 <ul id="vereisten" class="edit-project-vereisten">
-                    <li>
                     <?php if(!empty($_GET['projectId'])): ?>  
                             <?php foreach($vereisten as $vereist): ?>
                                 <?php $i++; ?>
-                        <li>
+                        <li id="vereisten-li-item-<?php echo $i?>">
                             <div>
                                 <p><?php echo $vereist['item']?></p>
                                 <p><?php echo $vereist['amount']?></p>
-                                <input type="hidden" value="<?php echo $vereist['id']?>" name="vereisten-inner-id-<?php echo $i?>">
+                                <input type="hidden" value="<?php echo $vereist['id']?>" id="vereisten-inner-id-<?php echo $i?>" name="vereisten-inner-id-<?php echo $i?>">
                                 <input type="hidden" value="<?php echo $vereist['item']?>" class="vereisten-item-item" name="vereisten-item-<?php echo $i?>">
                                 <input type="hidden" value="<?php echo $vereist['amount']?>" class="vereisten-hoeveelheid-item" name="vereisten-hoeveelheid-<?php echo $i?>">
-                                <p>verwijderen</p>
+                                <input type="hidden" value="false" id="vereisten-type-id-<?php echo $i?>">
+                                <p onclick="deleteVereisten(<?php echo $i?>)">verwijderen</p>
                             </div>
                         </li>    
                             <?php endforeach ?>    
                    <?php endif ?>        
-                    </li>
                 </ul>
-                <div onclick="vereistenPopupShow()">
+                <div onclick="vereistenPopupShow()"  class="vereisten-edit-confirm">
                     <p>Vereisten toevoegen</p>
                 </div>
                 <div id="vereisten-popup" class="vereisten-popup">
@@ -184,19 +215,19 @@
         <section class="new-project-buttons">
             <div>
                     <form action="" method="POST">
-                        <input type="hidden" name="cance" value="something">
+                        <input type="hidden" name="delete" value="something">
                         <button type="submit">verwijderen</button>
                     </form>
             </div> 
             <div>
                 <div>
-                    <a href=""><p>annuleren</p></a>
-                </div>         
-                <div>
                     <form action="" method="POST">
-                        <input type="hidden" name="sav" value="something">
-                        <button type="submit">opslaan</button>
+                        <input type="hidden" name="cancel" value="something">
+                        <button type="submit">annuleren</button>
                     </form>
+                </div>         
+                <div class="project-edit-save-button">
+                    <p onclick="saveVereisten()"><a href="projecten.php">Opslaan</a></p>
                 </div>
             </div>  
         </section>  

@@ -1820,11 +1820,15 @@ input[type="date"] {
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding-bottom: 3%;
     padding-top: 3%;
     border-bottom: 1.5px solid #C4C4C4;
 
+}
+
+.new-project-pannel-next-content-edit .wrench {
+    right: 1px;
 }
 
 .new-project-pannel-next-content-edit p {
@@ -1939,6 +1943,7 @@ input[type="date"] {
     border-radius: 6px;
 }
 
+
 .new-project-buttons div:last-of-type >:last-child form button {
     font-family: 'Nunito', sans-serif;
     font-size: 1.2em;
@@ -1959,19 +1964,17 @@ input[type="date"] {
 .new-project-buttons>:nth-child(2) {
     width: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
 .new-project-buttons>:nth-child(2) div {
-    width: 40%;
     padding: 3%;
     background-color: #7D7E83;
-    border-radius: 6px;
 }
 
 .new-project-buttons>:nth-child(2) div:last-of-type {
-    background-color: #3647FC;
+    background-color: white;
 }
 
 .new-project-buttons>:nth-child(2) div:last-of-type button {
@@ -1980,6 +1983,8 @@ input[type="date"] {
     border: none;
     font-family: 'Nunito', sans-serif;
     color: white;
+    border-radius: 9px;
+    padding: 10%;
 }
 
 .new-project-buttons>:nth-child(2) a {
@@ -2017,6 +2022,10 @@ input[type="date"] {
     background-color: #F4F2F3;
 }
 
+.vereisten-popup input {
+    width: 50%;
+}
+
 .vereisten-popup p {
     background-color: #3647FC;
     color: white;
@@ -2041,7 +2050,7 @@ input[type="date"] {
     position: absolute;
     margin-left: 18%;
     margin-top: 15%;
-    width: 12%;
+    width: 20%;
 }
 
 .vereisten-popup-show {
@@ -2059,16 +2068,17 @@ input[type="date"] {
     position: absolute;
     margin-left: 18%;
     margin-top: 15%;
-    width: 12%;
+    width: 14%;
 }
 
 .vereisten-popup-show p {
     background-color: #3647FC;
     color: white;
-    width: 25%;
+    width: 35%;
     text-align: center;
     padding: 2%;
     border-radius: 3px;
+    margin-top: 3%;
 }
 
 .vereisten-popup-show div {
@@ -2433,6 +2443,7 @@ input[type="date"] {
     padding-right: 10%;
     font-weight: 600;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .mapper-vereisten li p:last-of-type {
@@ -2443,5 +2454,64 @@ input[type="date"] {
 
 .edit-project-vereisten li div {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
 
+}
+
+.edit-project-vereisten li div > *{
+    margin-right: 10%;
+    width: 10%;
+}
+
+.edit-project-vereisten li div p:last-of-type {
+    text-align: center;
+    width: 16%;
+    background-color: #7D7E83;
+    color: white;
+    border-radius: 9px; 
+    padding: 1%;
+}
+
+.vereisten-edit-confirm {
+    width: 30%;
+    background-color: #3647FC;
+    text-align: center;
+    color: white;
+    border-radius: 9px; 
+    padding: 1%;
+
+}
+
+.project-edit-date {
+    display: none!important;
+}
+
+.project-edit-date-show {
+    display: visible!important;
+}
+
+.project-edit-date-edit {
+    display: visible!important;
+}
+
+.project-edit-date-edit-hide {
+    display: none!important;
+}
+
+.hidden {
+    display: none!important;
+}
+.show {
+    display: visible!important;
+}
+
+.project-edit-save-button {
+    background-color: #3647FC!important;
+    margin-left: 10%;
+    padding: 3%;
+    font-size: 1.5em;
+    border-radius: 9px;
+    font-weight: 600;
 }
