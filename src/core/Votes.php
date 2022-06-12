@@ -8,6 +8,7 @@ use tackit\Data\DB;
 
     protected $userId;
     protected $voterId;
+    protected $projectId;
 
     /**
      * Get the value of userId
@@ -49,18 +50,40 @@ use tackit\Data\DB;
         return $this;
     }
 
+    /**
+     * Get the value of projectId
+     */ 
+    public function getProjectId()
+    {
+        return $this->projectId;
+    }
+
+    /**
+     * Set the value of projectId
+     *
+     * @return  self
+     */ 
+    public function setProjectId($projectId)
+    {
+        $this->projectId = $projectId;
+
+        return $this;
+    }
+
     public function saveVote(){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("insert into votes (user_id, voter_id) values (:userId, :voterId)");
+        $statement = $conn->prepare("insert into votes (user_id, voter_id, project_id) values (:userId, :voterId, :projectId)");
         $statement->bindValue(':userId', $this->userId);
         $statement->bindValue(':voterId', $this->voterId);
+        $statement->bindValue(':projectId', $this->projectId);
         $statement->execute();
     }
 
-    public static function getVotes($voterId){
+    public static function getVotes($voterId, $projectId){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("select * from votes where voter_id = :voterId");
+        $statement = $conn->prepare("select * from votes where voter_id = :voterId and project_id = :projectId");
         $statement->bindValue(':voterId', $voterId);
+        $statement->bindValue(':projectId', $projectId);
         $statement->execute();
         return count($statement->fetchAll());
     }
@@ -74,20 +97,22 @@ use tackit\Data\DB;
         return count($statement->fetchAll());
     }
 
-    public static function isVoted($userId, $voterId){
+    public static function isVoted($userId, $voterId, $projectId){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("select * from votes where voter_id = :voterId and user_id = :userId");
+        $statement = $conn->prepare("select * from votes where voter_id = :voterId and user_id = :userId and project_id = :projectId");
         $statement->bindValue(':voterId', $voterId);
         $statement->bindValue(':userId', $userId);
+        $statement->bindValue(':projectId', $projectId);
         $statement->execute();
         return $statement->fetchAll();
     }
 
-    public static function removeVote($userId, $voterId){
+    public static function removeVote($userId, $voterId, $projectId){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("delete from votes where voter_id = :voterId and user_id = :userId");
+        $statement = $conn->prepare("delete from votes where voter_id = :voterId and user_id = :userId and project_id = :projectId");
         $statement->bindValue(':voterId', $voterId);
         $statement->bindValue(':userId', $userId);
+        $statement->bindValue(':projectId', $projectId);
         $statement->execute();
     }
 }
