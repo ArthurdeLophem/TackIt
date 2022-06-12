@@ -6,13 +6,14 @@
     require __DIR__ . '/vendor/autoload.php';
     include_once("inc/navdefiner.inc.php");
 
-    $projectId = $_SESSION['project_id'];
+    $projectId = $_GET['projectId'];
 
     $project = Project::getProject($projectId);
 
     $info = Info::getAll($projectId);
 
-    if (!empty($_SESSION['project_id'])) {
+    if (!empty($_GET['projectId'])) {
+
         $projectTitle = $project['name'];
         $projectStartdatum = $project['start_date'];
         $projectEinddatum = $project[('end_date')];
@@ -21,21 +22,26 @@
         $projectStartdatum_cocreatie = $project['start_date_cocreatie'];
         $projectStartdatum_cocreatie_voting = $project['start_date_voting'];
         $projectEinddatum_cocreatie_voting = $project['end_date_cocreatie_voting'];
+
+        $projectId = $_GET['projectId'];
+    
+        $project = Project::getProject($projectId);
+        $vereisten = Vereisten::getAll($projectId);
+        $rowcount = Vereisten::vereistenCount($projectId);
+        $i = 0;
     }
     
     if (!empty($_POST['save'])) {
 
-    unset($_SESSION['project_id']);    
-    header("Location: dashboard.php");
+    header("Location: projecten.php");
 
     };
-    if (!empty($_POST['cancel'])) {
+    if (!empty($_POST['delete'])) {
     
     Info::deleteAll($projectId);    
     Vereisten::deleteAll($projectId);
-    Project::delete($projectId);
-    unset($_SESSION['project_id']);      
-    header("Location: dashboard.php");
+    Project::delete($projectId);   
+    header("Location: projecten.php");
     
     };
 
@@ -131,53 +137,71 @@
                 <h2>Vereisten</h2>
                 <ul id="vereisten" class="edit-project-vereisten">
                     <li>
-                        <p>Bomen</p>
-                        <p>1</p>
-                        <p>verwijderen</p>
+                    <?php if(!empty($_GET['projectId'])): ?>  
+                            <?php foreach($vereisten as $vereist): ?>
+                                <?php $i++; ?>
+                        <li>
+                            <div>
+                                <p><?php echo $vereist['item']?></p>
+                                <p><?php echo $vereist['amount']?></p>
+                                <input type="hidden" value="<?php echo $vereist['id']?>" name="vereisten-inner-id-<?php echo $i?>">
+                                <input type="hidden" value="<?php echo $vereist['item']?>" class="vereisten-item-item" name="vereisten-item-<?php echo $i?>">
+                                <input type="hidden" value="<?php echo $vereist['amount']?>" class="vereisten-hoeveelheid-item" name="vereisten-hoeveelheid-<?php echo $i?>">
+                                <p>verwijderen</p>
+                            </div>
+                        </li>    
+                            <?php endforeach ?>    
+                   <?php endif ?>        
                     </li>
                 </ul>
                 <div onclick="vereistenPopupShow()">
                     <p>Vereisten toevoegen</p>
                 </div>
                 <div id="vereisten-popup" class="vereisten-popup">
-                <div>
-                    <h3>Vereisten</h3>
-                    <img onclick="vereistenPopupHide()" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654791984/Tackit_Assets/Vector_rsybph.png" alt="X">
-                </div>    
-                <div>
-                    <select name="vereisten-selector" id="vereisten-selector">
-                        <option value="bomen">bomen</option>
-                        <option value="straatlamp">straatlamp</option>
-                        <option value="fontein">fontein</option>
-                        <option value="bank">bank</option>
-                        <option value="struik">struik</option>
-                    </select> 
-                    <input class="vereisten-hoeveelheid" type="text" placeholder="hoeveelheid">
-                </div>    
-                <p onclick="vereistenAdd()" class="vereisten-confirm">Toevoegen</p>
-            </div>
+                    <div>
+                        <h3>Vereisten</h3>
+                        <img onclick="vereistenPopupHide()" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654791984/Tackit_Assets/Vector_rsybph.png" alt="X">
+                    </div>    
+                    <div>
+                        <select name="vereisten-selector" id="vereisten-selector">
+                            <option value="bomen">bomen</option>
+                            <option value="straatlamp">straatlamp</option>
+                            <option value="fontein">fontein</option>
+                            <option value="bank">bank</option>
+                            <option value="struik">struik</option>
+                        </select> 
+                        <input class="vereisten-hoeveelheid" type="text" placeholder="hoeveelheid">
+                    </div>    
+                    <p onclick="vereistenEditAdd()" class="vereisten-confirm">Toevoegen</p>
+                </div>
+                <input id="hiddenCounter" type="hidden" name="liCount" value="<?php
+                   if(!empty($_GET['projectId'])) {
+                    echo $rowcount;
+                    }
+                ?>">
             </section>
         </section>  
         <section class="new-project-buttons">
             <div>
                     <form action="" method="POST">
-                        <input type="hidden" name="cancel" value="something">
+                        <input type="hidden" name="cance" value="something">
                         <button type="submit">verwijderen</button>
                     </form>
             </div> 
             <div>
                 <div>
-                    <a href="new-project.php"><p>annuleren</p></a>
+                    <a href=""><p>annuleren</p></a>
                 </div>         
                 <div>
                     <form action="" method="POST">
-                        <input type="hidden" name="save" value="something">
+                        <input type="hidden" name="sav" value="something">
                         <button type="submit">opslaan</button>
                     </form>
                 </div>
             </div>  
         </section>  
     </section>
+    <script src="js/editProject.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

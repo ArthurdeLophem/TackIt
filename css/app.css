@@ -2438,3 +2438,10 @@ input[type="date"] {
 .mapper-vereisten li p:last-of-type {
     padding-right: 0;
 }
+
+/* project-settings */
+
+.edit-project-vereisten li div {
+    display: flex;
+
+}
