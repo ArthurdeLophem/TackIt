@@ -22,7 +22,10 @@ $vereisten = Vereisten::getAll($_GET['projectId']);
 </head>
 <body>
     <?php include_once("inc/topnav.inc.php"); ?>
-    <div class="map" style="height: 80vh; display: flex; justify-content: space-around; margin-top: 5%">
+
+    <div id="feedbackPanel" style="height: fit-content; display: flex; justify-content: space-around; position: relative; top: 70px"></div>
+    <div class="map" style="height: 80vh; display: flex; justify-content: space-around; position: relative; top: 100px">
+      
         <div class="d-flex flex-column" style="width: 15%; height: 80%">
             <div class="shadow bg-white d-flex justify-content-between align-items-center mb-2 p-2" style="height: 40px; background-color: rgba(0,0,255,.1); border-radius: 10px;">
                 <p>search</p>
@@ -66,10 +69,10 @@ $vereisten = Vereisten::getAll($_GET['projectId']);
                 <div class="d-flex flex-column align-items-center">  
                     <div class="my-2">
                         <a type="button" data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" class="btn btn-primary saveBtn d-flex flex-column align-items-center px-4 py-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-save2-fill" viewBox="0 0 16 16">
-                            <path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"/>
+                            <svg data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-save2-fill" viewBox="0 0 16 16">
+                            <path data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"/>
                             </svg>
-                            <strong>save</strong>
+                            <strong data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>">save</strong>
                         </a>
                     </div>
                     <div class="my-2">

@@ -9,11 +9,12 @@ document.querySelectorAll(".bi-star-fill").forEach((e) => {
 
         let userId = e.target.dataset.userId;
         let voterId = e.target.dataset.voterId;
-        console.log(userId, voterId);
+        let projectId = e.target.dataset.projectId;
 
         let data = new FormData();
         data.append("userId", userId);
         data.append("voterId", voterId);
+        data.append("projectId", projectId);
 
 
 

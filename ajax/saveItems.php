@@ -7,7 +7,7 @@ require_once(__DIR__ . "/../vendor/autoload.php");
 if (!empty($_POST)) {
     try {
         if(Items::itemValidation($_POST['userId'], $_POST['projectId'])){
-            Items::updateItems($_POST['items'], $_POST['userId'], $_POST['projectId']);
+            Items::updateItems($_POST['items'], $_POST['projectId'], $_POST['userId']);
             $response = [
                 "status" => "success",
                 "message" => "updated items successfully"
