@@ -130,4 +130,22 @@
         $statement->execute();
         return $statement->fetch();
     }
+
+    public static function getProjectWinner($projectId){
+        $conn = DB::getConnection();
+        $statement = $conn->prepare("select * from project_items where project_id = :projectId and status = :status");
+        $statement->bindValue(':projectId', $projectId);
+        $statement->bindValue(':status', "winner");
+        $statement->execute();
+        return $statement->fetch();
+    }
+
+    public static function setProjectWinner($userId, $projectId){
+        $conn = DB::getConnection();
+        $statement = $conn->prepare("update project_items set status = :status where project_id = :projectId and user_id = :userId");
+        $statement->bindValue(':status', "winner");
+        $statement->bindValue(':projectId', $projectId);
+        $statement->bindValue(':userId', $userId);
+        $statement->execute();
+    }
 }

@@ -65,10 +65,11 @@ use tackit\Data\DB;
         return count($statement->fetchAll());
     }
 
-    public static function getProjectVotes($userId){
+    public static function getProjectVotes($userId, $projectId){
         $conn = DB::getConnection();
-        $statement = $conn->prepare("select * from votes where user_id = :userId");
+        $statement = $conn->prepare("select * from votes where user_id = :userId and project_id = :projectId");
         $statement->bindValue(':userId', $userId);
+        $statement->bindValue(':projectId', $projectId);
         $statement->execute();
         return count($statement->fetchAll());
     }
