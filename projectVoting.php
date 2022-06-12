@@ -30,8 +30,8 @@ if(isset($_GET['projectId'])){
     <?php include_once("inc/nav.inc.php"); ?>
     </section>
 
-    <div class="d-flex justify-content-center" style="height: 100vh; top: 50px; position: relative; margin-left: 100px;">
-        <div class="container d-flex flex-column">
+    <div class="d-flex justify-content-center" style="height: 100vh; top: 50px; position: relative; margin-left: 15%; width: 70%;">
+        <div class="container d-flex flex-column" style="width: 100%; margin-left: 0; margin-right: 0;">
             <div class="text-center my-3">
                 <h1>stem op je favoriet project</h1>
             </div>

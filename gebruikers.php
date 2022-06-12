@@ -7,7 +7,7 @@ include_once("inc/navdefiner.inc.php");
 <head>
     <?php include_once("inc/header.inc.php"); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>TackIt</title>
+    <title>Tackit</title>
 </head>
 <body>
     
@@ -17,7 +17,6 @@ include_once("inc/navdefiner.inc.php");
     <?php include_once("inc/nav.inc.php"); ?>
 
 </section>
-
 <section class="user-content-section">
     <section class="users-personeel">
         <div class="users-nav">
