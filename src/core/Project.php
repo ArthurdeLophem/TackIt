@@ -192,4 +192,11 @@
                 $statement->execute();
                 return $statement->fetchAll();
         }
+
+        public static function getFirstProject() {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("SELECT * FROM project ORDER BY id ASC LIMIT 1");
+                $statement->execute();
+                return $statement->fetch(PDO::FETCH_ASSOC);
+        }
     }

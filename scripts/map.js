@@ -124,7 +124,7 @@ document.querySelector(".saveBtn").addEventListener("click", saveItems);
 
 drawItems = (item) => {
     itemType = item.itemType;
-    imagePath = "/css/images/items/" + itemType + ".svg"
+    imagePath = "css/images/items/" + itemType + ".svg"
     console.log(itemType)
 
     newIcon = L.icon({

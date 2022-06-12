@@ -4,7 +4,7 @@ $posts = [1,2,3,4,5,6,7,8,9,10];
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include_once("inc/header.inc.php"); ?>
+    <?php include_once("inc/header.inc.php"); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Tackit</title>
 </head>

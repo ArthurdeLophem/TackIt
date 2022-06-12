@@ -1,8 +1,13 @@
 <?php
-include_once("inc/navdefiner.inc.php");
-?>
+use tackit\core\Vereisten;
 
-<!DOCTYPE html>
+include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+
+$vereisten = Vereisten::getAll($_GET['projectId']);
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 <?php include_once("inc/header.inc.php"); ?>
@@ -17,7 +22,7 @@ include_once("inc/navdefiner.inc.php");
 </head>
 <body>
     <?php include_once("inc/topnav.inc.php"); ?>
-    <div class="map" style="height: 80vh; display: flex; justify-content: space-around; position: relative; top: 100px">
+    <div class="map" style="height: 80vh; display: flex; justify-content: space-around; margin-top: 5%">
         <div class="d-flex flex-column" style="width: 15%; height: 80%">
             <div class="shadow bg-white d-flex justify-content-between align-items-center mb-2 p-2" style="height: 40px; background-color: rgba(0,0,255,.1); border-radius: 10px;">
                 <p>search</p>
@@ -28,11 +33,11 @@ include_once("inc/navdefiner.inc.php");
             <div class="shadow bg-white d-flex flex-column align-items-center" style="height: 80%; background-color: rgba(0,0,255,.1); border-radius: 10px;">
                 <p class="my-3 mx-auto text-center"><strong>drop je items op de map</strong></p>
                 <div class="d-flex flex-wrap justify-content-center align-content-start items">
-                    <img src="/css/images/items/boom.svg" data-item-type="boom" class="item inactive"></img>
-                    <img src="/css/images/items/bank.svg" data-item-type="bank" class="item inactive"></img>
-                    <img src="/css/images/items/fontein.svg" data-item-type="fontein" class="item inactive"></img>
-                    <img src="/css/images/items/straatlamp.svg" data-item-type="straatlamp" class="item inactive"></img>
-                    <img src="/css/images/items/struik.svg" data-item-type="struik" class="item inactive"></img>
+                    <img src="css/images/items/boom.svg" data-item-type="boom" class="item inactive"></img>
+                    <img src="css/images/items/bank.svg" data-item-type="bank" class="item inactive"></img>
+                    <img src="css/images/items/fontein.svg" data-item-type="fontein" class="item inactive"></img>
+                    <img src="css/images/items/straatlamp.svg" data-item-type="straatlamp" class="item inactive"></img>
+                    <img src="css/images/items/struik.svg" data-item-type="struik" class="item inactive"></img>
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center" style="height: 20%; gap: 15px;">
@@ -115,6 +120,20 @@ include_once("inc/navdefiner.inc.php");
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="mapper-vereisten">
+        <p>Vereisten</p>
+        <ul>
+            <?php foreach($vereisten as $vereist): ?>
+                <li>
+                    <p>0</p>
+                    <p>/</p>
+                    <p><?php echo $vereist['amount']; ?></p>
+                    <p><?php echo $vereist['item']; ?></p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
 
     <script src="js/main.js"></script>
