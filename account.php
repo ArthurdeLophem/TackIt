@@ -27,26 +27,26 @@ include_once("inc/navdefiner.inc.php");
         <div>
             <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654616603/Tackit_Assets/main_avatar_smoll_uts0k3.png" alt="0">
         </div>
-        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
+        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
     </div>
     <div>
         <p>Locatie</p>
         <p>Beverenstraat 15</p>
-        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
+        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
     </div>
     <div>
         <p>Email</p>
         <p>Kristien@gmail.com</p>
-        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
+        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
     </div>
     <div>
         <p>Wachtwoord</p>
         <p>*************</p>
-        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
+        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
     </div>
     <div>
         <p>Account verwijderen</p>
-        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654617056/Tackit_Assets/Recycle_Bin_kjau31.png" alt="H">
+        <img class="wrench" src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="H">
     </div>
 
 

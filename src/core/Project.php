@@ -192,4 +192,53 @@
                 $statement->execute();
                 return $statement->fetchAll();
         }
-    }
+
+        public static function getFirstProject() {
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("SELECT * FROM project ORDER BY id ASC LIMIT 1");
+                $statement->execute();
+                return $statement->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public static function saveDate($date1, $date2, $date3, $date4, $date5, $id) {
+
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("UPDATE project SET 
+                start_date = :date1 , end_date = :date2 , start_date_cocreatie = :date3 , start_date_voting = :date4 , end_date_cocreatie_voting = :date5
+                WHERE id = :id");
+                $statement->bindValue(':date1', $date1);
+                $statement->bindValue(':date2', $date2);
+                $statement->bindValue(':date3', $date3);
+                $statement->bindValue(':date4', $date4);
+                $statement->bindValue(':date5', $date5);
+                $statement->bindValue(':id', $id);
+                $statement->execute();
+              
+        }
+
+        public static function saveType($type, $id) {
+
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("UPDATE project SET 
+                Type = :type
+                WHERE id = :id");
+                $statement->bindValue(':type', $type);
+                $statement->bindValue(':id', $id);
+                $statement->execute();
+              
+        }
+
+        public static function saveBudget($budget, $id) {
+
+                $conn = DB::getConnection();
+                $statement = $conn->prepare("UPDATE project SET 
+                budget = :budget
+                WHERE id = :id");
+                $statement->bindValue(':budget', $budget);
+                $statement->bindValue(':id', $id);
+                $statement->execute();
+              
+        }
+
+
+}
