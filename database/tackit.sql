@@ -2,10 +2,13 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
+
 -- Host: 127.0.0.1
 -- Generation Time: Jun 13, 2022 at 04:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
+
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -23,8 +26,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `info`
 --
 
 CREATE TABLE `info` (
@@ -45,6 +46,8 @@ INSERT INTO `info` (`id`, `name`, `file_path`, `projectId`, `file_name`) VALUES
 -- --------------------------------------------------------
 
 --
+
+
 -- Table structure for table `project`
 --
 
@@ -113,16 +116,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `ProfilePicture`, `Type`) VALUES
-(1, 'burger', 'test@test.com', '$2y$12$0aEeqD8GSuVMM3a/ML.7D.gcIIDNMzE/jF3NvamIR8SWMiMEVqTsS', NULL, 0),
-(2, 'testGemeente', 'test2@test.com', '$2y$12$nG/HZmGWP6qoItPCBzxXxeAAfz2chYG.bwbYKpMDYsy4nulv6PqPK', NULL, 1),
-(3, 'testB', 'testB@test.com', '$2y$12$.lWQbnLSsBBB1SJDvt2SM.GtFoo1mxHsWXyf7JiSGHv75igHygBTC', NULL, 0),
-(4, 'testG', 'testG@test.com', '$2y$12$g2DIRHfSkwnnqqsvbzMb9uQpGLXyrCKFcs0TbSvKIvH63dSybh34y', NULL, 1);
-
--- --------------------------------------------------------
+-- Dumping data for table `users`- --------------------------------------------------------
 
 --
 -- Table structure for table `vereisten`
@@ -135,10 +129,6 @@ CREATE TABLE `vereisten` (
   `project_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `vereisten`
---
-
 INSERT INTO `vereisten` (`id`, `item`, `amount`, `project_id`) VALUES
 (41, 'bomen', 1, 11),
 (42, 'struik', 2, 11),
@@ -150,7 +140,6 @@ INSERT INTO `vereisten` (`id`, `item`, `amount`, `project_id`) VALUES
 (83, 'bomen', 3, 30),
 (84, 'fontein', 2, 30),
 (85, 'struik', 5, 30);
-
 -- --------------------------------------------------------
 
 --
@@ -171,21 +160,11 @@ CREATE TABLE `votes` (
 INSERT INTO `votes` (`id`, `user_id`, `voter_id`, `project_id`) VALUES
 (80, 6, 7, 2),
 (81, 5, 6, 2),
-(82, 7, 6, 2),
-(84, 4, 3, 28);
-
---
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `info`
---
 ALTER TABLE `info`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `project`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`id`);
@@ -218,9 +197,6 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `info`
---
 ALTER TABLE `info`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
@@ -248,11 +224,14 @@ ALTER TABLE `users`
 ALTER TABLE `vereisten`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
+
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
