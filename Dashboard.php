@@ -1,9 +1,11 @@
 <?php
-
+use tackit\core\Project;
+use tackit\core\Security;
 
 include_once("inc/navdefiner.inc.php");
 require_once(__DIR__ . "/vendor/autoload.php");
-use tackit\core\Project;
+
+Security::checkLoggedIn();
 
 $date = date('Y-m-d');
 

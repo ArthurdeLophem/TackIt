@@ -1,8 +1,12 @@
 <?php
 use tackit\core\Vereisten;
+use tackit\core\Security;
 
 include_once("inc/navdefiner.inc.php");
 require_once(__DIR__ . "/vendor/autoload.php");
+
+Security::checkLoggedIn();
+Security::checkIfBurger();
 
 $vereisten = Vereisten::getAll($_GET['projectId']);
 

@@ -5,6 +5,12 @@ require_once(__DIR__ . "/vendor/autoload.php");
 use tackit\core\Items;
 use tackit\core\Burger;
 use tackit\core\Votes;
+use tackit\core\Security;
+
+include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+
+Security::checkLoggedIn();
 
 if(isset($_GET['projectId'])){
     $userProjects = Items::findAllItemsByProject($_GET['projectId']);

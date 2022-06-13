@@ -1,6 +1,11 @@
 <?php
 
+use tackit\core\Security;
+
 include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+
+Security::checkLoggedIn();
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -25,6 +30,7 @@ include_once("inc/navdefiner.inc.php");
                     <p>Nederlands</p>
                     <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
                 </div>
+                <?php if($_SESSION['user']['Type'] == 1): ?>
                 <div>
                     <p>Stijl</p>
       
@@ -38,6 +44,7 @@ include_once("inc/navdefiner.inc.php");
                     <label for="settings-file">Uploaden<img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609118/Tackit_Assets/Vector_ibe3vt.png" alt="U"></label>
                     <input id="settings-file" type="file">
                 </div>
+                <?php endif; ?>
                 <input type="submit" value="Opslaan" class="formbtn_primarybtn">	
             </form>
         </section>

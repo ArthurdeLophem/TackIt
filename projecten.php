@@ -3,6 +3,14 @@ include_once("inc/navdefiner.inc.php");
 require_once(__DIR__ . "/vendor/autoload.php");
 use tackit\core\Project;
 use tackit\core\Items;
+use tackit\core\Security;
+
+include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+
+Security::checkLoggedIn();
+Security::checkUserType();
+
 
 if (isset($_SESSION["user"])) {
     $projects = Project::getAllProjects();
@@ -87,14 +95,14 @@ $date = date('Y-m-d');
                     </ul>
                 </div>
                 <div class="projectListing-button">
-                    <?php if ($project['start_date'] <= $date) : ?>    
-                        <a href="project-settings.php?projectId=<?php echo $project['id']?>"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655115847/Tackit_Assets/Vector_kun18g.svg" alt="button"></a>
-                    <?php elseif($project['start_date_voting'] <= $date) : ?>
+                <?php if($project['start_date_voting'] <= $date) : ?>
                         <a href="projectVoting.php?projectId=<?php echo $project['id']?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-check-square-fill" viewBox="0 0 16 16">
                             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
                             </svg>
                         </a>
+                    <?php elseif ($project['start_date'] <= $date) : ?>    
+                        <a href="project-settings.php?projectId=<?php echo $project['id']?>"><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655115847/Tackit_Assets/Vector_kun18g.svg" alt="button"></a>
                     <?php endif; ?>
                 </div>
             </div>
