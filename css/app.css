@@ -292,6 +292,9 @@ input[type="date"] {
 .banner {
     z-index: 2;
     position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     margin-top: 3.5%;
     width: 80%;
     height: 400px;
@@ -730,7 +733,7 @@ input[type="date"] {
     }
 
     .banner .pannel {
-        margin-top: 10.25%;
+        margin-top: 6.7%;
     }
 
     .mainDContent {
