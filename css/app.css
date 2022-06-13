@@ -54,7 +54,6 @@ p {
     width: 50px;
 }
 
-
 .navbar-brand img {
     height: 50px;
 }
@@ -293,6 +292,9 @@ input[type="date"] {
 .banner {
     z-index: 2;
     position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     margin-top: 3.5%;
     width: 80%;
     height: 400px;
@@ -315,16 +317,17 @@ input[type="date"] {
 
 @media only screen and (max-width: 1920px) {
     .banner {
-        height: 45%;
+        height: 405px;
         margin-top: 2%;
     }
 
     .banner .pannel {
-        margin-top: 18.65%;
+        margin-top: 13.35%;
     }
 
     .mainDContent {
         margin-top: 30%!important;
+     
     }
 
     .projectListings {
@@ -339,8 +342,806 @@ input[type="date"] {
         width: 50%!important;
     }
 
+    .filterSection {
+        margin-top: 32%!important;
+    }
+
+    .projectListings {
+        margin-top: 3%!important;
+    }
+
+    .form-vereisten div {
+        width: 20%!important;
+    }
+
+    .new-project-form-field-file label {
+        width: 18%!important;
+    }
+
+    .new-project-form-field input{
+        font-size: .8em!important;
+    }
+
+    .project-dates div div, .comm-form-split .project-dates div div {
+        width: 100%;
+    }
+
+    .communicatie .project-dates div {
+        margin-right: 3%!important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .new-project-pannel-next-content-right .datums {
+        font-size: .9em!important;
+    }
+
+    .new-project-pannel-next-content-right .newFile {
+        width: 30%!important;
+    }
+
+    .info-item input {
+        width: 100%!important;
+        font-size: 1.2em!important;
+    }
+
+    .info-item > * {
+        margin-right: 2%!important;
+    }
+
+    .new-project-pannel-next-content-left>:nth-child(3) {
+        padding: 3%;
+    }
+    .progress div p {
+        font-size: .8em;
+    }
+
+    .new-project-buttons button, .new-project-buttons p{
+        font-size: 1.3em!important;
+    }
+
+    .vereisten-popup-show {
+        width: 28%!important;
+    }
+
+    
+    #project-edit-dates-input-div input[type="date"] {
+        font-size: .7em!important;
+    }
+
+    
+    .Login {
+        margin-left: 20%!important;
+    }
+
+    .mainBContent {
+        margin-top: 33%!important;
+    }
+
+    .bStats {
+        margin-top: 0%!important;
+    }
+    .BprojectListings {
+        margin-top: 0%!important;
+    }
+
+    .mapper-vereisten {
+        padding-top: 4%!important;
+        padding-bottom: 1%!important;
+    }
+
+    .mapper-vereisten li {
+        width: 9%!important;
+    }
 
 }
+
+@media only screen and (max-width: 1600px) {
+
+    .banner {
+        height: 40%;
+        margin-top: 2%;
+    }
+
+    .banner .pannel {
+        margin-top: 12.5%;
+    }
+
+    .mainDContent {
+        margin-top: 33%!important;
+    }
+
+    #dNewProject, #dAllProjects {
+        height: 300px!important;
+    }
+    
+    .Navigation li {
+        font-size: 1em;
+    }
+
+    .dProjectButton  {
+        margin-top: 225px!important;
+    }
+
+    .projectListings {
+        margin-top: 8%!important;
+    }
+
+    .user-content-section {
+        width: auto!important;
+    }
+
+    .users-personeel, .users-burgers {
+        width: 50%!important;
+    }
+
+    #dStats {
+        height: auto!important;
+        font-size: .7em;
+        width: 15%!important;
+    }
+
+    .filterSection {
+        margin-top: 33%!important;
+    }
+
+    .projectListings {
+        margin-top: 3%!important;
+    }
+
+    .users-personeel {
+        width: 700px!important;
+    }
+
+    .users-burgers {
+        width: 700px!important;
+    }
+
+    .form-vereisten div {
+        width: 23%!important;
+    }
+
+    .new-project-form-field-file label {
+        width: 20%!important;
+    }
+
+    .new-project-form-field input{
+        font-size: .8em!important;
+    }
+
+    .project-dates div div, .comm-form-split .project-dates div div {
+        width: 100%;
+    }
+
+    .communicatie .project-dates div {
+        margin-right: 3%!important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .new-project-pannel-next-content-right .datums {
+        font-size: .8em!important;
+    }
+
+    .new-project-pannel-next-content-right .newFile {
+        width: 30%!important;
+    }
+
+    .info-item input {
+        width: 100%!important;
+        font-size: 1em!important;
+    }
+
+    .info-item > * {
+        margin-right: 2%!important;
+    }
+
+    .new-project-pannel-next-content-left>:nth-child(3) {
+        padding: 3%;
+    }
+    .progress div p {
+        font-size: .7em;
+    }
+
+    .new-project-buttons button, .new-project-buttons p{
+        font-size: 1em!important;
+    }
+
+    .vereisten-popup-show {
+        width: 28%!important;
+    }
+
+    .vereisten-edit-confirm {
+        width: 42%!important;
+    }
+
+    
+    #project-edit-dates-input-div input[type="date"] {
+        font-size: .7em!important;
+    }
+
+    .Login {
+        margin-left: 15%!important;
+    }
+
+    .mainBContent {
+        margin-top: 33%!important;
+    }
+
+    .bStats {
+        margin-top: 0%!important;
+    }
+    .BprojectListings {
+        margin-top: 0%!important;
+    }
+
+    .mapper-vereisten {
+        padding-top: 5%!important;
+        padding-bottom: 1%!important;
+    }
+
+    .mapper-vereisten li {
+        width: 9%!important;
+    }
+
+}
+
+@media only screen and (max-width: 1536px) {
+
+    .banner {
+        height: 37.5%;
+        margin-top: 2%;
+    }
+
+    .banner .pannel {
+        margin-top: 10.15%;
+    }
+
+    .mainDContent {
+        margin-top: 30%!important;
+     
+    }
+
+    .projectListings {
+        margin-top: 8%!important;
+    }
+
+    .user-content-section {
+        width: auto!important;
+    }
+
+    .users-personeel, .users-burgers {
+        width: 50%!important;
+    }
+
+    #dStats {
+        width: 15%!important;
+    }
+
+    .filterSection {
+        margin-top: 32%!important;
+    }
+
+    .projectListings {
+        margin-top: 3%!important;
+    }
+
+    .users-personeel {
+        width: 600px!important;
+    }
+
+    .users-burgers {
+        width: 600px!important;
+    }
+
+    .form-vereisten div {
+        width: 28%!important;
+    }
+
+    .new-project-form-field-file label {
+        width: 25%!important;
+    }
+
+    .new-project-form-field input{
+        font-size: .8em!important;
+    }
+
+    .project-dates div div, .comm-form-split .project-dates div div {
+        width: 100%;
+    }
+
+    .communicatie .project-dates div {
+        margin-right: 3%!important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .new-project-pannel-next-content-right .datums {
+        font-size: .8em!important;
+    }
+
+    .new-project-pannel-next-content-right .newFile {
+        width: 30%!important;
+    }
+
+    .info-item input {
+        width: 100%!important;
+        font-size: 1em!important;
+    }
+
+    .info-item > * {
+        margin-right: 2%!important;
+    }
+
+    .new-project-pannel-next-content-left>:nth-child(3) {
+        padding: 3%;
+    }
+    .progress div p {
+        font-size: .7em;
+    }
+
+    .new-project-buttons button, .new-project-buttons p{
+        font-size: 1em!important;
+    }
+
+    .vereisten-popup-show {
+        width: 28%!important;
+    }
+
+    .vereisten-edit-confirm {
+        width: 42%!important;
+    }
+
+    
+    #project-edit-dates-input-div input[type="date"] {
+        font-size: .7em!important;
+    }
+
+    .Login {
+        margin-left: 13%!important;
+    }
+
+    .mainBContent {
+        margin-top: 33%!important;
+    }
+
+    .bStats {
+        margin-top: 0%!important;
+    }
+    .BprojectListings {
+        margin-top: 0%!important;
+    }
+
+    .mapper-vereisten {
+        padding-top: 5%!important;
+        padding-bottom: 1%!important;
+    }
+
+    .mapper-vereisten li {
+        width: 9%!important;
+    }
+
+}
+
+@media only screen and (max-width: 1440px) {
+    .banner {
+        height: 35%;
+        margin-top: 2%;
+    }
+
+    .banner .pannel {
+        margin-top: 6.7%;
+    }
+
+    .mainDContent {
+        margin-top: 32%!important;
+        font-size: .7em;
+     
+    }
+
+    
+    .mainDContent #dStats img {
+        width: 20%!important;
+    }
+
+    .projectListings {
+        margin-top: 8%!important;
+    }
+
+    .user-content-section {
+        width: auto!important;
+    }
+
+    .users-personeel, .users-burgers {
+        width: 50%!important;
+    }
+
+    #dStats {
+        font-size: 1em;
+        width: 15%!important;
+    }
+
+    
+    .filterSection {
+        margin-top: 35%!important;
+    }
+
+    .projectListings {
+        margin-top: 3%!important;
+    }
+
+    .users-personeel {
+        width: 600px!important;
+    }
+
+    .users-burgers {
+        width: 600px!important;
+    }
+
+    .form-vereisten div {
+        width: 28%!important;
+    }
+
+    .new-project-form-field-file label {
+        width: 25%!important;
+    }
+
+    .new-project-form-field input{
+        font-size: .8em!important;
+    }
+
+    .project-dates div div, .comm-form-split .project-dates div div {
+        width: 100%;
+    }
+
+    .communicatie .project-dates div {
+        margin-right: 3%!important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .new-project-pannel-next-content-right .datums {
+        font-size: .7em!important;
+    }
+
+    .new-project-pannel-next-content-right .newFile {
+        width: 30%!important;
+    }
+
+    .info-item input {
+        width: 100%!important;
+        font-size: .8em!important;
+    }
+
+    .info-item > * {
+        margin-right: 2%!important;
+    }
+
+    .new-project-pannel-next-content-left>:nth-child(3) {
+        padding: 3%;
+    }
+    .progress div p {
+        font-size: .5em;
+    }
+
+    .new-project-buttons button, .new-project-buttons p{
+        font-size: .8em!important;
+    } 
+
+    .vereisten-popup-show {
+        width: 28%!important;
+    }
+
+    .vereisten-edit-confirm {
+        width: 42%!important;
+    }
+
+    
+    #project-edit-dates-input-div input[type="date"] {
+        font-size: .7em!important;
+    }
+
+    .Login {
+        margin-left: 10%!important;
+    }
+
+    .mainBContent {
+        margin-top: 33%!important;
+    }
+
+    .bStats {
+        margin-top: 0%!important;
+        font-size: 1em!important;
+    }
+    .BprojectListings {
+        margin-top: 0%!important;
+    }
+
+    .mapper-vereisten {
+        padding-top: 5.5%!important;
+        padding-bottom: 1%!important;
+    }
+
+    .mapper-vereisten li {
+        width: 9%!important;
+    }
+
+}
+
+@media only screen and (max-width: 1366px) {
+    .banner {
+        height: 41%;
+        margin-top: 2%;
+    }
+
+    .banner .pannel {
+        margin-top: 10.45%;
+    }
+
+    .mainDContent {
+        margin-top: 33%!important;
+        font-size: .7em;
+     
+    }
+    .mainDContent #dStats img {
+        width: 20%!important;
+    }
+
+    .projectListings {
+        margin-top: 8%!important;
+    }
+
+    .user-content-section {
+        width: auto!important;
+    }
+
+    .users-personeel, .users-burgers {
+        width: 50%!important;
+    }
+
+    #dStats {
+        width: 15%!important;
+    }
+
+    .filterSection {
+        margin-top: 35%!important;
+    }
+
+    .projectListings {
+        margin-top: 3%!important;
+    }
+
+    .projectListing-title {
+        font-size: .8em;
+    }
+
+    .projectGListing-info {
+        font-size: .8em;
+    }
+
+    .users-personeel {
+        width: 600px!important;
+    }
+
+    .users-burgers {
+        width: 600px!important;
+    }
+
+    .form-vereisten div {
+        width: 28%!important;
+    }
+
+    .vereisten-popup-show {
+        width: 28%!important;
+    }
+
+    .new-project-form-field-file label {
+        width: 25%!important;
+    }
+
+    .new-project-form-field input{
+        font-size: .8em!important;
+    }
+
+    .project-dates div div, .comm-form-split .project-dates div div {
+        width: 100%;
+    }
+
+    .communicatie .project-dates div {
+        margin-right: 3%!important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .new-project-pannel-next-content-right .datums {
+        font-size: .7em!important;
+    }
+
+    .new-project-pannel-next-content-right .newFile {
+        width: 30%!important;
+    }
+
+    .info-item input {
+        width: 100%!important;
+        font-size: .8em!important;
+    }
+
+    .info-item > * {
+        margin-right: 2%!important;
+    }
+
+    .new-project-pannel-next-content-left>:nth-child(3) {
+        padding: 3%;
+    }
+    .progress div p {
+        font-size: .5em;
+    }
+
+    .new-project-buttons button, .new-project-buttons p{
+        font-size: .8em!important;
+    }
+
+    .vereisten-edit-confirm {
+        width: 42%!important;
+    }
+
+    
+    #project-edit-dates-input-div input[type="date"] {
+        font-size: .7em!important;
+    }
+
+    .Login {
+        margin-left: 8%!important;
+    }
+
+    
+    .mainBContent {
+        margin-top: 33%!important;
+    }
+
+    .bStats {
+        margin-top: 0%!important;
+    }
+    .BprojectListings {
+        margin-top: 0%!important;
+    }
+
+    .mapper-vereisten {
+        padding-top: 5.5%!important;
+        padding-bottom: 1%!important;
+    }
+
+    .mapper-vereisten li {
+        width: 9%!important;
+    }
+}   
+
+@media only screen and (max-width: 1280px) {
+
+    .banner .pannel {
+        margin-top: 9.35%;
+    }
+
+    .Navigation li {
+        font-size: .8em;
+    }
+
+    .filterSection {
+        margin-top: 35%!important;
+    }
+
+    .projectListings {
+        margin-top: 3%!important;
+    }
+
+    .projectListing-title {
+        font-size: .8em;
+    }
+
+    .projectGListing-info {
+        font-size: .8em;
+    }
+
+    .users-personeel {
+        width: 600px!important;
+    }
+
+    .users-burgers {
+        width: 600px!important;
+    }
+
+    .vereisten-popup-show {
+        width: 28%!important;
+    }
+
+    .form-vereisten div {
+        width: 28%!important;
+    }
+
+    .new-project-form-field-file label {
+        width: 25%!important;
+    }
+
+    .new-project-form-field input{
+        font-size: .8em!important;
+    }
+
+    .project-dates div div, .comm-form-split .project-dates div div {
+        width: 100%;
+    }
+
+    .communicatie .project-dates div {
+        margin-right: 3%!important;
+    }
+
+    .new-project-pannel-next-content-right .datums {
+        font-size: .6em!important;
+    }
+
+    .new-project-pannel-next-content-right .newFile {
+        width: 30%!important;
+    }
+
+    .info-item input {
+        width: 100%!important;
+        font-size: .8em!important;
+    }
+
+    .info-item > * {
+        margin-right: 2%!important;
+    }
+
+    .new-project-pannel-next-content-left>:nth-child(3) {
+        padding: 3%;
+    }
+    .progress div p {
+        font-size: .5em;
+    }
+
+    .new-project-buttons button, .new-project-buttons p{
+        font-size: .8em!important;
+    }
+
+    .vereisten-edit-confirm {
+        width: 42%!important;
+    }
+
+    #project-edit-dates-input-div input[type="date"] {
+        font-size: .7em!important;
+    }
+
+    .Login {
+        margin-left: 8%!important;
+    }
+
+    .mainBContent {
+        margin-top: 33%!important;
+    }
+
+    .bStats {
+        margin-top: 0%!important;
+    }
+    .BprojectListings {
+        margin-top: 0%!important;
+    }
+
+    .mapper-vereisten {
+        padding-top: 5.5%!important;
+        padding-bottom: 1%!important;
+    }
+
+    .mapper-vereisten li {
+        width: 9%!important;
+    }
+
+}
+
+
 
 .pannel-ProjectTitle {
     display: flex;
@@ -469,11 +1270,12 @@ input[type="date"] {
 /* Gemeente Dashboard content */
 
 .mainDContent {
+    display: flex;
     margin-top: 25%;
+    width: 100%;
 }
 
 #dNewProject {
-    margin-top: 5%;
     width: 40%;
     height: 500px;
     margin-right: 1%;
@@ -1267,8 +2069,6 @@ input[type="date"] {
     }
 
     #dNewProject {
-
-        margin-top: 15.5%;
         width: 40%;
         height: 280px;
     }
@@ -1295,7 +2095,7 @@ input[type="date"] {
     .Navigation li {
         padding-top: 15px;
         padding-left: 30px;
-        height: 70px;
+        height: 60px;
     }
 
     .filterSection {
@@ -2514,4 +3314,64 @@ input[type="date"] {
     font-size: 1.5em;
     border-radius: 9px;
     font-weight: 600;
+}
+
+#dStats {
+    background: rgb(117,129,255);
+    background: linear-gradient(90deg, rgba(117,129,255,1) 0%, rgba(54,71,252,1) 80%);
+}
+
+#dStats div {
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    justify-content: space-evenly;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+#dStats div > * {
+    margin-bottom: 5%!important;
+}
+
+#dStats div img {
+    width: 30%;
+}
+
+#dStats div >:last-child {
+    color: black;
+    background-color: white;
+    border-radius: 9px;
+    padding: 1%;
+    width: 50%;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3647FC!important;
+    border-color: #3647FC!important;
+}
+
+.btn-outline-primary {
+    border-color: #3647FC!important;
+    color: #3647fc!important;
+}
+
+.render {
+    border: white 5px solid!important;
+    border-radius: 20px;
+    box-sizing: border-box;
+    width: 60%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.render img {
+    padding: .5%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 20px;
 }

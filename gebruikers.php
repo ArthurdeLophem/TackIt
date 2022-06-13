@@ -1,6 +1,12 @@
 <?php
 
+use tackit\core\Security;
+
 include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+
+Security::checkLoggedIn();
+Security::checkUserType();
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -61,8 +67,6 @@ include_once("inc/navdefiner.inc.php");
                     <option value="">sorteren op</option>
                     <option value="">Alfabetisch</option>
                 </select>    
-                <!-- <p>sorteren op</p>
-                <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654606496/Tackit_Assets/down_arrow_vxb7md.png" alt="V"> -->
             </div>
         </div>
         <div class="users-content">

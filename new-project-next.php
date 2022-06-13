@@ -2,9 +2,13 @@
     use tackit\core\Project;
     use tackit\core\Vereisten;
     use tackit\core\Info;
+    use tackit\core\Security;
 
-    require __DIR__ . '/vendor/autoload.php';
     include_once("inc/navdefiner.inc.php");
+    require_once(__DIR__ . "/vendor/autoload.php");
+    
+    Security::checkLoggedIn();
+    Security::checkUserType();
 
     $projectId = $_SESSION['project_id'];
 

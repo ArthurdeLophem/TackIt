@@ -1,6 +1,11 @@
 <?php
 
+use tackit\core\Security;
+
 include_once("inc/navdefiner.inc.php");
+require_once(__DIR__ . "/vendor/autoload.php");
+
+Security::checkLoggedIn();
 
 ?><!DOCTYPE html>
 <html lang="en">

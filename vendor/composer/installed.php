@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '37f4e93d46dd88b6462bf3eb29a03a7d373780a8',
+        'reference' => 'b443d5d75d0fbbcd28fe84d103eb333d96b2ad73',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '37f4e93d46dd88b6462bf3eb29a03a7d373780a8',
+            'reference' => 'b443d5d75d0fbbcd28fe84d103eb333d96b2ad73',
             'dev_requirement' => false,
         ),
         'cloudinary/cloudinary_php' => array(

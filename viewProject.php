@@ -75,14 +75,23 @@ $winner = Items::getProjectWinner($_GET['projectId']);
             </div>
         <?php else : ?>
             <div class="map d-flex flex-column justify-content-center align-items-center" style="height: 90vh; position: relative; top: 70px">
-                <div data-user-id="<?php echo $_GET['userId']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" id="map" class="shadow h-75 d-inline-block" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>  
+                <div data-user-id="<?php echo $_GET['userId']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" id="map" class="shadow h-75 d-inline-block show" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>  
+                <div id="render" class="render hidden" ><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655126854/Tackit_Assets/image_5_1_p35b31.png" alt=""></div>
                 <div class="d-flex flex-row justify-content-center align-items-center w-100" style="gap: 10px;">
-                    <div class="my-2">
+                    <div id="render-btn-1" class="my-2 show" onclick="showRender()">
                         <a type="button" class="btn btn-outline-primary renderBtn d-flex flex-column align-items-center px-4 py-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-camera-video-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z"/>
                             </svg>    
                             <strong>render</strong>
+                        </a>
+                    </div>
+                    <div id="render-btn-2" onclick="hideRender()" class="my-2 hidden">
+                        <a type="button" class="btn btn-outline-primary renderBtn d-flex flex-column align-items-center px-4 py-2">
+                            <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655128057/Tackit_Assets/Vector_vtkxw0.svg" alt="" style="width: 50%;">
+                            <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z"/>
+                            </svg>    
+                            <strong>map</strong>
                         </a>
                     </div>
                     <div class="my-2 d-flex flex-row justify-content-between align-items-center bg-white w-50 px-4 py-2 h-75 rounded">
@@ -103,7 +112,7 @@ $winner = Items::getProjectWinner($_GET['projectId']);
             </div>
         <?php endif; ?>
     <?php endif; ?>
-    <script src="./scripts/drawmap.js"></script>
+    <script src="scripts/drawmap.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

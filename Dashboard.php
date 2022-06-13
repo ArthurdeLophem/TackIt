@@ -1,9 +1,11 @@
 <?php
-
+use tackit\core\Project;
+use tackit\core\Security;
 
 include_once("inc/navdefiner.inc.php");
 require_once(__DIR__ . "/vendor/autoload.php");
-use tackit\core\Project;
+
+Security::checkLoggedIn();
 
 $date = date('Y-m-d');
 
@@ -35,18 +37,18 @@ if (isset($_SESSION["user"])) {
                 background-size: cover;">
         <div class="pannel">
             <div class="pannel-ProjectTitle">
-                <h2>Project - bloemenpark</h2>
+                <h2>Project - <?php echo $mainProject['name'];?></h2>
             </div>
             <div class="pannelContent">
                 <section class="pannelInfo">
                 <ul>
                     <li>
-                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539701/Tackit_Assets/clock_xk008v.png" alt=""></div>
+                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655116851/Tackit_Assets/clock_zxsijm.svg" alt=""></div>
                         <div><p>45 u.</p></div>
                         <div><p>Tijd Resterend</p></div>
                     </li>
                     <li>
-                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539695/Tackit_Assets/approve_image_wklbws.png" alt="i"></div>
+                        <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655116835/Tackit_Assets/approve_file_rsrjoz.svg" alt="i"></div>
                         <div><p>68%</p></div>
                         <div><p>voltooide Projecten</p></div> 
                     </li>
@@ -60,7 +62,7 @@ if (isset($_SESSION["user"])) {
                     </li>
                     <li>
                         <div><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654539706/Tackit_Assets/Setting_fkdj6a.png" alt="i"></div>
-                        <div><p>Settings</p></div>
+                        <div><p><a href="project-settings.php?projectId=<?php echo $mainProject['id'];?>" style="text-decoration: none; color: black;">Settings</a></p></div>
                     </li>
                 </ul>
                 </section>
@@ -88,7 +90,15 @@ if (isset($_SESSION["user"])) {
             </div>
         </section>
         <section id="dStats" class="d-inline-block">
-            <div></div>
+            <div>
+                <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655041731/Tackit_Assets/users_ih5zu8.svg" alt="">
+                <p>Totaal Projecten</p>
+                <p>36</p>
+                <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655041728/Tackit_Assets/approve_image_r9i6ep.svg" alt="">
+                <p>Totaal Voltooide Cocreatie Projecten</p>
+                <p>589</p>
+                <p>Details</p>
+            </div>
         </section>
 
     </div>
