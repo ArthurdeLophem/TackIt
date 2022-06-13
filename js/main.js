@@ -266,3 +266,35 @@ function cancelProject() {
         console.error("Error:", error);
     })
 }
+
+function showRender() {
+    var map = document.querySelector("#map");
+    var render = document.querySelector("#render");
+    var renderbtn1 = document.querySelector("#render-btn-1");
+    var renderbtn2 = document.querySelector("#render-btn-2");
+    map.classList.remove("show");
+    map.classList.add("hidden");
+    render.classList.remove("hidden");
+    render.classList.add("show");
+    renderbtn1.classList.remove("show");
+    renderbtn1.classList.add("hidden");
+    renderbtn2.classList.remove("hidden");
+    renderbtn2.classList.add("show");
+
+}
+
+function hideRender() {
+    var map = document.querySelector("#map");
+    var render = document.querySelector("#render");
+    var renderbtn1 = document.querySelector("#render-btn-1");
+    var renderbtn2 = document.querySelector("#render-btn-2");
+    map.classList.remove("hidden");
+    map.classList.add("show");
+    render.classList.remove("show");
+    render.classList.add("hidden");
+    renderbtn1.classList.remove("hidden");
+    renderbtn1.classList.add("show");
+    renderbtn2.classList.remove("show");
+    renderbtn2.classList.add("hidden");
+
+}

@@ -62,20 +62,21 @@ $vereisten = Vereisten::getAll($_GET['projectId']);
             </div>
         </div>
 
-        <div id="map" class="shadow h-100 d-inline-block" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>
+        <div id="map" data-state="1" class="shadow h-100 d-inline-block show" style="width: 55%; border: 5px solid white; border-radius: 10px;"></div>
+        <div id="render" class="render hidden" ><img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655126854/Tackit_Assets/image_5_1_p35b31.png" alt=""></div>
 
         <div class="d-flex flex-column align-items-center" style="width: 12%;">
             <div id="activityPanel" class="shadow bg-white d-flex flex-column align-items-center"  style="width: 100%; height: fit-content; background-color: rgba(0,0,255,.1); border-radius: 10px;">
                 <div class="d-flex flex-column align-items-center">  
                     <div class="my-2">
                         <a type="button" data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" class="btn btn-primary saveBtn d-flex flex-column align-items-center px-4 py-2">
-                            <svg data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-save2-fill" viewBox="0 0 16 16">
+                            <svg data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-save2-fill" viewBox="0 0 16 16">
                             <path data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v6h-2a.5.5 0 0 0-.354.854l2.5 2.5a.5.5 0 0 0 .708 0l2.5-2.5A.5.5 0 0 0 10.5 7.5h-2v-6z"/>
                             </svg>
-                            <strong data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>">save</strong>
+                            <strong data-user-id="<?php echo $_SESSION['user']['id']; ?>" data-project-id="<?php echo $_GET['projectId']; ?>" style="color: white;">save</strong>
                         </a>
                     </div>
-                    <div class="my-2">
+                    <div id="render-btn-1" onclick="showRender()" class="my-2 show">
                         <a type="button" class="btn btn-outline-primary renderBtn d-flex flex-column align-items-center px-4 py-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-camera-video-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z"/>
@@ -83,12 +84,20 @@ $vereisten = Vereisten::getAll($_GET['projectId']);
                             <strong>render</strong>
                         </a>
                     </div>
+                    <div id="render-btn-2" onclick="hideRender()" class="my-2 hidden">
+                        <a type="button" class="btn btn-outline-primary renderBtn d-flex flex-column align-items-center px-4 py-2">
+                            <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655128057/Tackit_Assets/Vector_vtkxw0.svg" alt="" style="width: 50%;">
+                            <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z"/>
+                            </svg>    
+                            <strong>map</strong>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="d-flex flex-column align-items-center mt-3"  style="width: 100%; height: fit-content; border-radius: 10px;">
                 <div class="d-flex flex-row justify-content-center" style="width: 100%;">
-                    <div class="my-2" style="width: 70%;">
+                    <div class="my-2" style="width: 100%;">
                         <p style="text-align: center;">resterende tijd:</p>
                         <div class="btn btn-primary d-flex align-items-center justify-content-between px-4 py-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
@@ -115,7 +124,7 @@ $vereisten = Vereisten::getAll($_GET['projectId']);
 
             <div class="d-flex flex-column align-items-center"  style="width: 100%; height: fit-content; border-radius: 10px;">
                 <div class="d-flex flex-row justify-content-center" style="width: 100%;">
-                    <div class="my-2" style="width: 70%;">
+                    <div class="my-2" style="width: 100%;">
                         <div class="btn btn-primary d-flex align-items-center justify-content-center px-4 py-2">
                             <strong>12% voltooid</strong>
                         </div>
@@ -140,6 +149,6 @@ $vereisten = Vereisten::getAll($_GET['projectId']);
     </div>
 
     <script src="js/main.js"></script>
-    <script src="./scripts/map.js"></script>
+    <script src="scripts/map.js"></script>
 </body>
 </html>

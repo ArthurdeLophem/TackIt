@@ -62,7 +62,7 @@ if(isset($_GET['projectId'])){
                                     <div class="card-img-top rounded-start shadow-1-strong" 
                                         style="height: 160px; background-image: url('./css/images/project_back.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat; border-radius: 3px 0px 0px 3px;">
                                     </div>
-                                    <a class="card-title" href="viewProject.php?projectId=<?php echo $userProject['project_id']?>&userId=<?php echo $userProject['user_id']?>">go to project</a>
+                                    <a class="card-title" style="padding-left: 2%; padding-top: 2%;" href="viewProject.php?projectId=<?php echo $userProject['project_id']?>&userId=<?php echo $userProject['user_id']?>">go to project</a>
                                     <li class="card-text list-group-item d-flex justify-content-between align-items-center" style="border-radius: 0;"> <span><?php echo Votes::getProjectVotes($userProject['user_id'], $userProject['project_id'])?> votes</span> <span>by <strong><?php echo Burger::getUserById($userProject['user_id'])['username'] ?></strong></span> 
                                         <?php if ($userType == 0) : ?>
                                             <?php if (Votes::isVoted($userProject['user_id'], $_SESSION['user']['id'], $userProject['project_id'])) : ?>
@@ -86,6 +86,6 @@ if(isset($_GET['projectId'])){
     </div>
 
     <script src="js/main.js"></script>
-    <script src="/scripts/saveVote.js"></script>
+    <script src="scripts/saveVote.js"></script>
 </body>
 </html>

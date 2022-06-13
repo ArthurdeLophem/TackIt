@@ -23,7 +23,7 @@ include_once("inc/navdefiner.inc.php");
                 <div>
                     <p>Taal</p>
                     <p>Nederlands</p>
-                    <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1654609122/Tackit_Assets/Repair_Tool_hbemrt.png" alt="Y">
+                    <img src="https://res.cloudinary.com/dgypufy9k/image/upload/v1655057792/Tackit_Assets/Repair_Tool_pxzb27.svg" alt="Y">
                 </div>
                 <div>
                     <p>Stijl</p>
