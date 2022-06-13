@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 12, 2022 at 10:37 PM
+-- Generation Time: Jun 13, 2022 at 09:39 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `tackit`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `budget` int(11) NOT NULL,
+  `start_date_cocreatie` datetime NOT NULL,
+  `start_date_voting` datetime NOT NULL,
+  `end_date_cocreatie_voting` datetime NOT NULL,
+  `Type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `name`, `start_date`, `end_date`, `budget`, `start_date_cocreatie`, `start_date_voting`, `end_date_cocreatie_voting`, `Type`) VALUES
+(1, 'park de Ham', '2022-06-13 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-13 00:00:00', '2022-06-15 00:00:00', '2022-06-29 00:00:00', 'park'),
+(2, 'kruidtuin straat', '2022-06-11 00:00:00', '2022-06-30 00:00:00', 1000, '2022-06-11 00:00:00', '2022-06-14 00:00:00', '2022-06-29 00:00:00', 'verkeer');
 
 -- --------------------------------------------------------
 
@@ -48,9 +74,78 @@ INSERT INTO `project_items` (`id`, `items`, `user_id`, `project_id`, `status`, `
 (33, '[{\"coordinates\":{\"lat\":51.02588726467973,\"lng\":4.4776219776417845},\"itemType\":\"fontein\"},{\"coordinates\":{\"lat\":51.02599363227039,\"lng\":4.477761485532224},\"itemType\":\"boom\"}]', 7, 2, 'finished', 'eenbudget'),
 (34, '[{\"coordinates\":{\"lat\":51.02606792060163,\"lng\":4.477793679660747},\"itemType\":\"fontein\"},{\"coordinates\":{\"lat\":51.0261574041153,\"lng\":4.4779546503035625},\"itemType\":\"boom\"},{\"coordinates\":{\"lat\":51.02598012528827,\"lng\":4.477758802688157},\"itemType\":\"bank\"}]', 5, 2, 'finished', 'eenbudget');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `ProfilePicture` varchar(2000) DEFAULT NULL,
+  `Type` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `ProfilePicture`, `Type`) VALUES
+(1, 'burger', 'test@test.com', '$2y$12$0aEeqD8GSuVMM3a/ML.7D.gcIIDNMzE/jF3NvamIR8SWMiMEVqTsS', NULL, 0),
+(2, 'testGemeente', 'test2@test.com', '$2y$12$nG/HZmGWP6qoItPCBzxXxeAAfz2chYG.bwbYKpMDYsy4nulv6PqPK', NULL, 1),
+(3, 'testB', 'testB@test.com', '$2y$12$.lWQbnLSsBBB1SJDvt2SM.GtFoo1mxHsWXyf7JiSGHv75igHygBTC', NULL, 0),
+(4, 'testG', 'testG@test.com', '$2y$12$g2DIRHfSkwnnqqsvbzMb9uQpGLXyrCKFcs0TbSvKIvH63dSybh34y', NULL, 1),
+(5, 'adl', 'adl@gmail.com', '$2y$12$Yt//eY8X6f0Vo/xIRsfDt.QQZtYDci/WT.y.TAoAfzQyCZyyHooZe', NULL, 0),
+(6, 'dllaaaa', 'aaddd@g.com', '$2y$12$n3rdq1WHLVnAA4QpUaUY8eZ.421vGBBBJ.JLWHe9TAsCmqekh./ca', NULL, 0),
+(7, 'imag', 'imag@gmail.com', '$2y$12$bn8KXYQrLv1oROnIVgNUnelvVNqYikilu.WMRtyZFeTYOSDTWokzq', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vereisten`
+--
+
+CREATE TABLE `vereisten` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `item` varchar(255) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `votes`
+--
+
+CREATE TABLE `votes` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `voter_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `votes`
+--
+
+INSERT INTO `votes` (`id`, `user_id`, `voter_id`, `project_id`) VALUES
+(80, 6, 7, 2),
+(81, 5, 6, 2),
+(82, 7, 6, 2);
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project_items`
@@ -59,14 +154,56 @@ ALTER TABLE `project_items`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vereisten`
+--
+ALTER TABLE `vereisten`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `votes`
+--
+ALTER TABLE `votes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `project_items`
 --
 ALTER TABLE `project_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `vereisten`
+--
+ALTER TABLE `vereisten`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `votes`
+--
+ALTER TABLE `votes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
